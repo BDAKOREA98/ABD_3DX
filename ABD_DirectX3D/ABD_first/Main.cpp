@@ -6,6 +6,29 @@
 
 #define MAX_LOADSTRING 100
 
+ID3D11Device* device;
+ID3D11DeviceContext* deviceContext;
+
+IDXGISwapChain* swapchain;
+ID3D11RenderTargetView* renderTargetView;
+
+
+
+
+void Initialize();
+void Render();
+void Release();
+
+
+
+
+HWND hWnd;
+
+
+
+
+
+
 // 전역 변수: 변수를 선언함
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
@@ -40,6 +63,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_ABDFIRST));
 
+    Initialize();
     MSG msg;
 
     // 기본 메시지 루프입니다: 메시지를 번역해서 전달함
@@ -60,26 +84,71 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                 DispatchMessage(&msg);
             }
 
-        }
+            }
         else 
         {
             // TODO : Update, Render
 
-
+            Render();
 
         }
 
     }
 
-    while (true)
-    {
-
-    }
-
+    Release();
+    
     return (int) msg.wParam;
 }
 
 
+
+void Initialize()
+{
+    // 초기화
+
+
+    DXGI_SWAP_CHAIN_DESC swapChainDesc = {};
+    // BufferCount : Backbuffer가 몇개 있는가
+    swapChainDesc.BufferCount = 1;
+    // BackBuffer의 크기를 정해줌
+    swapChainDesc.BufferDesc.Width = WIN_WIDTH;
+    swapChainDesc.BufferDesc.Height = WIN_HEIGHT;
+    // Format : RGBA의 color를 normalize된 값으로 넣겠다.
+    // - RGBA : 8bit * 4  = 32 bir, unorm : unsigned int = 0 ~ 1
+    swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+    // RefeshRate : 새로고침빈도 == 갱신빈도 : 얼마나 자주 갱신시키는가 == 모니터 주사율 (1초에 60번 갱신 == 60HZ)
+    swapChainDesc.BufferDesc.RefreshRate.Numerator = 60;
+    swapChainDesc.BufferDesc.RefreshRate.Denominator = 1;
+   // BufferUsage : backBuffer를 어떤용도로 쓸 것인가 (우리는 RenderTarget을 출력용으로 사용할것임)
+    swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
+    // windowoutput으로 뭘 사용할 것인가  hWnd
+    swapChainDesc.OutputWindow = hWnd;
+    // sampling : 표본화
+    // - 확대 축소할때 연산이 많아지는데 그것을 도와줄때 samping이 많음 , 확대 또는 축소 할때 색깔을 어떻게 섞어줄지 정해주는게 sampling임
+    // 최대 sampling : 가장 클때만 미리 계산해놓음 , 다중 sampling : 여러 크기를 미리 계산해놓음
+    // Count : 픽셀을 확대했을때 주변에 픽셀이 추가될텐데 몇개의 픽셀의 색을 더할것인가
+    // Quality : 크기가 클 수록 연산이 추가됨 
+    swapChainDesc.SampleDesc.Count = 1;
+    swapChainDesc.SampleDesc.Quality = 0;
+    // Winodwed : 창화면을 쓸 것 인지, 전체화면을 쓸 것인지
+    swapChainDesc.Windowed = true;
+    
+
+
+    
+
+    
+
+
+}
+
+void Render()
+{
+}
+
+void Release()
+{
+}
 
 //
 //  함수: MyRegisterClass()
@@ -117,12 +186,28 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 //        이 함수를 통해 인스턴스 핸들을 전역 변수에 저장하고
 //        주 프로그램 창을 만든 다음 표시합니다.
 //
+
+// 윈도우창을 생성하는 함수
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
-   hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
+    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+    RECT rect = { 0,0, WIN_WIDTH, WIN_HEIGHT };
+    AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+
+     hWnd = CreateWindowW
+     (
+      szWindowClass, 
+         szTitle, 
+         WS_OVERLAPPEDWINDOW,
+          CW_USEDEFAULT, 0,
+      
+          rect.right - rect.left, rect.bottom - rect.top,
+         nullptr, nullptr,  hInstance, nullptr
+     );
+
+
+     SetMenu(hWnd, nullptr);
 
    if (!hWnd)
    {
