@@ -132,22 +132,62 @@ void Initialize()
     swapChainDesc.SampleDesc.Quality = 0;
     // Winodwed : 창화면을 쓸 것 인지, 전체화면을 쓸 것인지
     swapChainDesc.Windowed = true;
+    // device와 swapchain을 한번에 만들어주는 함수
+    D3D11CreateDeviceAndSwapChain(
+
+        nullptr,
+        D3D_DRIVER_TYPE_HARDWARE,
+        0,
+        D3D11_CREATE_DEVICE_DEBUG,
+        nullptr,
+        0,
+        D3D11_SDK_VERSION,
+        &swapChainDesc,
+        &swapchain,
+        &device,
+        nullptr,
+        &deviceContext
+
+    );
+
+    // 모니터의 표시되는 공간이 결국 2D이기에 2D를 씀
+    ID3D11Texture2D* backbuffer;
+
+    swapchain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)&backbuffer);
     
+    device->CreateRenderTargetView(backbuffer, nullptr, &renderTargetView);
 
 
+    backbuffer->Release();
+
+    deviceContext->OMSetRenderTargets(1, &renderTargetView, nullptr);
     
-
-    
-
-
 }
 
 void Render()
 {
+    float clearcolor[4] = { 0.0f, 0.125f, 0.3f, 1.0f };
+    deviceContext->ClearRenderTargetView(renderTargetView, clearcolor);
+
+
+    // backbuffer를 frontbuffer로 바꿔주는 함수 이 과정을 진행하지 않으면 cloea를 하더라도 backbuffer에서 clear되기에 하얀 화면이 나옴
+    swapchain->Present(0, 0);
+
+
+
+
 }
 
 void Release()
 {
+    device->Release();
+    deviceContext->Release();
+    swapchain->Release();
+    renderTargetView->Release();
+
+
+
+
 }
 
 //
