@@ -6,14 +6,37 @@
 
 #define MAX_LOADSTRING 100
 
+struct Vertex
+{
+    Vertex(float x, float y, float z)
+    {
+        pos = XMFLOAT3(x, y, z);
+
+    }
+
+    XMFLOAT3 pos;
+
+
+};
+
+
+
 ID3D11Device* device;
 ID3D11DeviceContext* deviceContext;
 
 IDXGISwapChain* swapchain;
 ID3D11RenderTargetView* renderTargetView;
+////////////////////////////////////////////////////////////
+
+ID3D11VertexShader*  vertexShader;
+ID3D11PixelShader* pixelShader;
+
+ID3D11InputLayout* inputLayout;
+ID3D11Buffer* vertexBuffer;
 
 
-
+UINT stride = 0;
+UINT offset = 0;
 
 void Initialize();
 void Render();
@@ -151,16 +174,133 @@ void Initialize()
     );
 
     // 모니터의 표시되는 공간이 결국 2D이기에 2D를 씀
-    ID3D11Texture2D* backbuffer;
+    ID3D11Texture2D* backBuffer;
 
-    swapchain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)&backbuffer);
+    swapchain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)&backBuffer);
     
-    device->CreateRenderTargetView(backbuffer, nullptr, &renderTargetView);
+    device->CreateRenderTargetView(backBuffer, nullptr, &renderTargetView);
 
 
-    backbuffer->Release();
+    backBuffer->Release();
 
     deviceContext->OMSetRenderTargets(1, &renderTargetView, nullptr);
+
+    //////////////////////////////////////////////////////////////////
+
+    D3D11_VIEWPORT viewPort;
+
+    viewPort.TopLeftX  = 0.0f;
+    viewPort.TopLeftY  = 0.0f;
+    viewPort.Width     = WIN_WIDTH;
+    viewPort.Height    = WIN_HEIGHT;
+    viewPort.MinDepth  = 0.0f;
+    viewPort.MaxDepth  = 1.0f;
+
+
+    deviceContext->RSSetViewports(1, &viewPort);
+    
+
+
+    ///VertexShader
+    DWORD flags = D3DCOMPILE_ENABLE_STRICTNESS | D3DCOMPILE_DEBUG;
+
+    ID3DBlob* vertexBlob;
+    D3DCompileFromFile
+    (
+        L"_Shader/VertexTutorial.hlsl",
+        nullptr,
+        nullptr,
+        "main",
+        "vs_5_0",
+        flags,
+        0,
+        &vertexBlob,
+        nullptr
+
+    );
+
+    device->CreateVertexShader
+    (
+        vertexBlob->GetBufferPointer(), 
+        vertexBlob->GetBufferSize(),
+        nullptr, 
+        &vertexShader 
+    );
+
+    D3D11_INPUT_ELEMENT_DESC LayoutDesc[1] = {};
+    LayoutDesc[0].SemanticName     = "POSITION";
+    LayoutDesc[0].SemanticIndex    =  0   ;
+    LayoutDesc[0].Format           =  DXGI_FORMAT_R32G32B32_FLOAT  ;
+    LayoutDesc[0].InputSlot        =   0 ;
+    LayoutDesc[0].AlignedByteOffset =  0   ;
+    LayoutDesc[0].InputSlotClass =   D3D11_INPUT_PER_VERTEX_DATA ;
+    LayoutDesc[0].InstanceDataStepRate =  0;
+    
+
+    ARRAYSIZE(LayoutDesc);
+
+
+    device->CreateInputLayout
+    (   // 주소값을 넣어달라는데 그냥 넣는 이유 : 우리가 배열로 만들었으니까
+        LayoutDesc,
+        ARRAYSIZE(LayoutDesc),
+        vertexBlob->GetBufferPointer(),
+        vertexBlob->GetBufferSize(),
+        &inputLayout
+    );
+
+    vertexBlob->Release();
+
+
+    ////////PixelShader
+    
+    ID3DBlob* pixelBlob;
+    D3DCompileFromFile
+    (
+        L"_Shader/PixelTutorial.hlsl",
+        nullptr,
+        nullptr,
+        "main",
+        "ps_5_0",
+        flags,
+        0,
+        &pixelBlob,
+        nullptr
+
+    );
+
+    device->CreatePixelShader
+    (
+        pixelBlob->GetBufferPointer(),
+        pixelBlob->GetBufferSize(),
+        nullptr,
+        &pixelShader
+    );
+
+
+    pixelBlob->Release();
+
+
+    // vertex
+    Vertex vertex(0.0f, 0.0f, 0.0f);
+    
+    D3D11_BUFFER_DESC bufferDesc = {};
+    bufferDesc.ByteWidth            = sizeof(Vertex) * 1;
+    bufferDesc.Usage                = D3D11_USAGE_DEFAULT  ;
+    bufferDesc.BindFlags            = D3D11_BIND_VERTEX_BUFFER;
+    bufferDesc.CPUAccessFlags       = 0;
+    bufferDesc.MiscFlags            = 0;
+    bufferDesc.StructureByteStride  = 0;
+
+
+    D3D11_SUBRESOURCE_DATA data;
+
+    data.pSysMem = &vertex;
+    device->CreateBuffer(&bufferDesc, &data, &vertexBuffer);
+    
+    
+
+    
     
 }
 
@@ -169,9 +309,28 @@ void Render()
     float clearcolor[4] = { 0.0f, 0.125f, 0.3f, 1.0f };
     deviceContext->ClearRenderTargetView(renderTargetView, clearcolor);
 
+    // 정점찍기
+
+    stride = sizeof(Vertex);
+    offset = 0;
+
+
+    deviceContext->IASetInputLayout(inputLayout);
+    deviceContext->IASetVertexBuffers(0, 1, &vertexBuffer, &stride, &offset);
+    deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_POINTLIST);
+    
+    // 여기 역시 설정 하는 과정이기에 순서 중요하지 않음 
+    deviceContext->VSSetShader(vertexShader, nullptr, 0);
+    deviceContext->PSSetShader(pixelShader, nullptr, 0);
+
+    // 여기부터 실제 렌더링 파이프라인이 시작되기에 이전까지는 순서 상관 없음!
+    deviceContext->Draw(1, 0);
+
 
     // backbuffer를 frontbuffer로 바꿔주는 함수 이 과정을 진행하지 않으면 cloea를 하더라도 backbuffer에서 clear되기에 하얀 화면이 나옴
     swapchain->Present(0, 0);
+
+
 
 
 

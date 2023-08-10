@@ -5,7 +5,14 @@
       <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\ABD_first.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
-  <ContentFiles />
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelTutorial.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexTutorial.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
   <SatelliteDlls />
   <NonRecipeFileRefs />
 </Project>
