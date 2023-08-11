@@ -12,11 +12,17 @@
 #include <d3d11.h>
 #include <d3dcompiler.h>
 #include <DirectXMath.h>
+#include <vector>
+#include <map>
+#include <string>
+#include <functional>
+
+
 
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dcompiler.lib")
-
+using namespace std;
 using namespace DirectX;
 
 

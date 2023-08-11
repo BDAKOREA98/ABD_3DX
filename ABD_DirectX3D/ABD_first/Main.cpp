@@ -11,13 +11,39 @@ struct Vertex
     Vertex(float x, float y, float z)
     {
         pos = XMFLOAT3(x, y, z);
-
     }
 
     XMFLOAT3 pos;
 
 
 };
+
+struct VertexColor
+{
+    VertexColor(XMFLOAT3 pos, XMFLOAT4 color)
+        : pos(pos), color(color)
+    {
+        
+    }
+
+    XMFLOAT3 pos;
+    XMFLOAT4 color;
+
+};
+
+struct WVP
+{
+    XMMATRIX world;
+    XMMATRIX view;
+    XMMATRIX projection;
+};
+
+WVP wvp;
+
+
+vector<VertexColor> vertices;
+vector<UINT> indices;
+
 
 
 
@@ -32,7 +58,11 @@ ID3D11VertexShader*  vertexShader;
 ID3D11PixelShader* pixelShader;
 
 ID3D11InputLayout* inputLayout;
+
+
 ID3D11Buffer* vertexBuffer;
+ID3D11Buffer* IndexBuffer;
+ID3D11Buffer* constBuffer;
 
 
 UINT stride = 0;
@@ -227,15 +257,27 @@ void Initialize()
         &vertexShader 
     );
 
-    D3D11_INPUT_ELEMENT_DESC LayoutDesc[1] = {};
-    LayoutDesc[0].SemanticName     = "POSITION";
-    LayoutDesc[0].SemanticIndex    =  0   ;
-    LayoutDesc[0].Format           =  DXGI_FORMAT_R32G32B32_FLOAT  ;
-    LayoutDesc[0].InputSlot        =   0 ;
-    LayoutDesc[0].AlignedByteOffset =  0   ;
-    LayoutDesc[0].InputSlotClass =   D3D11_INPUT_PER_VERTEX_DATA ;
+    D3D11_INPUT_ELEMENT_DESC LayoutDesc[2] = {};
+    LayoutDesc[0].SemanticName         = "POSITION";
+    LayoutDesc[0].SemanticIndex        =  0   ;
+    LayoutDesc[0].Format               =  DXGI_FORMAT_R32G32B32_FLOAT  ;
+    LayoutDesc[0].InputSlot            =   0 ;
+    LayoutDesc[0].AlignedByteOffset    =  0   ;
+    LayoutDesc[0].InputSlotClass       =   D3D11_INPUT_PER_VERTEX_DATA ;
     LayoutDesc[0].InstanceDataStepRate =  0;
     
+    LayoutDesc[1].SemanticName         = "COLOR";
+    LayoutDesc[1].SemanticIndex        =  0   ;
+    LayoutDesc[1].Format               =  DXGI_FORMAT_R32G32B32A32_FLOAT  ;
+    LayoutDesc[1].InputSlot            = 0;
+    LayoutDesc[1].AlignedByteOffset    =  12;
+    LayoutDesc[1].InputSlotClass       =   D3D11_INPUT_PER_VERTEX_DATA ;
+    LayoutDesc[1].InstanceDataStepRate =  0;
+
+
+
+
+
 
     ARRAYSIZE(LayoutDesc);
 
@@ -282,26 +324,135 @@ void Initialize()
 
 
     // vertex
-    Vertex vertex(0.0f, 0.0f, 0.0f);
+    // Vertex BUFFER(0.0f, 0.0f, 0.0f);
     
-    D3D11_BUFFER_DESC bufferDesc = {};
-    bufferDesc.ByteWidth            = sizeof(Vertex) * 1;
-    bufferDesc.Usage                = D3D11_USAGE_DEFAULT  ;
-    bufferDesc.BindFlags            = D3D11_BIND_VERTEX_BUFFER;
-    bufferDesc.CPUAccessFlags       = 0;
-    bufferDesc.MiscFlags            = 0;
-    bufferDesc.StructureByteStride  = 0;
+    {
+
+        vertices = {
+            VertexColor({ -1.0f, +1.0f, -1.0f}, {1.0f, 0.0f, 0.0f, 1.0f}),
+            VertexColor({ +1.0f, +1.0f, -1.0f}, {1.0f, 1.0f, 0.0f, 1.0f}),
+            VertexColor({ -1.0f, -1.0f, -1.0f}, {0.0f, 1.0f, 1.0f, 1.0f}),
+            VertexColor({ +1.0f, -1.0f, -1.0f}, {0.0f, 0.0f, 1.0f, 1.0f}),
+
+            VertexColor({ -1.0f, +1.0f, +1.0f}, {1.0f, 0.0f, 0.0f, 1.0f}),
+            VertexColor({ +1.0f, +1.0f, +1.0f}, {1.0f, 1.0f, 0.0f, 1.0f}),
+            VertexColor({ -1.0f, -1.0f, +1.0f}, {0.0f, 1.0f, 1.0f, 1.0f}),
+            VertexColor({ +1.0f, -1.0f, +1.0f}, {0.0f, 0.0f, 1.0f, 1.0f})
 
 
-    D3D11_SUBRESOURCE_DATA data;
 
-    data.pSysMem = &vertex;
-    device->CreateBuffer(&bufferDesc, &data, &vertexBuffer);
+        };
+
+
+
+        D3D11_BUFFER_DESC bufferDesc = {};
+        bufferDesc.ByteWidth = sizeof(VertexColor) * vertices.size();
+        bufferDesc.Usage = D3D11_USAGE_DEFAULT;
+        bufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+        bufferDesc.CPUAccessFlags = 0;
+        bufferDesc.MiscFlags = 0;
+        bufferDesc.StructureByteStride = 0;
+
+
+        D3D11_SUBRESOURCE_DATA data;
+
+        data.pSysMem = vertices.data(); // 
+        device->CreateBuffer(&bufferDesc, &data, &vertexBuffer);
+    }
     
+    // InndexBuffer
+
+    indices =
+    {  
+        
+        // front
+        0,1,2,
+        2,1,3,
+
+        // 우측 면
+        1,5,3,
+        3,5,7,
+
+        // 위쪽 면
+        0,4,1,
+        1,4,5,
+
+        // 왼쪽 면
+        4,0,6,
+        6,0,2,
+
+        // 뒤쪽 면
+        5,4,7,
+        7,4,6,
+
+        // 바닥면
+        2,3,6,
+        6,3,7,
+        
+
+
+    };
+
+    {
+      
+
+
+        D3D11_BUFFER_DESC bufferDesc = {};
+        bufferDesc.ByteWidth = sizeof(UINT) * indices.size();
+        bufferDesc.Usage = D3D11_USAGE_DEFAULT;
+        bufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
+        bufferDesc.CPUAccessFlags = 0;
+        bufferDesc.MiscFlags = 0;
+        bufferDesc.StructureByteStride = 0;
+
+
+        D3D11_SUBRESOURCE_DATA data;
+
+        data.pSysMem = indices.data(); // 
+        device->CreateBuffer(&bufferDesc, &data, &IndexBuffer);
+
+    }
     
+    // WVP
+    wvp.world = XMMatrixIdentity();
+    // 눈의 위치
+    XMVECTOR eyepos = XMVectorSet(+3.0f, +3.0f, -3.0f, 1.0f);
+    // 눈이 바라보는 방향
+    XMVECTOR focuspos = XMVectorSet(+0.0f, +0.0f, 0.0f, 1.0f);
+    // 카메라의 위 방향 : y축 회전 방향을 정하기 위함
+    XMVECTOR upvector = XMVectorSet(+0.0f, +1.0f, 0.0f, 0.0f);
 
     
-    
+
+    // 카메라 좌표를 만들 것이다. : LH = lefthand 좌표계로
+    wvp.view = XMMatrixLookAtLH(eyepos, focuspos, upvector);
+
+
+
+    // fov == Field Of View == 시야각
+    wvp.projection = XMMatrixPerspectiveFovLH
+    (   // angle: 바라볼 각도, aspectiveratio :  화면 비율 , (nearZ, farZ) : 절두체 크기
+        XM_PIDIV4, WIN_WIDTH/ WIN_HEIGHT, 0.1f, 1000.0f
+    );
+
+    {
+
+        D3D11_BUFFER_DESC bufferDesc = {};
+        bufferDesc.ByteWidth = sizeof(WVP);
+        bufferDesc.Usage = D3D11_USAGE_DEFAULT;
+        bufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+        bufferDesc.CPUAccessFlags = 0;
+        bufferDesc.MiscFlags = 0;
+        bufferDesc.StructureByteStride = 0;
+
+
+        //D3D11_SUBRESOURCE_DATA data;
+        //data.pSysMem = vertices.data(); 
+        // constant Buffer는 실시간으로 데이터를 받기에 initdata가 필요 없음
+        device->CreateBuffer(&bufferDesc, nullptr, &constBuffer);
+    }
+
+
 }
 
 void Render()
@@ -311,28 +462,54 @@ void Render()
 
     // 정점찍기
 
-    stride = sizeof(Vertex);
+    stride = sizeof(VertexColor);
     offset = 0;
 
 
     deviceContext->IASetInputLayout(inputLayout);
     deviceContext->IASetVertexBuffers(0, 1, &vertexBuffer, &stride, &offset);
-    deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_POINTLIST);
     
+    
+    deviceContext->IASetIndexBuffer(IndexBuffer, DXGI_FORMAT_R32_UINT, 0);
+
+
+    
+    
+    deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);    
     // 여기 역시 설정 하는 과정이기에 순서 중요하지 않음 
+
+
     deviceContext->VSSetShader(vertexShader, nullptr, 0);
     deviceContext->PSSetShader(pixelShader, nullptr, 0);
 
     // 여기부터 실제 렌더링 파이프라인이 시작되기에 이전까지는 순서 상관 없음!
-    deviceContext->Draw(1, 0);
+    //deviceContext->Draw(indeices.size(), 0, 0);
+    deviceContext->DrawIndexed(indices.size(), 0, 0);
+
+
+
+
+
+    // WVP
+    WVP data;
+
+    data.world = XMMatrixTranspose(wvp.world);
+    data.view = XMMatrixTranspose(wvp.view);
+    data.projection = XMMatrixTranspose(wvp.projection);
+
+    deviceContext->UpdateSubresource(constBuffer, 0, nullptr, &data, 0, 0);
+    deviceContext->VSSetConstantBuffers(0, 1, &constBuffer);
+
+    static float angle = 0.0f;
+
+    angle += 0.001f;
+
+    wvp.world = XMMatrixRotationRollPitchYaw(angle, angle, angle);
+
 
 
     // backbuffer를 frontbuffer로 바꿔주는 함수 이 과정을 진행하지 않으면 cloea를 하더라도 backbuffer에서 clear되기에 하얀 화면이 나옴
     swapchain->Present(0, 0);
-
-
-
-
 
 
 }

@@ -249,7 +249,8 @@
 // - API에서 Buffer를 어떻게 사용할지 정해주는것으로 
 // ex) CPU에서 수정가능 GPU읽기가능 , 둘다 수정가능, 둘다읽기만 등등으로 설정가능
 // 
-// primitiveTopology란??
+// primitiveTopology란?? 
+// - 일반적으로 외형적인 연결 모양을 의미
 // - primitiveTopology은 주로 그래픽스 API의 렌더링 파이프라인 설정 중 하나로 사용됩니다. 
 // - 다양한 primitiveTopology 값이 제공되며, 각 값은 다른 기하학적 모양을 나타냅니다.
 // -- POINTLIST : 각점들의 리스트를 나타냄 각 점들은 독립적인 원소로 취급됨
@@ -258,14 +259,82 @@
 // -- LINESTRIP : 이전의 선의 정점 2개중 1개랑 연결된 새로운 점을 찍어서 선을 만듦
 // -- TRIANGLESTRIP : 이전의 면에서 정점 3개중 2개랑 연결된 새로운 점 한개를 찍어서 면을 만듦
 // 
+// 다음 수업시간 : List와 Strip 차이 설명 
 //
+
 
 
 #pragma endregion
 
-#pragma region 5Day
+#pragma region 5Day Topology, vertex로 면그리기, 3Dvertex찍기
 // 5DAY ----------------------------------------------------------------------------------------------------------------------------------------------
 //
+// - Topology : 외형적인 연결 모양
+// -- 일반적으로 3D게임에서는 삼각형으로 폴리곤을 이용해서 제작함
+// -- 폴리곤을 사용하는 이유 : 일일이 하나하나의 픽셀을 계산하는 것 보다 연산이 빠름
+// -- 단점 : 계단현상이 생김 (안티 에일러싱이 필요함)
+// 
+// 
+// - vector에서 주소값을 보낼때는 data()를 쓴다.
+// -- vector[0]을 사용하면 데이터가 비어있을 시 문제가 생김
+// 
+// - NDC좌표계(Normalized Device Coordinate) : 화면 중앙을 0,0 으로 두고 화면을 비율로 사용하는 좌표계
+// -- 단점 : 화면 크기가 달라지면 내용의 크기도 달라짐, Object이동시 x으로 1 만큼 이동과 y 로 1만큼 이동의 거리가 다름
+// -- 그렇기에 우리가 계산하기 쉽게 상대 좌표계인 NDC좌표계를 화면 좌표계로 바꿔서 사용한다 == Rendering PipeLine 및 WVP
+// 
+// - TRIANGLE LIST로 사각형을 그리는법
+// 1. 점을 6개 찍는다.
+// 2. 점을 4개 찍고 어떻게 이을지 Index를 부여해준다.
+// 
+// - 프로그램에서 {} 으로 지역을 나눠주면 함수안에 새로운 이름없는 지역을 만들어 주는 것 이기에 같은 내용을 다시 쓸 때 유용함
+// 
+// -삼각형을 그릴때 시계방향으로만 그리는 이유
+// - 효율적인 연산을 위해 반대방향 그림을 안보이게 처리함
+// - backfaceculling에 의하여 그림은 그려지나 보이지를 않음
+// 
+// - 색은 거리에 따른 비율 : 선형보간으로 섞인다.
+// 
+// - 3D로 가기 위해서는 원근감이 필요함 : Projection이 필요함
+// 
+// - WVP는 ConstatBuffer로 slot을 할당하여 넘겨줘야함 == shader에서 cbuffer 버퍼명 : register(b0)
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// - WVP
+// - wvp.world = XMMatrixIdentity();
+// - // 눈의 위치 == 카메라 위치
+// - XMVECTOR eyepos = XMVectorSet(+3.0f, +3.0f, -3.0f, 0.0f);
+// - // 눈이 바라보는 방향 == 카메라가 바라보는 방향
+// - XMVECTOR focuspos = XMVectorSet(+0.0f, +0.0f, 0.0f, 0.0f);
+// - // 눈의 위쪽 벡터 (y축을 정해주기위함) == 카메라의 y축 (가로로 설치할 것인지, 세로로 설치할 것인지)
+// - XMVECTOR upvector = XMVectorSet(+0.0f, +1.0f, 0.0f, 0.0f);
+
+// - // 카메라 좌표를 만들 것이다. : LH = lefthand 좌표계로
+// - wvp.view = XMMatrixLookAtLH(eyepos, focuspos, upvector);
+
+// - // fov == Field Of View == 시야각
+// - wvp.projection = XMMatrixPerspectiveFovLH
+// - (   // angle: 바라볼 각도, aspectiveratio :  화면 비율 , (nearZ, farZ) : 절두체 크기
+// -     XM_PIDIV4, WIN_WIDTH / WIN_HEIGHT, 0.1f, 1000.0f
+// - );
+// - {
+// - 
+// -     D3D11_BUFFER_DESC bufferDesc = {};
+// -     bufferDesc.ByteWidth = sizeof(WVP);
+// -     bufferDesc.Usage = D3D11_USAGE_DEFAULT;
+// -     bufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+// -     bufferDesc.CPUAccessFlags = 0;
+// -     bufferDesc.MiscFlags = 0;
+// -     bufferDesc.StructureByteStride = 0;
+// - 
+// - 
+// -     //D3D11_SUBRESOURCE_DATA data;
+// -     //data.pSysMem = vertices.data(); 
+// -     // constant Buffer는 실시간으로 데이터를 받기에 initdata가 필요 없음
+// -     device->CreateBuffer(&bufferDesc, nullptr, &constBuffer);}
+////////////////////////////////////////////////////////////////////////////////
+// 
+// - RollpitchYaw  :  어떤방향으로 회전 할 지 명령 을 주는 함수
+// 
+//  
 //
 
 #pragma endregion

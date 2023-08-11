@@ -1,2 +1,13 @@
-﻿  compilation object save succeeded; see C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelTutorial.cso
+﻿  Main.cpp
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(167,38): warning C4244: '=': 'float'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(168,39): warning C4244: '=': 'float'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(349,52): warning C4267: '=': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(401,45): warning C4267: '=': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(487,44): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(571,24): warning C4838: 'float'에서 'LONG'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(571,24): warning C4244: '초기화 중': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(571,35): warning C4838: 'float'에서 'LONG'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(571,35): warning C4244: '초기화 중': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  memo.cpp
+  코드를 생성하고 있습니다...
   ABD_first.vcxproj -> C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\ABD_first.exe
