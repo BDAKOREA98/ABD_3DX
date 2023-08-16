@@ -133,6 +133,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Render\Shader\PixelShader.h" />
+    <ClInclude Include="Render\Shader\VertexShader.h" />
+    <ClInclude Include="Render\Shader\Shader.h" />
     <ClInclude Include="System\Device.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="Framework.h" />
@@ -144,6 +147,9 @@
     <ClInclude Include="__Others\targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Render\Shader\PixelShader.cpp" />
+    <ClCompile Include="Render\Shader\VertexShader.cpp" />
+    <ClCompile Include="Render\Shader\Shader.cpp" />
     <ClCompile Include="System\Device.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="memo.cpp" />

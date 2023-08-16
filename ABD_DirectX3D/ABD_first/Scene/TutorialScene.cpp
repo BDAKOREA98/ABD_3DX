@@ -5,60 +5,9 @@ TutorialScene::TutorialScene()
 { // 초기화
 
 
-    DXGI_SWAP_CHAIN_DESC swapChainDesc = {};
-    // BufferCount : Backbuffer가 몇개 있는가
-    swapChainDesc.BufferCount = 1;
-    // BackBuffer의 크기를 정해줌
-    swapChainDesc.BufferDesc.Width = WIN_WIDTH;
-    swapChainDesc.BufferDesc.Height = WIN_HEIGHT;
-    // Format : RGBA의 color를 normalize된 값으로 넣겠다.
-    // - RGBA : 8bit * 4  = 32 bir, unorm : unsigned int = 0 ~ 1
-    swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-    // RefeshRate : 새로고침빈도 == 갱신빈도 : 얼마나 자주 갱신시키는가 == 모니터 주사율 (1초에 60번 갱신 == 60HZ)
-    swapChainDesc.BufferDesc.RefreshRate.Numerator = 60;
-    swapChainDesc.BufferDesc.RefreshRate.Denominator = 1;
-    // BufferUsage : backBuffer를 어떤용도로 쓸 것인가 (우리는 RenderTarget을 출력용으로 사용할것임)
-    swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-    // windowoutput으로 뭘 사용할 것인가  hWnd
-    swapChainDesc.OutputWindow = hWnd;
-    // sampling : 표본화
-    // - 확대 축소할때 연산이 많아지는데 그것을 도와줄때 samping이 많음 , 확대 또는 축소 할때 색깔을 어떻게 섞어줄지 정해주는게 sampling임
-    // 최대 sampling : 가장 클때만 미리 계산해놓음 , 다중 sampling : 여러 크기를 미리 계산해놓음
-    // Count : 픽셀을 확대했을때 주변에 픽셀이 추가될텐데 몇개의 픽셀의 색을 더할것인가
-    // Quality : 크기가 클 수록 연산이 추가됨 
-    swapChainDesc.SampleDesc.Count = 1;
-    swapChainDesc.SampleDesc.Quality = 0;
-    // Winodwed : 창화면을 쓸 것 인지, 전체화면을 쓸 것인지
-    swapChainDesc.Windowed = true;
-    // device와 swapchain을 한번에 만들어주는 함수
-    D3D11CreateDeviceAndSwapChain(
-
-        nullptr,
-        D3D_DRIVER_TYPE_HARDWARE,
-        0,
-        D3D11_CREATE_DEVICE_DEBUG,
-        nullptr,
-        0,
-        D3D11_SDK_VERSION,
-        &swapChainDesc,
-        &swapchain,
-        &device,
-        nullptr,
-        &deviceContext
-
-    );
-
-    // 모니터의 표시되는 공간이 결국 2D이기에 2D를 씀
-    ID3D11Texture2D* backBuffer;
-
-    swapchain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)&backBuffer);
-
-    device->CreateRenderTargetView(backBuffer, nullptr, &renderTargetView);
+   
 
 
-    backBuffer->Release();
-
-    deviceContext->OMSetRenderTargets(1, &renderTargetView, nullptr);
 
     //////////////////////////////////////////////////////////////////
 
@@ -72,101 +21,18 @@ TutorialScene::TutorialScene()
     viewPort.MaxDepth = 1.0f;
 
 
-    deviceContext->RSSetViewports(1, &viewPort);
+    DC->RSSetViewports(1, &viewPort);
+
+    
+
+    
+   
 
 
-
-    ///VertexShader
-    DWORD flags = D3DCOMPILE_ENABLE_STRICTNESS | D3DCOMPILE_DEBUG;
-
-    ID3DBlob* vertexBlob;
-    D3DCompileFromFile
-    (
-        L"_Shader/VertexTutorial.hlsl",
-        nullptr,
-        nullptr,
-        "main",
-        "vs_5_0",
-        flags,
-        0,
-        &vertexBlob,
-        nullptr
-
-    );
-
-    device->CreateVertexShader
-    (
-        vertexBlob->GetBufferPointer(),
-        vertexBlob->GetBufferSize(),
-        nullptr,
-        &vertexShader
-    );
+   
 
 
-    D3D11_INPUT_ELEMENT_DESC LayoutDesc[2] = {};
-    LayoutDesc[0].SemanticName = "POSITION";
-    LayoutDesc[0].SemanticIndex = 0;
-    LayoutDesc[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
-    LayoutDesc[0].InputSlot = 0;
-    LayoutDesc[0].AlignedByteOffset = 0;
-    LayoutDesc[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
-    LayoutDesc[0].InstanceDataStepRate = 0;
-
-    LayoutDesc[1].SemanticName = "COLOR";
-    LayoutDesc[1].SemanticIndex = 0;
-    LayoutDesc[1].Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
-    LayoutDesc[1].InputSlot = 0;
-    LayoutDesc[1].AlignedByteOffset = 12;
-    LayoutDesc[1].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
-    LayoutDesc[1].InstanceDataStepRate = 0;
-
-
-
-
-
-
-    ARRAYSIZE(LayoutDesc);
-
-
-    device->CreateInputLayout
-    (   // 주소값을 넣어달라는데 그냥 넣는 이유 : 우리가 배열로 만들었으니까
-        LayoutDesc,
-        ARRAYSIZE(LayoutDesc),
-        vertexBlob->GetBufferPointer(),
-        vertexBlob->GetBufferSize(),
-        &inputLayout
-    );
-
-    vertexBlob->Release();
-
-
-    ////////PixelShader
-
-    ID3DBlob* pixelBlob;
-    D3DCompileFromFile
-    (
-        L"_Shader/PixelTutorial.hlsl",
-        nullptr,
-        nullptr,
-        "main",
-        "ps_5_0",
-        flags,
-        0,
-        &pixelBlob,
-        nullptr
-
-    );
-
-    device->CreatePixelShader
-    (
-        pixelBlob->GetBufferPointer(),
-        pixelBlob->GetBufferSize(),
-        nullptr,
-        &pixelShader
-    );
-
-
-    pixelBlob->Release();
+    
 
 
     // vertex
@@ -203,7 +69,7 @@ TutorialScene::TutorialScene()
         D3D11_SUBRESOURCE_DATA data;
 
         data.pSysMem = vertices.data(); // 
-        device->CreateBuffer(&bufferDesc, &data, &vertexBuffer);
+        DEVICE->CreateBuffer(&bufferDesc, &data, &vertexBuffer);
     }
 
     // InndexBuffer
@@ -253,7 +119,7 @@ TutorialScene::TutorialScene()
         D3D11_SUBRESOURCE_DATA data;
 
         data.pSysMem = indices.data(); // 
-        device->CreateBuffer(&bufferDesc, &data, &IndexBuffer);
+        DEVICE->CreateBuffer(&bufferDesc, &data, &IndexBuffer);
 
     }
 
@@ -293,17 +159,14 @@ TutorialScene::TutorialScene()
         //D3D11_SUBRESOURCE_DATA data;
         //data.pSysMem = vertices.data(); 
         // constant Buffer는 실시간으로 데이터를 받기에 initdata가 필요 없음
-        device->CreateBuffer(&bufferDesc, nullptr, &constBuffer);
+        DEVICE->CreateBuffer(&bufferDesc, nullptr, &constBuffer);
     }
 
 }
 
 TutorialScene::~TutorialScene()
 {
-    device->Release();
-    deviceContext->Release();
-    swapchain->Release();
-    renderTargetView->Release();
+   
 }
 
 void TutorialScene::Update()
@@ -316,34 +179,25 @@ void TutorialScene::PreRender()
 
 void TutorialScene::Render()
 {
-    float clearcolor[4] = { 0.0f, 0.125f, 0.3f, 1.0f };
-    deviceContext->ClearRenderTargetView(renderTargetView, clearcolor);
-
+   
     // 정점찍기
 
     stride = sizeof(VertexColor);
     offset = 0;
 
 
-    deviceContext->IASetInputLayout(inputLayout);
-    deviceContext->IASetVertexBuffers(0, 1, &vertexBuffer, &stride, &offset);
+    
+    DC->IASetVertexBuffers(0, 1, &vertexBuffer, &stride, &offset);
 
+    DC->IASetIndexBuffer(IndexBuffer, DXGI_FORMAT_R32_UINT, 0);
+    DC->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-    deviceContext->IASetIndexBuffer(IndexBuffer, DXGI_FORMAT_R32_UINT, 0);
-
-
-
-
-    deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
     // 여기 역시 설정 하는 과정이기에 순서 중요하지 않음 
 
-
-    deviceContext->VSSetShader(vertexShader, nullptr, 0);
-    deviceContext->PSSetShader(pixelShader, nullptr, 0);
-
+    
     // 여기부터 실제 렌더링 파이프라인이 시작되기에 이전까지는 순서 상관 없음!
     //deviceContext->Draw(indeices.size(), 0, 0);
-    deviceContext->DrawIndexed(indices.size(), 0, 0);
+    DC->DrawIndexed(indices.size(), 0, 0);
 
 
 
@@ -356,8 +210,8 @@ void TutorialScene::Render()
     data.view = XMMatrixTranspose(wvp.view);
     data.projection = XMMatrixTranspose(wvp.projection);
 
-    deviceContext->UpdateSubresource(constBuffer, 0, nullptr, &data, 0, 0);
-    deviceContext->VSSetConstantBuffers(0, 1, &constBuffer);
+    DC->UpdateSubresource(constBuffer, 0, nullptr, &data, 0, 0);
+    DC->VSSetConstantBuffers(0, 1, &constBuffer);
 
     static float angle = 0.0f;
 
@@ -367,8 +221,7 @@ void TutorialScene::Render()
 
 
 
-    // backbuffer를 frontbuffer로 바꿔주는 함수 이 과정을 진행하지 않으면 cloea를 하더라도 backbuffer에서 clear되기에 하얀 화면이 나옴
-    swapchain->Present(0, 0);
+  
 
 }
 

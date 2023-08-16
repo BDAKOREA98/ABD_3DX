@@ -22,15 +22,21 @@ void Program::Update()
 
 void Program::Render()
 {
-	scene->PostRender();
-	scene->Render();
 	scene->PreRender();
+	Device::GetInstance()->Clear();
+
+	scene->Render();
+	scene->PostRender();
+
+	Device::GetInstance()->Present();
 }
 
 void Program::Initialize()
 {
+	Device::GetInstance();
 }
 
 void Program::Release()
 {
+	Device::Dlelte();
 }

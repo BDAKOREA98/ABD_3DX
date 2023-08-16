@@ -56,17 +56,14 @@ private:
 
 
 
-    ID3D11Device* device;
-    ID3D11DeviceContext* deviceContext;
+   
 
-    IDXGISwapChain* swapchain;
-    ID3D11RenderTargetView* renderTargetView;
     ////////////////////////////////////////////////////////////
 
-    ID3D11VertexShader* vertexShader;
-    ID3D11PixelShader* pixelShader;
+    
+    
 
-    ID3D11InputLayout* inputLayout;
+    
 
 
     ID3D11Buffer* vertexBuffer;
