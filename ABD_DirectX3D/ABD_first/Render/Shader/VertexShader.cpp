@@ -6,7 +6,7 @@ VertexShader::VertexShader(wstring file)
     ///VertexShader
     DWORD flags = D3DCOMPILE_ENABLE_STRICTNESS | D3DCOMPILE_DEBUG;
 
-    file = L"_Shader/" + file + L".hlsl";
+    
 
 
 

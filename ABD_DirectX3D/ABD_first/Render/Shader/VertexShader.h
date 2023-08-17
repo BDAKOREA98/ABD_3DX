@@ -1,15 +1,16 @@
 #pragma once
 class VertexShader : public Shader
 {
-public:
+	friend class Shader;
+private:
+
 	VertexShader(wstring file);
 	~VertexShader();
 	// Shader을(를) 통해 상속됨
-	virtual void SetShader() override;
-
-private:
-
 	void CreateInputLayout();	
+
+public:
+	virtual void SetShader() override;
 
 private:
 

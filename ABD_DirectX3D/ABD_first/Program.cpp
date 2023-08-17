@@ -34,9 +34,12 @@ void Program::Render()
 void Program::Initialize()
 {
 	Device::GetInstance();
+	Environment::GetInstance();
 }
 
 void Program::Release()
 {
 	Device::Dlelte();
+	Shader::Delete();
+	Environment::Dlelte();
 }

@@ -6,7 +6,7 @@ PixelShader::PixelShader(wstring file)
     ////////PixelShader
 
     DWORD flags = D3DCOMPILE_ENABLE_STRICTNESS | D3DCOMPILE_DEBUG;
-    file = L"_Shader/" + file + L".hlsl";
+    
     
     D3DCompileFromFile
     (

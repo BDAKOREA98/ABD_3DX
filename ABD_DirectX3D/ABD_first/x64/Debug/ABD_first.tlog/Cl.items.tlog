@@ -1,3 +1,6 @@
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Buffer\ConstantBuffer.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\ConstantBuffer.obj
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Buffer\IndexBuffer.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\IndexBuffer.obj
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\System\Environment.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Environment.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Shader\PixelShader.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\PixelShader.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Shader\VertexShader.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\VertexShader.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Shader\Shader.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Shader.obj
@@ -7,3 +10,4 @@ C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\memo.cpp;C:\Users\user
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Framework.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Framework.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Program.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Program.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Scene\TutorialScene.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\TutorialScene.obj
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Buffer\VertexBuffer.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\VertexBuffer.obj

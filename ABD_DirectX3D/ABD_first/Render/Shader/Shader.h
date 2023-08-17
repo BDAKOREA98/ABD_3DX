@@ -1,13 +1,10 @@
 #pragma once
 class Shader
 {
-
-
-
 	
 
 protected:
-	Shader();
+	
 	
 	virtual ~Shader();
 
@@ -24,8 +21,9 @@ protected:
 	ID3DBlob* blob;
 
 	
-	static unordered_map<wstring, Shader*> shaders;
-
+	static map<wstring, Shader*> shaders;
+	// singleton과 비슷하다고 생각하면 됨 있으면 리턴 없으면 생성
+	//
 
 
 };

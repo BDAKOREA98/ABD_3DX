@@ -18,12 +18,6 @@ struct VertexColor
     XMFLOAT4 color;
 };
 
-struct WVP
-{
-    XMMATRIX world;
-    XMMATRIX view;
-    XMMATRIX projection;
-};
 
 
 
@@ -47,8 +41,6 @@ public:
 
 private:
 	
-    WVP wvp;
-
 
     vector<VertexColor> vertices;
     vector<UINT> indices;
@@ -61,18 +53,23 @@ private:
     ////////////////////////////////////////////////////////////
 
     
+    VertexShader*  vertexShader;
+    PixelShader*   pixelShader;
     
 
+    VertexBuffer* vertexBuffer;
+    IndexBuffer* indexBuffer;
+    
+    MatrixBuffer*    worldBuffer;
+    MatrixBuffer*    viewBuffer;
+    MatrixBuffer*    projBuffer;
+
+    
+    
     
 
 
-    ID3D11Buffer* vertexBuffer;
-    ID3D11Buffer* IndexBuffer;
-    ID3D11Buffer* constBuffer;
 
-
-    UINT stride = 0;
-    UINT offset = 0;
 
 
 };

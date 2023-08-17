@@ -450,3 +450,38 @@
 //  
 //
 #pragma endregion
+
+#pragma region 8Day Shader class화 마무리, Buffer만들기
+//
+// static map == singleton이라고 생각하면 됨
+// 메모리 낭비를 최소화 하기위해 이런패턴을 많이 사용할 것 임
+// 쉐이더 자체는 메모리 차이가 크게 나지 않지만 텍스쳐에서 메모리사용이 많이 되기에 이런 방식을 채용
+// 
+// float에 정수를 넣으면 int로 인식함, .0만 붙이면 더블로 인식함, .0f 라고 적어야 float으로 인식함
+// 
+// 
+// 
+// 명시적 형변환
+// - casting으로 직접 어떤 것으로 변환할지 표시 
+// - (VertexShader*) : c의 형변환 되든 안되는 일단 형변환
+// -- 때로는 터져버려야 버그 찾기가 쉬워서 c의 형변환이 더 나을 수 있음
+// - dynamic cast<VertexShader> : c++의 형변환 변환이 안되면 nullptr 반환
+// 암묵적 형변환
+// - int a = 10;
+// - double b = a;
+// 
+// map에서는
+// shader[file] = 
+// 이런식으로 써도 인덱스가 없으면 생성하기에 사용가능 하나 벡터에서는 이런식으로 사용시 인덱스가 없어서 터짐
+// 
+// map이든 vector든 자료구조가 끝나면 비워주는 clear작업을 해줘야함
+// - 안 그러면 딜리트 후 다시 for문 돌때 비어있는 공간에서 자료를 찾으러 순회함
+// 
+// ConstantBuffer : Shader에 정보를 넘겨주기 위함(어떤 정보가 넘어갈지 모름)
+// - 대표적인게 WVP
+// 
+// Draw 전까지는 Rendering Pipe LINE 설정하는 단계이기에 순서는 상관 없음!
+// Draw 부터 렌더링파이프라인시작!
+// DC->DrawIndexed(indices.size(), 0, 0);
+//
+#pragma endregion
