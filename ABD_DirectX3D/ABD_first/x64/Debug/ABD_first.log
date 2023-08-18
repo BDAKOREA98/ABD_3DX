@@ -1,5 +1,26 @@
-﻿  TutorialScene.cpp
-C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Scene\TutorialScene.cpp(149,33): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Buffer\VertexBuffer.h(30,42): warning C4267: '=': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Scene\TutorialScene.cpp(30,41): message : 컴파일되는 함수 템플릿 인스턴스화 'VertexBuffer::VertexBuffer<VertexColor>(std::vector<VertexColor,std::allocator<VertexColor>> &)'에 대한 참조를 확인하세요.
+﻿  Framework.cpp
+  Cube.cpp
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Cube.cpp(112,33): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Buffer\VertexBuffer.h(30,53): warning C4267: '=': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Cube.cpp(29,41): message : 컴파일되는 함수 템플릿 인스턴스화 'VertexBuffer::VertexBuffer<VertexColor>(std::vector<VertexColor,std::allocator<VertexColor>> &)'에 대한 참조를 확인하세요.
+  ConstantBuffer.cpp
+  IndexBuffer.cpp
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Buffer\IndexBuffer.cpp(8,45): warning C4267: '=': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Environment.cpp
+  PixelShader.cpp
+  VertexShader.cpp
+  Shader.cpp
+  Device.cpp
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\System\Device.cpp(28,38): warning C4244: '=': 'float'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\System\Device.cpp(29,39): warning C4244: '=': 'float'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Main.cpp
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(136,24): warning C4838: 'float'에서 'LONG'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(136,24): warning C4244: '초기화 중': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(136,35): warning C4838: 'float'에서 'LONG'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(136,35): warning C4244: '초기화 중': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  memo.cpp
+  Program.cpp
+  TutorialScene.cpp
+  VertexBuffer.cpp
+  코드를 생성하고 있습니다...
   ABD_first.vcxproj -> C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\ABD_first.exe

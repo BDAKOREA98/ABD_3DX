@@ -27,12 +27,12 @@ inline VertexBuffer::VertexBuffer(vector<T>& vertices)
          //VertexBuffer
         D3D11_BUFFER_DESC bufferDesc = {};
 
-        bufferDesc.ByteWidth = sizeof(T) * vertices.size();
-        bufferDesc.Usage = D3D11_USAGE_DEFAULT;
-        bufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-        bufferDesc.CPUAccessFlags = 0;
-        bufferDesc.MiscFlags = 0;
-        bufferDesc.StructureByteStride = 0;
+        bufferDesc.ByteWidth            = sizeof(T) * vertices.size();
+        bufferDesc.Usage                = D3D11_USAGE_DEFAULT;
+        bufferDesc.BindFlags            = D3D11_BIND_VERTEX_BUFFER;
+        bufferDesc.CPUAccessFlags       = 0;
+        bufferDesc.MiscFlags            = 0;
+        bufferDesc.StructureByteStride  = 0;
 
 
         D3D11_SUBRESOURCE_DATA data;

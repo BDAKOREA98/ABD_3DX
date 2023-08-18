@@ -17,6 +17,9 @@ private:
 	void* data;
 	UINT dataSize;
 
+	D3D11_MAPPED_SUBRESOURCE subResource;
+	
+
 	ID3D11Buffer* constBuffer;
 };
 

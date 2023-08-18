@@ -485,3 +485,53 @@
 // DC->DrawIndexed(indices.size(), 0, 0);
 //
 #pragma endregion
+
+#pragma region 9Day Buffer
+//
+// DirectX 에 Resource는 두개다 
+// 1. Buffer
+// -  UpdateSubResource는 적절한 타이밍에 
+// -
+// 2. Texture
+// -
+// 
+// Desc는 뭔가 사용하기위한 설명서 같은것임
+// - 안에보면 접근가능한 매개변수들을 모아놓은 구조체임
+// 
+// 
+// 
+// enum D3D11_USAGE // Buffer를 만든 이후에 접근성을 다루는 함수임, 일단 최초 CPU가 데이터를 넘겨주기는 해야함
+// {
+//    D3D11_USAGE_DEFAULT = 0, - GPU는 읽고쓰기가능, CPU는 읽고쓰기 불가능
+//        D3D11_USAGE_IMMUTABLE = 1, - GPU & CPU 둘다 쓰는것은 불가능 , CPU는 읽지도 못함
+//        D3D11_USAGE_DYNAMIC = 2, - CPU가 쓸 수 있으나 읽지는 못함, GPU는 읽기만 가능하고 쓸 수 없음 : data를 넘기면 다시 받아서 읽지 못함 대신 수정해서 넘기는건 가능
+//        D3D11_USAGE_STAGING = 3 - GPU에서 CPU가 MemoryCopy허용
+//    } 	D3D11_USAGE;
+// 
+// constantBuffer, IndexBuffer는 D3D11_USAGE_DYNAMIC = 2를 사용
+// 
+// DYNAMIC을 사용 하기 위해서 CPUACCess도 바꿔줘야함
+// 
+// Map(), UnMap()
+// - Map() : 사용가능하게 권한을 열어준다.
+// - UnMap() : 열었던 권한을 다시 닫아준다.
+// - Map()을 사용하지 않으면 memcpy를 써도 데이터가 안 들어감
+// - UpdateSubResource를 쓰는게 콘스탄트 버퍼에 리소스를 넣어주는 것인데.
+// - Map(),UnMap()으로 넘겨주는게  더 빠르기에 사용핢
+// 
+// 
+// 
+// 동적 : 원할때 할당 후 해제
+// - 장점 : 메모리 관리에 효율적
+// - 단점 : 실시간으로 프레임 드랍 같은게 생길 수 있음
+// 정적 : 선언과 동시에 할당
+// - 장점 :  
+// - 단점 : 
+// 
+// 모니터의 크기는 정해져 있기 때문에 시야각이 커지면 그만큼 보는게 많아지기에 Object의 크기는 작아진다.
+// - environment :: XM_PIDIV2, XM_PIDIV4 
+// 
+// 
+// 
+//
+#pragma endregion

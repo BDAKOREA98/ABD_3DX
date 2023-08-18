@@ -35,12 +35,12 @@ using namespace DirectX;
 
 
 
+
 // Utility
 #include "Utility/Singleton.h"
 
 // System
 #include "System/Device.h"
-#include "System/Environment.h"
 
 // Render :: Shader
 #include "Render/Shader/Shader.h"
@@ -48,11 +48,17 @@ using namespace DirectX;
 #include "Render/Shader/PixelShader.h"
 
 // Render :: Buffer
+#include "Render/Buffer/VertexLayout.h"
 #include "Render/Buffer/VertexBuffer.h"
 #include "Render/Buffer/IndexBuffer.h"
 #include "Render/Buffer/ConstantBuffer.h"
 #include "Render/Buffer/GlobalBuffer.h"
 
+
+
+#include "System/Environment.h"
+
+#include "Object/BasicObject/Cube.h"
 
 // Scene
 #include "Scene/Scene.h"

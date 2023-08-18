@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\BasicObject\Cube.h" />
     <ClInclude Include="Render\Buffer\ConstantBuffer.h" />
     <ClInclude Include="Render\Buffer\IndexBuffer.h" />
     <ClInclude Include="System\Environment.h" />
@@ -147,11 +148,13 @@
     <ClInclude Include="Scene\TutorialScene.h" />
     <ClInclude Include="Utility\Singleton.h" />
     <ClInclude Include="Render\Buffer\VertexBuffer.h" />
+    <ClInclude Include="Render\Buffer\VertexLayout.h" />
     <ClInclude Include="__Others\Resource.h" />
     <ClInclude Include="__Others\targetver.h" />
     <ClInclude Include="Render\Buffer\GlobalBuffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\BasicObject\Cube.cpp" />
     <ClCompile Include="Render\Buffer\ConstantBuffer.cpp" />
     <ClCompile Include="Render\Buffer\IndexBuffer.cpp" />
     <ClCompile Include="System\Environment.cpp" />
