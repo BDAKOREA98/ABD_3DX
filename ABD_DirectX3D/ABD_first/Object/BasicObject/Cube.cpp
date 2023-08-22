@@ -4,9 +4,64 @@
 Cube::Cube()
 {
     // Shader 생성 및 설정
-    vertexShader = Shader::GetVS(L"Tutorial");
-    pixelShader = Shader::GetPS(L"Tutorial");
+    material = new Material(L"Tutorial");
+  
 
+    worldBuffer = new MatrixBuffer();
+
+    CreateMesh();
+}
+
+Cube::~Cube()
+{
+    delete material;
+    delete mesh;
+    delete worldBuffer;
+}
+
+void Cube::Update()
+{
+    //
+    s = XMMatrixScaling(scale.x, scale.y, scale.z);
+    r = XMMatrixRotationRollPitchYaw(rotation.x, rotation.y, rotation.z);
+    t = XMMatrixTranslation(translation.x, translation.y, translation.z);
+
+    world = s * r * t;
+
+    worldBuffer->SetData(world);
+}
+
+void Cube::PreRender()
+{
+}
+
+void Cube::Render()
+{
+
+    // 여기 역시 설정 하는 과정이기에 순서 중요하지 않음 
+
+    material->SetMaterial();
+    mesh->SetMesh();
+   
+
+
+    
+
+
+    //Draw
+    worldBuffer->SetVSBuffer(0);
+
+    // 여기부터 실제 렌더링 파이프라인이 시작되기에 이전까지는 순서 상관 없음!
+    DC->DrawIndexed(indices.size(), 0, 0);
+
+}
+
+void Cube::PostRender()
+{
+}
+
+void Cube::CreateMesh()
+{
     //////////////////////////////////////////////////////////////////
 
     {
@@ -26,7 +81,7 @@ Cube::Cube()
 
         };
 
-        vertexBuffer = new VertexBuffer(vertices);
+
 
     }
 
@@ -61,58 +116,25 @@ Cube::Cube()
 
     };
 
-    indexBuffer = new IndexBuffer(indices);
-
-    worldBuffer = new MatrixBuffer();
-
+    mesh = new Mesh(vertices, indices);
 }
 
-Cube::~Cube()
+void Cube::Debug()
 {
-    delete vertexBuffer;
-    delete indexBuffer;
+    if (ImGui::BeginMenu("Cube"))
+    {
+        ImGui::DragFloat3("Scale",      (float*)&scale,         0.01f,    0.01f,    100.0f);
+        //ImGui::DragFloat3("rotation",   (float*)&rotation,      0.01f,  -XM_2PI,    XM_2PI);
+        ImGui::SliderAngle("rotation.x",   &rotation.x);
+        ImGui::SliderAngle("rotation.y",   &rotation.y);
+        ImGui::SliderAngle("rotation.z",   &rotation.z);
+        ImGui::DragFloat3("translation",(float*)&translation,   0.01f,  -WIN_WIDTH, WIN_WIDTH);
 
-    delete worldBuffer;
-}
+        
 
-void Cube::Update()
-{
-    static float angle = 0.0f;
-
-    angle += 0.0001f;
-
-    XMMATRIX world = XMMatrixRotationRollPitchYaw(angle, angle, 0.0f);
-
-    worldBuffer->SetData(world);
-}
-
-void Cube::PreRender()
-{
-}
-
-void Cube::Render()
-{
-
-    // 여기 역시 설정 하는 과정이기에 순서 중요하지 않음 
-
-    vertexShader->SetShader();
-    pixelShader->SetShader();
-
-    vertexBuffer->IASetBuffer();
-    indexBuffer->IASetBuffer();
+        
+        ImGui::EndMenu();
+    }
 
 
-    
-
-
-    //Draw
-    worldBuffer->SetVSBuffer(0);
-
-    // 여기부터 실제 렌더링 파이프라인이 시작되기에 이전까지는 순서 상관 없음!
-    DC->DrawIndexed(indices.size(), 0, 0);
-
-}
-
-void Cube::PostRender()
-{
 }

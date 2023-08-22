@@ -106,11 +106,12 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>Framework.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>../; ./</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../;./;_include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>_Library</AdditionalLibraryDirectories>
     </Link>
     <FxCompile>
       <ShaderModel>5.0</ShaderModel>
@@ -133,6 +134,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Render\Mesh.h" />
+    <ClInclude Include="Render\Material.h" />
     <ClInclude Include="Object\BasicObject\Cube.h" />
     <ClInclude Include="Render\Buffer\ConstantBuffer.h" />
     <ClInclude Include="Render\Buffer\IndexBuffer.h" />
@@ -154,6 +157,8 @@
     <ClInclude Include="Render\Buffer\GlobalBuffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Render\Mesh.cpp" />
+    <ClCompile Include="Render\Material.cpp" />
     <ClCompile Include="Object\BasicObject\Cube.cpp" />
     <ClCompile Include="Render\Buffer\ConstantBuffer.cpp" />
     <ClCompile Include="Render\Buffer\IndexBuffer.cpp" />

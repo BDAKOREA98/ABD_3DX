@@ -26,6 +26,14 @@
 using namespace std;
 using namespace DirectX;
 
+#include "imgui.h"
+#include "imgui_impl_win32.h"
+#include "imgui_impl_dx11.h"
+
+#pragma comment(lib, "imGui.lib")
+
+
+
 
 #define WIN_WIDTH 1280.0f
 #define WIN_HEIGHT 720.0f
@@ -47,6 +55,9 @@ using namespace DirectX;
 #include "Render/Shader/VertexShader.h"
 #include "Render/Shader/PixelShader.h"
 
+// Render
+#include "Render/Material.h"
+
 // Render :: Buffer
 #include "Render/Buffer/VertexLayout.h"
 #include "Render/Buffer/VertexBuffer.h"
@@ -54,6 +65,8 @@ using namespace DirectX;
 #include "Render/Buffer/ConstantBuffer.h"
 #include "Render/Buffer/GlobalBuffer.h"
 
+// Render
+#include "Render/Mesh.h"
 
 
 #include "System/Environment.h"

@@ -535,3 +535,22 @@
 // 
 //
 #pragma endregion
+
+#pragma region 10Day - material, mesh, ImGui, 회전
+//
+// Meterial : Shader를 보완하는 내용
+// Mesh :  Buffer를 보완하는 내용
+// 
+// indices와 vertices를 원본참조로 받는이유
+// - 크기를 줄이기 위해
+// - 배열은 기본적으로 값이 큰데 이것을 callbyvalue로 받게된다면 매우 비효율적이기에 배열은 기본적으로 포인터로 작동한다.
+// - 원본참조로 크기를 줄이기 위함
+//
+// gimbal lock 현상
+// 회전에서 중간값이 특정값일경우 축 나머지 축들이 겹쳐지는 현상 
+// 두개의 회전축이 똑같은 값이 되면서 회전축이 3개에서 2개로 감소하게됨
+// 이 문제를 해결하기위해 쿼터니언을 사용함
+//  
+// 숙제 gimbal lock 현상에 대하여 최대한 이해해오기
+//
+#pragma endregion
