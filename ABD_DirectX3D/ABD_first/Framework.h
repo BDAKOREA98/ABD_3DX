@@ -33,6 +33,11 @@ using namespace DirectX;
 #pragma comment(lib, "imGui.lib")
 
 
+#define RED		{ 1.0f, 0.0f, 0.0f, 1.0f }
+#define BLUE	{ 0.0f, 0.0f, 1.0f, 1.0f }
+#define WHITE	{ 1.0f, 1.0f, 1.0f, 1.0f }
+#define GREEN	{ 0.0f, 1.0f, 0.0f, 1.0f }
+#define PURPLE	{ 0.54f, 0.0f, 1.0f, 1.0f }
 
 
 #define WIN_WIDTH 1280.0f
@@ -42,10 +47,17 @@ using namespace DirectX;
 #define DC		 Device::GetInstance()->GetDC()		
 
 
+typedef XMMATRIX Matrix;
+typedef XMFLOAT4 Vector4;
+
+
 
 
 // Utility
 #include "Utility/Singleton.h"
+#include "Utility/Vector3.h"
+// Object :: Transform
+#include "Object/Transform.h"
 
 // System
 #include "System/Device.h"

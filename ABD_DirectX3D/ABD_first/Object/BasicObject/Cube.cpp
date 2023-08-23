@@ -1,15 +1,20 @@
 #include "Framework.h"
 #include "Cube.h"
 
-Cube::Cube()
+int Cube::count = 0;
+Cube::Cube(Vector4 color)
 {
     // Shader 생성 및 설정
     material = new Material(L"Tutorial");
   
 
+    CreateMesh(color);
+    
     worldBuffer = new MatrixBuffer();
 
-    CreateMesh();
+
+    count++;
+    label = "Cube" + to_string(count);
 }
 
 Cube::~Cube()
@@ -21,14 +26,9 @@ Cube::~Cube()
 
 void Cube::Update()
 {
-    //
-    s = XMMatrixScaling(scale.x, scale.y, scale.z);
-    r = XMMatrixRotationRollPitchYaw(rotation.x, rotation.y, rotation.z);
-    t = XMMatrixTranslation(translation.x, translation.y, translation.z);
-
-    world = s * r * t;
-
+    Transform::Update();
     worldBuffer->SetData(world);
+
 }
 
 void Cube::PreRender()
@@ -60,24 +60,22 @@ void Cube::PostRender()
 {
 }
 
-void Cube::CreateMesh()
+void Cube::CreateMesh(Vector4 color)
 {
     //////////////////////////////////////////////////////////////////
 
     {
 
         vertices = {
-            VertexColor({ -1.0f, +1.0f, -1.0f}, {1.0f, 0.0f, 0.0f, 1.0f}),
-            VertexColor({ +1.0f, +1.0f, -1.0f}, {1.0f, 1.0f, 0.0f, 1.0f}),
-            VertexColor({ -1.0f, -1.0f, -1.0f}, {0.0f, 1.0f, 1.0f, 1.0f}),
-            VertexColor({ +1.0f, -1.0f, -1.0f}, {0.0f, 0.0f, 1.0f, 1.0f}),
-
-            VertexColor({ -1.0f, +1.0f, +1.0f}, {0.0f, 0.0f, 1.0f, 1.0f}),
-            VertexColor({ +1.0f, +1.0f, +1.0f}, {0.0f, 1.0f, 1.0f, 1.0f}),
-            VertexColor({ -1.0f, -1.0f, +1.0f}, {1.0f, 1.0f, 0.0f, 1.0f}),
-            VertexColor({ +1.0f, -1.0f, +1.0f}, {1.0f, 0.0f, 0.0f, 1.0f})
-
-
+            VertexColor({ -1.0f, +1.0f, -1.0f}, color),
+            VertexColor({ +1.0f, +1.0f, -1.0f}, color),
+            VertexColor({ -1.0f, -1.0f, -1.0f}, color),
+            VertexColor({ +1.0f, -1.0f, -1.0f}, color),
+                                                
+            VertexColor({ -1.0f, +1.0f, +1.0f}, color),
+            VertexColor({ +1.0f, +1.0f, +1.0f}, color),
+            VertexColor({ -1.0f, -1.0f, +1.0f}, color),
+            VertexColor({ +1.0f, -1.0f, +1.0f}, color)
 
         };
 
@@ -121,7 +119,7 @@ void Cube::CreateMesh()
 
 void Cube::Debug()
 {
-    if (ImGui::BeginMenu("Cube"))
+    if (ImGui::BeginMenu(label.c_str()))
     {
         ImGui::DragFloat3("Scale",      (float*)&scale,         0.01f,    0.01f,    100.0f);
         //ImGui::DragFloat3("rotation",   (float*)&rotation,      0.01f,  -XM_2PI,    XM_2PI);
