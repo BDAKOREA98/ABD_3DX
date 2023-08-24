@@ -29,6 +29,7 @@ private:
 
 	IDXGISwapChain*			swapchain; // 더블버퍼링을 구현하는 객체
 	ID3D11RenderTargetView* renderTargetView; // 백버퍼를 관리하는 객체
+	ID3D11DepthStencilView* depthStencilView;  // 깊이를 결정하는 객체 DSV라고도 부름
 
 };
 

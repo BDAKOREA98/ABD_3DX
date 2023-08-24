@@ -574,3 +574,12 @@
 // 하지만 만약에 상속을 두개이상 받지는 못 하기때문에 만약 싱글턴을 상속받을경우 컴포넌트로 해야함
 //
 #pragma endregion
+
+#pragma region 12Day - depth view, world
+//
+// -depth view
+// -픽셀에서 깊이를 측정해 그릴것과 안 그릴 것을 취합하는 것
+// - zfighting : z축의 깊이가 비슷하여 지지직거리며 그려지는 현상
+// 
+//
+#pragma endregion

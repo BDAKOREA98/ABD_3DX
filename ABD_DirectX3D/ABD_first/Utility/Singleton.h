@@ -8,7 +8,7 @@ public:
 	
 	
 	static T* GetInstance();
-	static void Dlelte();
+	static void Delete();
 
 protected:
 
@@ -31,7 +31,7 @@ inline T* Singleton<T>::GetInstance()
 }
 
 template<typename T>
-inline void Singleton<T>::Dlelte()
+inline void Singleton<T>::Delete()
 {
 	if (instance != nullptr)
 	{

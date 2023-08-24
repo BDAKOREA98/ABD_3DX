@@ -18,6 +18,10 @@ Program::~Program()
 void Program::Update()
 {
 	scene->Update();
+
+	Time::GetInstance()->Update();
+	Keyboard::GetInstance()->Update();
+
 }
 
 void Program::Render()
@@ -48,24 +52,15 @@ void Program::Render()
 
 void Program::Initialize()
 {
-	Device::GetInstance();
+	//Device::GetInstance();
 	Environment::GetInstance();
-	// Show the window
-	::ShowWindow(hWnd, SW_SHOWDEFAULT);
-	::UpdateWindow(hWnd);
+	Keyboard::GetInstance();
+	Time::GetInstance();
+	
 
-	// Setup Dear ImGui context
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
-	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-	io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
-
-	// Setup Dear ImGui style
 	ImGui::StyleColorsDark();
-	//ImGui::StyleColorsLight();
-
-	// Setup Platform/Renderer backends
 	ImGui_ImplWin32_Init(hWnd);
 	ImGui_ImplDX11_Init(DEVICE, DC);
 
@@ -73,9 +68,11 @@ void Program::Initialize()
 
 void Program::Release()
 {
-	Device::Dlelte();
+	Device::Delete();
 	Shader::Delete();
-	Environment::Dlelte();
+	Environment::Delete();
+	Keyboard::Delete();
+	Time::Delete();
 
 	ImGui_ImplDX11_Shutdown();
 	ImGui_ImplWin32_Shutdown();

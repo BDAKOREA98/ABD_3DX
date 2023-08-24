@@ -78,13 +78,47 @@ void Device::CreateBackBuffer()
 
     backBuffer->Release();
 
-    deviceContext->OMSetRenderTargets(1, &renderTargetView, nullptr);
+    // DSV
+    ID3D11Texture2D* depthBuffer;
+
+    D3D11_TEXTURE2D_DESC depthdesc;
+
+   depthdesc. Width                  = WIN_WIDTH;
+   depthdesc. Height                 = WIN_HEIGHT;
+   depthdesc. MipLevels              = 1 ;  // 확대 축소
+   depthdesc. ArraySize              = 1 ;
+   depthdesc. Format                 = DXGI_FORMAT_D24_UNORM_S8_UINT; // depth를 24비트를 UNORM로  stencil을 UINT로 8비트 쓰겠다.
+   depthdesc. SampleDesc.Count       = 1;
+   depthdesc. SampleDesc.Quality     = 0;
+   depthdesc. Usage                  = D3D11_USAGE_DEFAULT;
+   depthdesc. BindFlags              = D3D11_BIND_DEPTH_STENCIL;
+   depthdesc. CPUAccessFlags         = 0;
+   depthdesc. MiscFlags              = 0;
+
+
+    device->CreateTexture2D(&depthdesc, nullptr, &depthBuffer);
+
+    D3D11_DEPTH_STENCIL_VIEW_DESC dsvdesc = {};
+    dsvdesc.Format = depthdesc.Format;
+    dsvdesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
+
+
+    device->CreateDepthStencilView(depthBuffer, &dsvdesc, &depthStencilView);
+
+    depthBuffer->Release();
+   
+    deviceContext->OMSetRenderTargets(1, &renderTargetView, depthStencilView);
+
+
+
 }
 
 void Device::Clear()
 {
     float clearcolor[4] = { 1.0f, 0.0f, 1.0f, 1.0f };
     deviceContext->ClearRenderTargetView(renderTargetView, clearcolor);
+
+    deviceContext->ClearDepthStencilView(depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
 
 }
 

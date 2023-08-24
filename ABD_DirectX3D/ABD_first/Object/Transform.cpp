@@ -36,4 +36,24 @@ void Transform::UpdateWorld()
 		world *= parent->world;
 	}
 
+	XMFLOAT4X4 fworld;
+
+	XMStoreFloat4x4(&fworld, world);
+
+	right	= Vector3(fworld._11, fworld._12, fworld._13).GetNormalize();
+	up		= Vector3(fworld._21, fworld._22, fworld._23).GetNormalize();
+	forward = Vector3(fworld._31, fworld._32, fworld._33).GetNormalize();
+	
+	
+	XMVECTOR outS, outR, outT;
+
+	XMMatrixDecompose(&outS, &outR, &outT, world);
+
+	globalScale		= outS;
+	globalRotation	= outR;
+	globalPosition	= outT;
+
+
+
+
 }

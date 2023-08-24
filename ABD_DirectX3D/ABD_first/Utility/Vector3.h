@@ -1,4 +1,12 @@
 #pragma once
+
+#define V_LEFT		Vector3(-1.0f, +0.0f , +0.0f)
+#define V_RIGHT		Vector3(+1.0f, +0.0f , +0.0f)
+#define V_DOWN		Vector3(+0.0f, -1.0f , +0.0f)
+#define V_UP		Vector3(+0.0f, +1.0f , +0.0f)
+#define V_BACKWARD	Vector3(+0.0f, +0.0f , -1.0f)
+#define V_FORWARD	Vector3(+0.0f, +0.0f , +1.0f)
+
 struct Vector3
 {
 
@@ -36,6 +44,60 @@ struct Vector3
 	{
 		return XMFLOAT3(x, y, z);
 	}
+
+	
+
+
+	float Length() { return XMVectorGetX(XMVector3Length(*this)); }
+	// Vector 를 노말라이즈함
+	void Normalize() { *this = XMVector3Normalize(*this); }
+	// 노말라이즈한 값을 받음
+	Vector3 GetNormalize(){return XMVector3Normalize(*this);	}
+
+
+
+	Vector3 operator* (const float& value) 
+	{ 
+		return Vector3(this->x * value, this->y * value, this->z * value);
+	}
+	Vector3 operator/ (const float& value)
+	{
+		return Vector3(this->x / value, this->y / value, this->z / value);
+	}
+	Vector3 operator+ (const Vector3& other)
+	{
+		return Vector3(this->x + other.x , this->y + other.y, this->z + other.z);
+	}
+	Vector3 operator- (const Vector3& other)
+	{
+		return Vector3(this->x - other.x, this->y - other.y, this->z - other.z);
+	}
+	void operator *= (const float& value)	
+	{  
+		this->x *= value; 
+		this->y *= value; 
+		this->z *= value; 
+	}
+	void operator /= (const float& value)	
+	{
+		this->x /= value;
+		this->y /= value;
+		this->z /= value;
+	}
+	void operator += (const Vector3& other) 
+	{
+		this->x += other.x;
+		this->y += other.y;
+		this->z += other.z;
+	}
+	void operator -= (const Vector3& other) 
+	{
+		this->x -= other.x;
+		this->y -= other.y;
+		this->z -= other.z;
+	}
+
+	
 
 
 	

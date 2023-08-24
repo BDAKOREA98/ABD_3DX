@@ -46,6 +46,11 @@ using namespace DirectX;
 #define DEVICE	 Device::GetInstance()->GetDevice()	
 #define DC		 Device::GetInstance()->GetDC()		
 
+#define Key_UP(p) Keyboard::GetInstance()->Up(p)
+#define Key_PRESS(p) Keyboard::GetInstance()->Press(p)
+#define Key_DOWN(p) Keyboard::GetInstance()->Down(p)
+
+
 
 typedef XMMATRIX Matrix;
 typedef XMFLOAT4 Vector4;
@@ -56,6 +61,8 @@ typedef XMFLOAT4 Vector4;
 // Utility
 #include "Utility/Singleton.h"
 #include "Utility/Vector3.h"
+#include "Utility/Keyboard.h"
+#include "Utility/Time.h"
 // Object :: Transform
 #include "Object/Transform.h"
 
