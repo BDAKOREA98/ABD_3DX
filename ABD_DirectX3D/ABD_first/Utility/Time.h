@@ -3,6 +3,7 @@
 class Time : public Singleton<Time>
 {
 	friend class Singleton;
+
 private:
 	Time();
 	~Time();

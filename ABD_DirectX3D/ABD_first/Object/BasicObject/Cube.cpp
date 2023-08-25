@@ -1,6 +1,5 @@
 #include "Framework.h"
 #include "Cube.h"
-
 int Cube::count = 0;
 Cube::Cube(Vector4 color)
 {
@@ -43,10 +42,6 @@ void Cube::Render()
     material->SetMaterial();
     mesh->SetMesh();
    
-
-
-    
-
 
     //Draw
     worldBuffer->SetVSBuffer(0);
@@ -127,12 +122,7 @@ void Cube::Debug()
         ImGui::SliderAngle("rotation.y",   &rotation.y);
         ImGui::SliderAngle("rotation.z",   &rotation.z);
         ImGui::DragFloat3("translation",(float*)&translation,   0.01f,  -WIN_WIDTH, WIN_WIDTH);
-
-        
-
         
         ImGui::EndMenu();
     }
-
-
 }

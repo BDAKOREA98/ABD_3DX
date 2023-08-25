@@ -1,2 +1,43 @@
-﻿  Transform.cpp
+﻿  Framework.cpp
+  Main.cpp
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(136,24): warning C4838: 'float'에서 'LONG'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(136,24): warning C4244: '초기화 중': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(136,35): warning C4838: 'float'에서 'LONG'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Main.cpp(136,35): warning C4244: '초기화 중': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Cube.cpp
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Cube.cpp(50,33): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Buffer\VertexBuffer.h(30,53): warning C4267: '=': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Mesh.h(24,34): message : 컴파일되는 함수 템플릿 인스턴스화 'VertexBuffer::VertexBuffer<VertexColor>(std::vector<VertexColor,std::allocator<VertexColor>> &)'에 대한 참조를 확인하세요.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Cube.cpp(112,20): message : 컴파일되는 함수 템플릿 인스턴스화 'Mesh::Mesh<VertexColor>(std::vector<VertexColor,std::allocator<VertexColor>> &,std::vector<UINT,std::allocator<UINT>> &)'에 대한 참조를 확인하세요.
+  Transform.cpp
+  Program.cpp
+  Quad.cpp
+  ConstantBuffer.cpp
+  IndexBuffer.cpp
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Buffer\IndexBuffer.cpp(8,45): warning C4267: '=': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  VertexBuffer.cpp
+  Material.cpp
+  Mesh.cpp
+  PixelShader.cpp
+  Shader.cpp
+  VertexShader.cpp
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Shader\VertexShader.cpp(110,26): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  TextureScene.cpp
+  TutorialScene.cpp
+  Device.cpp
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\System\Device.cpp(28,38): warning C4244: '=': 'float'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\System\Device.cpp(29,39): warning C4244: '=': 'float'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\System\Device.cpp(86,40): warning C4244: '=': 'float'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\System\Device.cpp(87,40): warning C4244: '=': 'float'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Environment.cpp
+  Keyboard.cpp
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Utility\Keyboard.cpp(4,30): warning C4356: 'Singleton<Keyboard>::instance': 정적 데이터 멤버는 파생 클래스를 통해 초기화할 수 없습니다.
+  Time.cpp
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Utility\Time.cpp(4,22): warning C4356: 'Singleton<Time>::instance': 정적 데이터 멤버는 파생 클래스를 통해 초기화할 수 없습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Utility\Time.cpp(15,18): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Vector3.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  memo.cpp
+  코드를 생성하고 있습니다...
   ABD_first.vcxproj -> C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\ABD_first.exe

@@ -38,7 +38,7 @@ void Environment::CreatePerspective()
     // 눈의 위치
     XMVECTOR eyepos = XMVectorSet(+0.0f, +0.0f, -5.0f, 1.0f);
     // 눈이 바라보는 방향
-    XMVECTOR focuspos = XMVectorSet(+0.0f, +0.0f, 0.0f, 1.0f);
+    XMVECTOR focuspos = XMVectorSet(+0.0f, +0.0f, 0.0f, 1.0f);                                                                                                                      
     // 카메라의 위 방향 : y축 회전 방향을 정하기 위함
     XMVECTOR upvector = XMVectorSet(+0.0f, +1.0f, 0.0f, 0.0f);
 

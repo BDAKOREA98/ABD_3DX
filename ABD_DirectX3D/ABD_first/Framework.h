@@ -20,17 +20,21 @@
 
 
 
-
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dcompiler.lib")
+#pragma comment(lib, "dxguid.lib")
+#include "DirectXTex.h"
+#include "DirectXTex.inl"
+#pragma comment(lib,"DirectXTex.lib")
+
 using namespace std;
 using namespace DirectX;
-
 #include "imgui.h"
 #include "imgui_impl_win32.h"
 #include "imgui_impl_dx11.h"
 
 #pragma comment(lib, "imGui.lib")
+
 
 
 #define RED		{ 1.0f, 0.0f, 0.0f, 1.0f }
@@ -66,6 +70,7 @@ typedef XMFLOAT4 Vector4;
 // Object :: Transform
 #include "Object/Transform.h"
 
+
 // System
 #include "System/Device.h"
 
@@ -95,6 +100,7 @@ typedef XMFLOAT4 Vector4;
 // Scene
 #include "Scene/Scene.h"
 #include "Scene/TutorialScene.h"
+#include "Scene/TextureScene.h"
 
 // main
 #include "Program.h"

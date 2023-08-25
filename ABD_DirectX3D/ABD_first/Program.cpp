@@ -5,7 +5,7 @@ Program::Program()
 {
 	Initialize();
 
-	scene = new TutorialScene();
+	scene = new TextureScene();
 
 }
 
