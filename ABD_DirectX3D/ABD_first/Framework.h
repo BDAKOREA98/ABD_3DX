@@ -42,7 +42,7 @@ using namespace DirectX;
 #define WHITE	{ 1.0f, 1.0f, 1.0f, 1.0f }
 #define GREEN	{ 0.0f, 1.0f, 0.0f, 1.0f }
 #define PURPLE	{ 0.54f, 0.0f, 1.0f, 1.0f }
-
+#define PI 3.141592
 
 #define WIN_WIDTH 1280.0f
 #define WIN_HEIGHT 720.0f
@@ -58,7 +58,7 @@ using namespace DirectX;
 
 typedef XMMATRIX Matrix;
 typedef XMFLOAT4 Vector4;
-
+typedef XMFLOAT2 Vector2;
 
 
 
@@ -69,6 +69,7 @@ typedef XMFLOAT4 Vector4;
 #include "Utility/Time.h"
 // Object :: Transform
 #include "Object/Transform.h"
+
 
 
 // System
@@ -96,11 +97,13 @@ typedef XMFLOAT4 Vector4;
 #include "System/Environment.h"
 
 #include "Object/BasicObject/Cube.h"
+#include "Object/BasicObject/Quad.h"
 
 // Scene
 #include "Scene/Scene.h"
 #include "Scene/TutorialScene.h"
 #include "Scene/TextureScene.h"
+#include "Scene/RobotScene.h"
 
 // main
 #include "Program.h"

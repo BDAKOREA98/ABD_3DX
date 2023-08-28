@@ -18,3 +18,13 @@ struct VertexColor
     XMFLOAT4 color;
 };
 
+struct VertexTexture
+{
+    VertexTexture(XMFLOAT3 pos, XMFLOAT2 uv)
+        : pos(pos), uv(uv)
+    {
+    }
+    XMFLOAT3 pos;
+    XMFLOAT2 uv;
+};
+

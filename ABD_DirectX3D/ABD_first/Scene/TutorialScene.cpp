@@ -4,17 +4,13 @@
 
 
 TutorialScene::TutorialScene()
-{ // ÃÊ±âÈ­
+{ 
 
     cube1 = new Cube(RED);
     cube2 = new Cube(BLUE);
 
-   // cube2->translation.x = 3;
-
+    cube2->translation.x = 3;
     cube2->SetParent(cube1);
-
-
-    
 }
 
 TutorialScene::~TutorialScene()
@@ -29,9 +25,11 @@ void TutorialScene::Update()
     cube1->Update();
     cube2->Update();
 
+    
+
 //    cube1->rotation.y += 0.0001f;
 
-    if (Key_PRESS(VK_LEFT))
+   /* if (Key_PRESS(VK_LEFT))
     {
         cube1->translation += cube1->Left() * Time::Delta();
     }
@@ -64,7 +62,7 @@ void TutorialScene::Update()
     if (Key_PRESS('D'))           
     {                             
         cube2->translation += cube2->Right() * Time::Delta();
-    }
+    }*/
 
 }
 
@@ -85,5 +83,6 @@ void TutorialScene::Render()
 
 void TutorialScene::PostRender()
 {
+
 
 }

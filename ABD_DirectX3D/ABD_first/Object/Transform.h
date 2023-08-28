@@ -22,6 +22,11 @@ public:
 	Vector3 Up()		{ return up; }
 	Vector3 Down()		{ return up * -1; }
 
+	void AddScale(Vector3 value) { scale += value; }
+	void AddRotation(Vector3 value) { rotation += value; }
+	void AddTranslation(Vector3 value) { translation += value; }
+
+
 
 public:
 	Vector3 scale          = {1.0f, 1.0f, 1.0f};

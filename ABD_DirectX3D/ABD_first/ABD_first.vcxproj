@@ -134,12 +134,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Quad.h" />
+    <ClInclude Include="Object\BasicObject\Quad.h" />
     <ClInclude Include="Render\Mesh.h" />
     <ClInclude Include="Render\Material.h" />
     <ClInclude Include="Object\BasicObject\Cube.h" />
     <ClInclude Include="Render\Buffer\ConstantBuffer.h" />
     <ClInclude Include="Render\Buffer\IndexBuffer.h" />
+    <ClInclude Include="Scene\RobotScene.h" />
     <ClInclude Include="System\Environment.h" />
     <ClInclude Include="Render\Shader\PixelShader.h" />
     <ClInclude Include="Render\Shader\VertexShader.h" />
@@ -163,12 +164,13 @@
     <ClInclude Include="Render\Buffer\GlobalBuffer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Quad.cpp" />
+    <ClCompile Include="Object\BasicObject\Quad.cpp" />
     <ClCompile Include="Render\Mesh.cpp" />
     <ClCompile Include="Render\Material.cpp" />
     <ClCompile Include="Object\BasicObject\Cube.cpp" />
     <ClCompile Include="Render\Buffer\ConstantBuffer.cpp" />
     <ClCompile Include="Render\Buffer\IndexBuffer.cpp" />
+    <ClCompile Include="Scene\RobotScene.cpp" />
     <ClCompile Include="System\Environment.cpp" />
     <ClCompile Include="Render\Shader\PixelShader.cpp" />
     <ClCompile Include="Render\Shader\VertexShader.cpp" />
