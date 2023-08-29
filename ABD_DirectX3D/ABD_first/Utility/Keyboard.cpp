@@ -1,7 +1,7 @@
 #include "Framework.h"
 #include "Keyboard.h"
 
-Keyboard* Keyboard::instance = nullptr;
+
 
 Keyboard::Keyboard()
 {

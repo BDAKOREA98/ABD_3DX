@@ -6,7 +6,8 @@ Program::Program()
 {
 	Initialize();
 
-	scene = new TextureScene();
+	//scene = new TextureScene();
+	scene = new BoxScene();
 
 }
 
@@ -53,11 +54,11 @@ void Program::Render()
 
 void Program::Initialize()
 {
-	//Device::GetInstance();
-	Environment::GetInstance();
-	Keyboard::GetInstance();
-	Time::GetInstance();
-	
+	//Device		::GetInstance();
+	Environment	::GetInstance();
+	Keyboard	::GetInstance();
+	Time		::GetInstance();
+	StateManager::GetInstance();
 
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
@@ -69,11 +70,12 @@ void Program::Initialize()
 
 void Program::Release()
 {
-	Device::Delete();
-	Shader::Delete();
-	Environment::Delete();
-	Keyboard::Delete();
-	Time::Delete();
+	Time		::Delete();
+	Device		::Delete();
+	Shader		::Delete();
+	Keyboard	::Delete();
+	Environment	::Delete();
+	StateManager::Delete();
 
 	ImGui_ImplDX11_Shutdown();
 	ImGui_ImplWin32_Shutdown();

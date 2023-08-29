@@ -13,7 +13,9 @@ public:
 
 private:
 
-	Quad* quad = nullptr;
+	TextureCube* cube;
+	
+
 	
 
 };

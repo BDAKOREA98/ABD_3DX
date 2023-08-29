@@ -13,7 +13,6 @@ public:
     void Render() ;
     void PostRender();
     void CreateMesh(Vector4 color);
-    void Debug();
 
 private:
 
@@ -27,8 +26,7 @@ private:
     
     MatrixBuffer*       worldBuffer;
       
-    static int count;
-    string label = "";
+    
 
 };
 

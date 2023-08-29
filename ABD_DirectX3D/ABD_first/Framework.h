@@ -80,7 +80,10 @@ typedef XMFLOAT2 Vector2;
 #include "Render/Shader/VertexShader.h"
 #include "Render/Shader/PixelShader.h"
 
+
+
 // Render
+#include "Render/Texture/Texture.h"
 #include "Render/Material.h"
 
 // Render :: Buffer
@@ -93,17 +96,24 @@ typedef XMFLOAT2 Vector2;
 // Render
 #include "Render/Mesh.h"
 
+// Render :: State
+#include "Render/State/SamplerState.h"
+#include "Render/State/StateManager.h"
+
 
 #include "System/Environment.h"
 
 #include "Object/BasicObject/Cube.h"
 #include "Object/BasicObject/Quad.h"
+#include "Object/BasicObject/Box.h"
+#include "Object/BasicObject/TextureCube.h"
 
 // Scene
 #include "Scene/Scene.h"
 #include "Scene/TutorialScene.h"
 #include "Scene/TextureScene.h"
 #include "Scene/RobotScene.h"
+#include "Scene/BoxScene.h"
 
 // main
 #include "Program.h"

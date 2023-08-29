@@ -3,17 +3,20 @@
 
 TextureScene::TextureScene()
 {
-	quad = new Quad({2,1});
-
+	cube = new TextureCube();
+	cube->SetLabel("CUBE");
 }
 
 TextureScene::~TextureScene()
 {
-	delete quad;
+	delete cube;
+	
 }
 
 void TextureScene::Update()
 {
+	
+	cube->Update();
 }
 
 void TextureScene::PreRender()
@@ -22,9 +25,11 @@ void TextureScene::PreRender()
 
 void TextureScene::Render()
 {
-	quad->Render();
+	cube->Render();
+	
 }
 
 void TextureScene::PostRender()
 {
+	cube->Debug();
 }

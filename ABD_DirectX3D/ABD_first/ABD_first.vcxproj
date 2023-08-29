@@ -134,13 +134,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Scene\BoxScene.h" />
+    <ClInclude Include="Object\BasicObject\Box.h" />
     <ClInclude Include="Object\BasicObject\Quad.h" />
     <ClInclude Include="Render\Mesh.h" />
     <ClInclude Include="Render\Material.h" />
     <ClInclude Include="Object\BasicObject\Cube.h" />
     <ClInclude Include="Render\Buffer\ConstantBuffer.h" />
     <ClInclude Include="Render\Buffer\IndexBuffer.h" />
+    <ClInclude Include="Render\State\SamplerState.h" />
     <ClInclude Include="Scene\RobotScene.h" />
+    <ClInclude Include="Render\State\StateManager.h" />
     <ClInclude Include="System\Environment.h" />
     <ClInclude Include="Render\Shader\PixelShader.h" />
     <ClInclude Include="Render\Shader\VertexShader.h" />
@@ -153,6 +157,8 @@
     <ClInclude Include="Scene\TutorialScene.h" />
     <ClInclude Include="Object\Transform.h" />
     <ClInclude Include="Scene\TextureScene.h" />
+    <ClInclude Include="Render\Texture\Texture.h" />
+    <ClInclude Include="Object\BasicObject\TextureCube.h" />
     <ClInclude Include="Utility\Keyboard.h" />
     <ClInclude Include="Utility\Singleton.h" />
     <ClInclude Include="Render\Buffer\VertexBuffer.h" />
@@ -164,13 +170,17 @@
     <ClInclude Include="Render\Buffer\GlobalBuffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Scene\BoxScene.cpp" />
+    <ClCompile Include="Object\BasicObject\Box.cpp" />
     <ClCompile Include="Object\BasicObject\Quad.cpp" />
     <ClCompile Include="Render\Mesh.cpp" />
     <ClCompile Include="Render\Material.cpp" />
     <ClCompile Include="Object\BasicObject\Cube.cpp" />
     <ClCompile Include="Render\Buffer\ConstantBuffer.cpp" />
     <ClCompile Include="Render\Buffer\IndexBuffer.cpp" />
+    <ClCompile Include="Render\State\SamplerState.cpp" />
     <ClCompile Include="Scene\RobotScene.cpp" />
+    <ClCompile Include="Render\State\StateManager.cpp" />
     <ClCompile Include="System\Environment.cpp" />
     <ClCompile Include="Render\Shader\PixelShader.cpp" />
     <ClCompile Include="Render\Shader\VertexShader.cpp" />
@@ -186,6 +196,8 @@
     <ClCompile Include="Render\Buffer\VertexBuffer.cpp" />
     <ClCompile Include="Object\Transform.cpp" />
     <ClCompile Include="Scene\TextureScene.cpp" />
+    <ClCompile Include="Render\Texture\Texture.cpp" />
+    <ClCompile Include="Object\BasicObject\TextureCube.cpp" />
     <ClCompile Include="Utility\Keyboard.cpp" />
     <ClCompile Include="Utility\Time.cpp" />
     <ClCompile Include="Utility\Vector3.cpp" />
