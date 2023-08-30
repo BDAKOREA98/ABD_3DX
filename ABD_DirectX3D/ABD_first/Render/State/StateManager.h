@@ -8,9 +8,11 @@ public:
 	~StateManager();
 
 	void CreateSamplerState();
+	void CreateRaterizerState();
+	
 
 private:
 	SamplerState* samplerstate = nullptr;
-
+	RasterizerState* raterizerstate = nullptr;
 };
 

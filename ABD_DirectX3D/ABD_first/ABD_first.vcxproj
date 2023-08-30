@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Render\State\RasterizerState.h" />
     <ClInclude Include="Scene\BoxScene.h" />
     <ClInclude Include="Object\BasicObject\Box.h" />
     <ClInclude Include="Object\BasicObject\Quad.h" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Scene\TextureScene.h" />
     <ClInclude Include="Render\Texture\Texture.h" />
     <ClInclude Include="Object\BasicObject\TextureCube.h" />
+    <ClInclude Include="Scene\TerrainScene.h" />
     <ClInclude Include="Utility\Keyboard.h" />
     <ClInclude Include="Utility\Singleton.h" />
     <ClInclude Include="Render\Buffer\VertexBuffer.h" />
@@ -170,6 +172,7 @@
     <ClInclude Include="Render\Buffer\GlobalBuffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Render\State\RasterizerState.cpp" />
     <ClCompile Include="Scene\BoxScene.cpp" />
     <ClCompile Include="Object\BasicObject\Box.cpp" />
     <ClCompile Include="Object\BasicObject\Quad.cpp" />
@@ -198,6 +201,7 @@
     <ClCompile Include="Scene\TextureScene.cpp" />
     <ClCompile Include="Render\Texture\Texture.cpp" />
     <ClCompile Include="Object\BasicObject\TextureCube.cpp" />
+    <ClCompile Include="Scene\TerrainScene.cpp" />
     <ClCompile Include="Utility\Keyboard.cpp" />
     <ClCompile Include="Utility\Time.cpp" />
     <ClCompile Include="Utility\Vector3.cpp" />

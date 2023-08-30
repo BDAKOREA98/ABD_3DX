@@ -97,6 +97,7 @@ typedef XMFLOAT2 Vector2;
 #include "Render/Mesh.h"
 
 // Render :: State
+#include "Render/State/RasterizerState.h"
 #include "Render/State/SamplerState.h"
 #include "Render/State/StateManager.h"
 
@@ -114,6 +115,7 @@ typedef XMFLOAT2 Vector2;
 #include "Scene/TextureScene.h"
 #include "Scene/RobotScene.h"
 #include "Scene/BoxScene.h"
+#include "Scene/TerrainScene.h"
 
 // main
 #include "Program.h"

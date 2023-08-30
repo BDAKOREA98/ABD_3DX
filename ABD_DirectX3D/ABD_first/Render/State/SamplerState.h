@@ -6,6 +6,8 @@ public:
 	~SamplerState();
 
 private:
+
 	ID3D11SamplerState* samplerState = nullptr;
+
 };
 

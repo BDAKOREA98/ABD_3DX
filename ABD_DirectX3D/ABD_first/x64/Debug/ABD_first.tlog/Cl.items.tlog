@@ -1,3 +1,4 @@
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\State\RasterizerState.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\RasterizerState.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Scene\BoxScene.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\BoxScene.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Box.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Box.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Quad.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Quad.obj
@@ -24,6 +25,7 @@ C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\Transform.cpp;C
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Scene\TextureScene.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\TextureScene.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Texture\Texture.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Texture.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\TextureCube.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\TextureCube.obj
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Scene\TerrainScene.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\TerrainScene.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Utility\Keyboard.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Keyboard.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Utility\Time.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Time.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Utility\Vector3.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Vector3.obj

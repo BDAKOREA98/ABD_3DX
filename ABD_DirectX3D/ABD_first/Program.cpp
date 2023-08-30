@@ -7,7 +7,8 @@ Program::Program()
 	Initialize();
 
 	//scene = new TextureScene();
-	scene = new BoxScene();
+	scene = new TerrainScene();
+	//scene = new BoxScene();
 
 }
 

@@ -26,8 +26,8 @@ void Material::SetPixelShader(wstring file)
 
 void Material::SetShader(wstring file)
 {
-	SetVertexShader(file);
-	SetPixelShader(file);
+	SetVertexShader	(file);
+	SetPixelShader	(file);
 }
 
 void Material::SetMaterial()

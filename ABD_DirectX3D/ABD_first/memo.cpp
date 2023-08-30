@@ -629,13 +629,18 @@
 //
 #pragma endregion
 
-#pragma region 15Day
+#pragma region 15Day, 16Day - TextureCube, TerrianScene(지형그리기 ex) 높낮이)
 //
 // 
 // 
 // Difusemap은 난반사로 깊이나 색상으로 입체감을 조성한다.
 //
 // 회전에서 방향을 정하는 방식 : 각축의 +에서 -를 바라봤을때 +회전은 시계방향 - 회전은 반 시계방향
+// 
+// 정점정보인 wireframe을 보기위해서는
+// ResterizeState를 건드려야함
+// 
+// width와 height로 정점을 찍었기에 원하는 width만큼 정점을 찍기 원하면 indices를 빼줌 
 // 
 //
 #pragma endregion
