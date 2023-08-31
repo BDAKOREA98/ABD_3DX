@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="System\Camera.h" />
     <ClInclude Include="Render\State\RasterizerState.h" />
     <ClInclude Include="Scene\BoxScene.h" />
     <ClInclude Include="Object\BasicObject\Box.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="Render\Buffer\GlobalBuffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="System\Camera.cpp" />
     <ClCompile Include="Render\State\RasterizerState.cpp" />
     <ClCompile Include="Scene\BoxScene.cpp" />
     <ClCompile Include="Object\BasicObject\Box.cpp" />

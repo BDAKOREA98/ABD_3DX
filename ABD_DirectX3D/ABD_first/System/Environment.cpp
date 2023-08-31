@@ -9,7 +9,7 @@ Environment::Environment()
 
 Environment::~Environment()
 {
-    delete viewBuffer;
+   
     delete projBuffer;
 }
 
@@ -30,22 +30,12 @@ void Environment::CreateViewPort()
 
 void Environment::CreatePerspective()
 {
-    viewBuffer = new MatrixBuffer();
+   
     projBuffer = new MatrixBuffer();
 
 
 
-    // 눈의 위치
-    XMVECTOR eyepos = XMVectorSet(+0.0f, +10.0f, -2.0f, 1.0f);
-    // 눈이 바라보는 방향
-    XMVECTOR focuspos = XMVectorSet(+0.0f, +0.0f, 0.0f, 1.0f);                                                                                                                      
-    // 카메라의 위 방향 : y축 회전 방향을 정하기 위함
-    XMVECTOR upvector = XMVectorSet(+0.0f, +1.0f, 0.0f, 0.0f);
-
-    XMMATRIX view = XMMatrixLookAtLH(eyepos, focuspos, upvector);
-
-
-    viewBuffer->SetData(view);
+   
 
     // fov == Field Of View == 시야각
     XMMATRIX projection = XMMatrixPerspectiveFovLH
@@ -58,7 +48,6 @@ void Environment::CreatePerspective()
 
     projBuffer->SetData(projection);
 
-    viewBuffer->SetVSBuffer(1);
     projBuffer->SetVSBuffer(2);
 
 }

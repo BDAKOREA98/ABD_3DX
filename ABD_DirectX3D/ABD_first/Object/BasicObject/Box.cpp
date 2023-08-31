@@ -90,7 +90,7 @@ Box::~Box()
 void Box::Update()
 {
 	Transform::Update();
-	if (Key_PRESS(VK_LBUTTON))
+	if (KEY_PRESS(VK_LBUTTON))
 	{
 		AddRotation(Vector3(0.01f, 0.00f, 0));
 	}

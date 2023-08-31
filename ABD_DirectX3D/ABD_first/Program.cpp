@@ -22,8 +22,9 @@ void Program::Update()
 {
 	scene->Update();
 
-	Time::GetInstance()->Update();
-	Keyboard::GetInstance()->Update();
+	Time::GetInstance()		->Update();
+	Keyboard::GetInstance()	->Update();
+	Camera::GetInstance()	->Update();
 
 }
 
@@ -45,6 +46,9 @@ void Program::Render()
 
 	scene->Render();
 	scene->PostRender();
+
+	Camera::GetInstance()->PostRender();
+
 	ImGui::Render();
 	// 실제 Imgui를 그리는 놈이라고 보면 됨 이게 위로 올라가면 큐브 뒤로 그려짐
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
@@ -77,7 +81,8 @@ void Program::Release()
 	Keyboard	::Delete();
 	Environment	::Delete();
 	StateManager::Delete();
-
+	Camera		::Delete();
+	Texture		::Delete();
 	ImGui_ImplDX11_Shutdown();
 	ImGui_ImplWin32_Shutdown();
 	ImGui::DestroyContext();

@@ -93,7 +93,7 @@ void RobotScene::PostRender()
 
 void RobotScene::inputKey()
 {
-	if (Key_PRESS('W'))
+	if (KEY_PRESS('W'))
 	{
 		body->translation += body->Backward() * Time::Delta();
 
@@ -149,7 +149,7 @@ void RobotScene::inputKey()
 
 	}
 
-	if (Key_PRESS(VK_LEFT))
+	if (KEY_PRESS(VK_LEFT))
 	{
 		body->AddRotation(Vector3(0.0f, 0.002f, 0.0f));
 	}

@@ -11,6 +11,7 @@
 
 HWND hWnd;
 
+Vector3 MousePos;
 
 
 
@@ -206,6 +207,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             EndPaint(hWnd, &ps);
         }
         break;
+    case WM_MOUSEMOVE:
+    {
+        MousePos.x = LOWORD(lParam);
+        MousePos.y = HIWORD(lParam);
+        break;
+    }
+
     case WM_DESTROY:
         PostQuitMessage(0);
         break;

@@ -51,7 +51,7 @@ using namespace DirectX;
 #define DC		 Device::GetInstance()->GetDC()		
 
 #define Key_UP(p) Keyboard::GetInstance()->Up(p)
-#define Key_PRESS(p) Keyboard::GetInstance()->Press(p)
+#define KEY_PRESS(p) Keyboard::GetInstance()->Press(p)
 #define Key_DOWN(p) Keyboard::GetInstance()->Down(p)
 
 
@@ -101,8 +101,9 @@ typedef XMFLOAT2 Vector2;
 #include "Render/State/SamplerState.h"
 #include "Render/State/StateManager.h"
 
-
+// System
 #include "System/Environment.h"
+#include "System/Camera.h"
 
 #include "Object/BasicObject/Cube.h"
 #include "Object/BasicObject/Quad.h"
@@ -121,3 +122,4 @@ typedef XMFLOAT2 Vector2;
 #include "Program.h"
 
 extern HWND hWnd;
+extern Vector3 MousePos;

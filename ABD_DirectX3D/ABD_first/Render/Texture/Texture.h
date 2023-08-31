@@ -16,6 +16,14 @@ public:
 
 	void PSSetShaderResource(UINT slot);
 
+	vector<Vector4> ReadPixel();
+
+
+	Vector2 GetSize()
+	{
+		return Vector2(image.GetMetadata().width, image.GetMetadata().height);
+	}
+
 
 
 private:
@@ -24,6 +32,8 @@ private:
 	ScratchImage image;
 
 	static map<wstring, Texture*> textures;
+
+
 
 };
 

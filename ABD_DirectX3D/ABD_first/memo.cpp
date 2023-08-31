@@ -644,3 +644,45 @@
 // 
 //
 #pragma endregion
+
+
+#pragma region 17Day - 
+// -  
+// - Quarter view"는 게임 및 그래픽 디자인 분야에서 사용되는 용어로, 객체나 장면을 보는 시각적인 관점을 나타낸다
+// -- "Quarter view"는 "1/4 뷰" 또는 "사분면 뷰"로 번역될 수 있다. ex) 디아, 리니지, 등 위에서 아래로 내려보는 카메라
+// - 
+// - 카메라의 종류는 다양함
+// - 캐릭터의 종속되어 따라가는 카메라가 있고
+// - 캐릭터가 보고있는것만 볼 수 있는 카메라가있고
+// - 자유롭게 움직일 수 있는 카메라가 있음
+// -
+// - 배열은 무조건 이어져 있기때문에 하나만 알아도 뒤에를 이어서 쓸 수 있음
+// - 숫자의 포인터일 경우 숫자의 배열이다. ex) uint_t == unsigned charactor == 숫자의 배열
+// 
+// - 프로그램에서는 나누기보다 곱하기 연산을 많이 사용하는데 그 이유는 곱하기가 나누기보다 연산이 빠르기 때문임
+// 
+// - vector<Vector4> color(size); == color.resize(size)
+// --두개는 같은 것임
+// 
+// - 표기법
+// Camel Case:
+// - Camel Case는 첫 번째 단어를 소문자로 시작하고 이후의 단어들의 첫 글자는 대문자로 작성하는 방식입니다.예를 들어 : myVariableName, calculateTotalAmount.
+// - 
+// - Pascal Case :
+// - Pascal Case는 모든 단어의 첫 글자를 대문자로 작성하는 방식입니다.주로 클래스나 타입의 이름을 작성할 때 사용됩니다.예를 들어 : MyClassName, CalculateTotalAmount.
+// - 
+// - Snake Case :
+// - Snake Case는 단어를 모두 소문자로 작성하고 단어 사이를 밑줄(_)로 구분하는 방식입니다.예를 들어 : my_variable_name, calculate_total_amount.
+// - 
+// - Kebab Case :
+// - Kebab Case는 단어를 모두 소문자로 작성하고 단어 사이를 하이픈(-)으로 구분하는 방식입니다.예를 들어 : my - variable - name, calculate - total - amount.
+// - 
+// - Hungarian Notation :
+// - Hungarian Notation은 변수 이름 앞에 해당 변수의 데이터 타입이나 특성을 나타내는 접두사를 붙이는 방식입니다.예를 들어 : strName(문자열 이름), nCount(정수 카운트).
+// - 
+// - Screaming Snake Case : 일반적인 상수 표기할때 사용
+// - Screaming Snake Case는 모든 단어를 대문자로 작성하고 단어 사이를 밑줄(_)로 구분하는 방식입니다.대부분 상수나 매크로의 이름에 사용됩니다.예를 들어 : MAX_VALUE, PI_CONSTANT.
+// - 표기법을 나누는 구분 : 띄어쓰기를 무엇으로 할것인가?
+// 
+// -
+#pragma endregion
