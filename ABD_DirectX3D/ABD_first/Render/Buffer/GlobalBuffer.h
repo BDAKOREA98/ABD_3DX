@@ -2,7 +2,6 @@
 class MatrixBuffer : public ConstantBuffer
 {
 public:
-
 	MatrixBuffer()
 		:ConstantBuffer(&data, sizeof(data))
 	{
@@ -14,9 +13,6 @@ public:
 		data.matrix = XMMatrixTranspose(value);
 	}
 
-
-	
-	
 private:
 
 	struct Data
@@ -24,7 +20,27 @@ private:
 		XMMATRIX matrix;
 	} data;
 
-	
-	
+};
+class LightBuffer : public ConstantBuffer
+{
+public:
+	LightBuffer()
+		:ConstantBuffer(&data, sizeof(data))
+	{
+		data.LightDirection = V_DOWN;
+	}
+
+	void SetData(Vector3 direction)
+	{
+		data.LightDirection = direction;
+	}
+
+private:
+
+	struct Data
+	{
+		Vector3 LightDirection;
+		float padding = 0;
+	} data;
 
 };

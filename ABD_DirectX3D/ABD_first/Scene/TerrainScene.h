@@ -15,28 +15,11 @@ public:
 
 
 
-	void CreateMesh();
-	
+		
 private:
 
-	vector<VertexTexture>	vertices;
-	vector<UINT>			indices;
-
-	Material*				material;
-	Mesh*					mesh;
-
-	MatrixBuffer*			worldBuffer;
-
-	UINT					width  = 10;
-	UINT					height = 10;
-
-	Texture*				heightMap;
+	Terrain* terrain;
 	
-	const float				MAP_HEIGHT = 20.0f;
-
-
-
-
 
 };
 

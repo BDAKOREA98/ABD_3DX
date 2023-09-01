@@ -666,23 +666,48 @@
 // 
 // - 표기법
 // Camel Case:
-// - Camel Case는 첫 번째 단어를 소문자로 시작하고 이후의 단어들의 첫 글자는 대문자로 작성하는 방식입니다.예를 들어 : myVariableName, calculateTotalAmount.
+// - Camel Case는 첫 번째 단어를 소문자로 시작하고 이후의 단어들의 첫 글자는 대문자로 작성하는 방식입니다.
+// 예를 들어 : myVariableName, calculateTotalAmount.
 // - 
 // - Pascal Case :
-// - Pascal Case는 모든 단어의 첫 글자를 대문자로 작성하는 방식입니다.주로 클래스나 타입의 이름을 작성할 때 사용됩니다.예를 들어 : MyClassName, CalculateTotalAmount.
+// - Pascal Case는 모든 단어의 첫 글자를 대문자로 작성하는 방식입니다.주로 클래스나 타입의 이름을 작성할 때 사용됩니다.
+// 예를 들어 : MyClassName, CalculateTotalAmount.
 // - 
 // - Snake Case :
-// - Snake Case는 단어를 모두 소문자로 작성하고 단어 사이를 밑줄(_)로 구분하는 방식입니다.예를 들어 : my_variable_name, calculate_total_amount.
+// - Snake Case는 단어를 모두 소문자로 작성하고 단어 사이를 밑줄(_)로 구분하는 방식입니다.
+// 예를 들어 : my_variable_name, calculate_total_amount.
 // - 
 // - Kebab Case :
-// - Kebab Case는 단어를 모두 소문자로 작성하고 단어 사이를 하이픈(-)으로 구분하는 방식입니다.예를 들어 : my - variable - name, calculate - total - amount.
+// - Kebab Case는 단어를 모두 소문자로 작성하고 단어 사이를 하이픈(-)으로 구분하는 방식입니다.
+// 예를 들어 : my - variable - name, calculate - total - amount.
 // - 
 // - Hungarian Notation :
-// - Hungarian Notation은 변수 이름 앞에 해당 변수의 데이터 타입이나 특성을 나타내는 접두사를 붙이는 방식입니다.예를 들어 : strName(문자열 이름), nCount(정수 카운트).
+// - Hungarian Notation은 변수 이름 앞에 해당 변수의 데이터 타입이나 특성을 나타내는 접두사를 붙이는 방식입니다.
+// 예를 들어 : strName(문자열 이름), nCount(정수 카운트).
 // - 
 // - Screaming Snake Case : 일반적인 상수 표기할때 사용
-// - Screaming Snake Case는 모든 단어를 대문자로 작성하고 단어 사이를 밑줄(_)로 구분하는 방식입니다.대부분 상수나 매크로의 이름에 사용됩니다.예를 들어 : MAX_VALUE, PI_CONSTANT.
+// - Screaming Snake Case는 모든 단어를 대문자로 작성하고 단어 사이를 밑줄(_)로 구분하는 방식입니다.
+// 대부분 상수나 매크로의 이름에 사용됩니다.
+// 예를 들어 : MAX_VALUE, PI_CONSTANT.
 // - 표기법을 나누는 구분 : 띄어쓰기를 무엇으로 할것인가?
 // 
 // -
+#pragma endregion
+
+#pragma region 18Day -  빛
+// 
+// - charactor 배열 == string
+// - 텍스트 출력할때 변수는 읽어올때 메모리에서 2진법을 읽어서 오기 때문에 서식지정자를 잘못 넣으면 뒷자리만 잘리는게 아닌 쓰레기값이나옴
+// 
+// - Specular Reflection(거울반사) : 직접적으로 빛을 받아 반사함 
+// - Diffuse Reflection (난반사) : 직접적으로 받은 빛을 불규칙하게 반사함 
+// - Amlent Reflection (주변반사, 환경반사) :  
+// 
+// 
+// Vertex * world * cross 를 구한 normal과
+// normal * world는 같다.
+// 
+// ConstatnBuffer는 무조건 16Byte단위로 데이터를 넘겨줘야함 (dumy, padding)
+//
+
 #pragma endregion

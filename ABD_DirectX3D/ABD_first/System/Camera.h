@@ -31,7 +31,7 @@ private:
 	
 
 	MatrixBuffer*	viewBuffer;
-	Matrix			viewmatrix;
+	Matrix			viewmatrix = {};
 
 	Vector3			oldPos;
 

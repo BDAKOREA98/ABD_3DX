@@ -14,12 +14,18 @@ private:
 
 
 
+
+
 public:
 
+	void SetEnvironment();
+	void PostRender();
 
 private:
 
 	
 	MatrixBuffer* projBuffer;
+	Vector3 lightDirection = V_DOWN;
+	LightBuffer* lightBuffer;
 };
 

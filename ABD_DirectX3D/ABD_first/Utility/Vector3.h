@@ -54,6 +54,14 @@ struct Vector3
 	// 노말라이즈한 값을 받음
 	Vector3 GetNormalize(){return XMVector3Normalize(*this);	}
 
+	static Vector3 Cross(Vector3& v1, Vector3& v2)
+	{
+		return XMVector3Cross(v1, v2);
+	}
+	static float Dot(Vector3& v1, Vector3& v2)
+	{
+		return XMVectorGetX(XMVector3Dot(v1, v2));
+	}
 
 
 	Vector3 operator* (const float& value) 
