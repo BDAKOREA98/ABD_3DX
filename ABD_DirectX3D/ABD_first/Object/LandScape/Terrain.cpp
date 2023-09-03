@@ -115,6 +115,7 @@ void Terrain::CreateNormal()
 		Vector3 v02		= p2 - p0;
 
 		Vector3 normal	= Vector3::Cross(v01, v02).GetNormalize();
+		
 
 		vertices[index0].normal += normal;
 		vertices[index1].normal += normal;

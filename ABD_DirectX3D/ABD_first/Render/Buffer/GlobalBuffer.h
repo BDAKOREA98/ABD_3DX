@@ -21,6 +21,7 @@ private:
 	} data;
 
 };
+
 class LightBuffer : public ConstantBuffer
 {
 public:

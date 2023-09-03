@@ -25,6 +25,13 @@ struct VertexColor
 };
 
 
+struct VertexCube
+{
+    float4 pos : POSITION;
+    float4 color : COLOR;
+    float3 normal : NORMAL;
+};
+
 struct VertexTexture
 {
     float4 pos  : POSITION;

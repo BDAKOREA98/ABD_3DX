@@ -13,7 +13,7 @@ public:
 	void PostRender();
 
 
-	Cube* trans;
+	DiffuseCube* trans;
 
 private:
 
@@ -23,31 +23,31 @@ private:
 
 	bool active = false;
 
-	Cube* L_eye;
-	Cube* R_eye;
-	Cube* mouse;
+	DiffuseCube* L_eye;
+	DiffuseCube* R_eye;
+	DiffuseCube* mouse;
 
-	Cube* Head;
-	Cube* body;
+	DiffuseCube* Head;
+	DiffuseCube* body;
 
 
-	Cube* L_Arm1;
-	Cube* L_Arm2;
-	Cube* L_Arm3;
+	DiffuseCube* L_Arm1;
+	DiffuseCube* L_Arm2;
+	DiffuseCube* L_Arm3;
 
-	Cube* R_Arm1;
-	Cube* R_Arm2;
-	Cube* R_Arm3;
+	DiffuseCube* R_Arm1;
+	DiffuseCube* R_Arm2;
+	DiffuseCube* R_Arm3;
 
-	Cube* L_Leg1;
-	Cube* L_Leg2;
-	Cube* L_Leg3;
-	Cube* L_Leg4;
+	DiffuseCube* L_Leg1;
+	DiffuseCube* L_Leg2;
+	DiffuseCube* L_Leg3;
+	DiffuseCube* L_Leg4;
 
-	Cube* R_Leg1;
-	Cube* R_Leg2;
-	Cube* R_Leg3;
-	Cube* R_Leg4;
+	DiffuseCube* R_Leg1;
+	DiffuseCube* R_Leg2;
+	DiffuseCube* R_Leg3;
+	DiffuseCube* R_Leg4;
 
 
 

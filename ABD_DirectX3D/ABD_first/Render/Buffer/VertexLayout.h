@@ -52,3 +52,16 @@ struct VertexTextureNormal
 
 };
 
+
+struct VertexCube
+{
+    VertexCube() {}
+
+    VertexCube(Vector3 pos, Vector4 color)
+        : pos(pos), color(color)
+    {
+    }
+    Vector3 pos = {};
+    Vector4 color = {};
+    Vector3 normal = {0.0f, 0.0f,0.0f};
+};

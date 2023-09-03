@@ -7,6 +7,12 @@
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
+      <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexCubeShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelCubeShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
       <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelDiffuse.cso</FullPath>
     </ContentFile>
     <ContentFile>

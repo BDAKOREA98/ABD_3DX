@@ -19,7 +19,7 @@ public:
 private:
 
 	Terrain* terrain;
-	
+	Sphere* sphere;
 	Robot* robot;
 
 

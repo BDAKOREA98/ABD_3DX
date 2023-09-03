@@ -115,7 +115,7 @@ void Device::CreateBackBuffer()
 
 void Device::Clear()
 {
-    float clearcolor[4] = { 0.0f, 0.0f, 0.0f, 1.0f };
+    float clearcolor[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
     deviceContext->ClearRenderTargetView(renderTargetView, clearcolor);
 
     deviceContext->ClearDepthStencilView(depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);

@@ -132,6 +132,12 @@
     <ClInclude Include="Object\BasicObject\Robot.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Object\BasicObject\DiffuseCube.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BasicObject\Sphere.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -236,6 +242,12 @@
     <ClCompile Include="Object\BasicObject\Robot.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Object\BasicObject\DiffuseCube.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BasicObject\Sphere.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="__Others\ABD_first.rc">
@@ -257,6 +269,8 @@
     <FxCompile Include="_Shader\PixelTexture.hlsl" />
     <FxCompile Include="_Shader\VertexDiffuse.hlsl" />
     <FxCompile Include="_Shader\PixelDiffuse.hlsl" />
+    <FxCompile Include="_Shader\VertexCubeShader.hlsl" />
+    <FxCompile Include="_Shader\PixelCubeShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="_Shader\Header.hlsli" />

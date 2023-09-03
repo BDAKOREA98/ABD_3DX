@@ -32,8 +32,11 @@ void Material::SetShader(wstring file)
 
 void Material::SetMaterial()
 {
+
 	vertexShader -> SetShader();
 	pixelShader	 -> SetShader();
+
+
 	if (diffuseMap)
 	{
 		diffuseMap->PSSetShaderResource(0);

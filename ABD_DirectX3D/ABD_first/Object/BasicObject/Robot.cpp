@@ -6,15 +6,15 @@ Robot::Robot()
 	
 
 
-	trans = new Cube({ 0,0,0,1 });
+	trans = new DiffuseCube({ 0,0,0,1 });
 	
-	Head = new Cube({ 1,0,0,1 });
+	Head = new DiffuseCube({ 1,0,0,1 });
 	Head->SetParent(trans);
 	Head->AddTranslation({ 0,1,0 });
 
-	L_eye = new Cube({ 1,1,1,1 });
-	R_eye = new Cube({ 1,1,1,1 });
-	mouse = new Cube({ 1,1,1,1 });
+	L_eye = new DiffuseCube({ 1,1,1,1 });
+	R_eye = new DiffuseCube({ 1,1,1,1 });
+	mouse = new DiffuseCube({ 1,1,1,1 });
 
 	L_eye->SetParent(Head);
 	R_eye->SetParent(Head);
@@ -28,15 +28,15 @@ Robot::Robot()
 	R_eye->AddTranslation({+0.7f , 0.0f  , - 1.0f});
 	mouse->AddTranslation({ 0.0f , -0.6f , - 1.0f });
 
-	body = new Cube({ 1,1,1,1 });
+	body = new DiffuseCube({ 1,1,1,1 });
 	body->AddScale({ 1.5f, 1.5f,1.5f });
 	body->SetParent(trans);
 	body->AddTranslation({0.0f, -3.0f, 0.0f});
 
 			
-	L_Arm1	= new Cube({ 0,1,0,1 });
-	L_Arm2	= new Cube({ 0,1,0,1 });
-	L_Arm3	= new Cube({ 0,1,0,1 });
+	L_Arm1	= new DiffuseCube({ 0,1,0,1 });
+	L_Arm2	= new DiffuseCube({ 0,1,0,1 });
+	L_Arm3	= new DiffuseCube({ 0,1,0,1 });
 	L_Arm1->SetParent(trans);
 	L_Arm2->SetParent(L_Arm1);
 	L_Arm3->SetParent(L_Arm2);
@@ -49,9 +49,9 @@ Robot::Robot()
 	
 
 
-	R_Arm1	= new Cube({ 0,0,1,1 });
-	R_Arm2	= new Cube({ 0,0,1,1 });
-	R_Arm3	= new Cube({ 0,0,1,1 });
+	R_Arm1	= new DiffuseCube({ 0,0,1,1 });
+	R_Arm2	= new DiffuseCube({ 0,0,1,1 });
+	R_Arm3	= new DiffuseCube({ 0,0,1,1 });
 
 	R_Arm1->SetParent(trans);
 	R_Arm2->SetParent(R_Arm1);
@@ -64,10 +64,10 @@ Robot::Robot()
 	R_Arm3->AddTranslation({ +0.0f,-3.0f,0.0f });
 
 			
-	L_Leg1	= new Cube({ 1,0,0.5f,1 });
-	L_Leg2	= new Cube({ 1,0,0.5f,1 });
-	L_Leg3	= new Cube({ 1,0,0.5f,1 });
-	L_Leg4	= new Cube({ 1,0,0.5f,1 });
+	L_Leg1	= new DiffuseCube({ 1,0,0.5f,1 });
+	L_Leg2	= new DiffuseCube({ 1,0,0.5f,1 });
+	L_Leg3	= new DiffuseCube({ 1,0,0.5f,1 });
+	L_Leg4	= new DiffuseCube({ 1,0,0.5f,1 });
 	
 	L_Leg1->SetParent(trans)	 ;
 	L_Leg2->SetParent(L_Leg1);
@@ -82,10 +82,10 @@ Robot::Robot()
 	L_Leg3->AddTranslation({+0.0f, -3.0f, 0.0f})	 ;
 	L_Leg4->AddTranslation({+0.0f, -3.0f, 0.0f });
 
-	R_Leg1	= new Cube({ 1,1,0,1 });
-	R_Leg2	= new Cube({ 1,1,0,1 });
-	R_Leg3	= new Cube({ 1,1,0,1 });
-	R_Leg4	= new Cube({ 1,1,0,1 });
+	R_Leg1	= new DiffuseCube({ 1,1,0,1 });
+	R_Leg2	= new DiffuseCube({ 1,1,0,1 });
+	R_Leg3	= new DiffuseCube({ 1,1,0,1 });
+	R_Leg4	= new DiffuseCube({ 1,1,0,1 });
 
 
 	R_Leg1->SetParent(trans);
