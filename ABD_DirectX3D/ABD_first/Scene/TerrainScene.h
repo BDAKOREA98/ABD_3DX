@@ -20,6 +20,8 @@ private:
 
 	Terrain* terrain;
 	
+	Robot* robot;
+
 
 };
 

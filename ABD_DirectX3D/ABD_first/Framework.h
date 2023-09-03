@@ -50,7 +50,7 @@ using namespace DirectX;
 #define DEVICE	 Device::GetInstance()->GetDevice()	
 #define DC		 Device::GetInstance()->GetDC()		
 
-#define Key_UP(p) Keyboard::GetInstance()->Up(p)
+#define KEY_UP(p) Keyboard::GetInstance()->Up(p)
 #define KEY_PRESS(p) Keyboard::GetInstance()->Press(p)
 #define Key_DOWN(p) Keyboard::GetInstance()->Down(p)
 
@@ -111,6 +111,7 @@ typedef XMFLOAT2 Vector2;
 #include "Object/BasicObject/Box.h"
 #include "Object/BasicObject/TextureCube.h"
 #include "Object/LandScape/Terrain.h"
+#include "Object/BasicObject/Robot.h"
 
 
 
