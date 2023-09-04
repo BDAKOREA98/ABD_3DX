@@ -1,5 +1,5 @@
 #pragma once
-class Robot : public Transform
+class Robot 
 {
 public:
 
@@ -22,7 +22,7 @@ private:
 private:
 
 	bool active = false;
-
+	float speed = 10.0f;
 	DiffuseCube* L_eye;
 	DiffuseCube* R_eye;
 	DiffuseCube* mouse;

@@ -41,11 +41,11 @@ void Camera::FreeMode()
 	{
 		if (KEY_PRESS(VK_LSHIFT))
 		{
-			moveSpeed = 30.0f;
+			moveSpeed = 50.0f;
 		}
 		else
 		{
-			moveSpeed = 10.0f;
+			moveSpeed = 30.0f;
 		}
 
 		if (KEY_PRESS('A'))

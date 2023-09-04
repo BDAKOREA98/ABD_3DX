@@ -7,14 +7,15 @@ Robot::Robot()
 
 
 	trans = new DiffuseCube({ 1,1,1,1 });
-	
+	trans->AddScale({ 2,2,2 });
+
 	Head = new DiffuseCube({ 1,0,0,1 });
 	Head->SetParent(trans);
 	Head->AddTranslation({ 0,1,0 });
 
-	L_eye = new DiffuseCube({ 1,1,1,1 });
-	R_eye = new DiffuseCube({ 1,1,1,1 });
-	mouse = new DiffuseCube({ 1,1,1,1 });
+	L_eye = new DiffuseCube({ 1,1,1.0f,1 });
+	R_eye = new DiffuseCube({ 1,1,1.0f,1 });
+	mouse = new DiffuseCube({ 1,1,1.0f,1 });
 
 	L_eye->SetParent(Head);
 	R_eye->SetParent(Head);
@@ -24,9 +25,9 @@ Robot::Robot()
 	R_eye->AddScale({ -0.8f, -0.8f, -0.8f });
 	mouse->AddScale({ -0.2f, -0.8f, -0.8f });
 
-	L_eye->AddTranslation({ -0.7f , 0.0f , - 1.0f});
-	R_eye->AddTranslation({+0.7f , 0.0f  , - 1.0f});
-	mouse->AddTranslation({ 0.0f , -0.6f , - 1.0f });
+	L_eye->AddTranslation({ -0.4f , +0.1f , + 0.45f});
+	R_eye->AddTranslation({ +0.4f , +0.1f , + 0.45f});
+	mouse->AddTranslation({ +0.0f , -0.4f , + 0.45f });
 
 	body = new DiffuseCube({ 1,1,1,1 });
 	body->AddScale({ 1.5f, 1.5f,1.5f });
@@ -133,7 +134,7 @@ Robot::~Robot()
 void Robot::Update()
 {
 	InputKey();
-	Transform::Update();
+	
 		Head  ->Update();
 		body  ->Update();
 		trans ->Update();
@@ -188,7 +189,7 @@ void Robot::InputKey()
 	if ( KEY_PRESS('S') && active == false)
 	{
 		
-		trans->translation += trans->Forward() * Time::Delta();
+		trans->translation += trans->Backward() * Time::Delta() * speed;
 
 		L_Arm1->AddRotation({ 0.001f, 0.0f, 0.0f });
 		L_Arm2->AddRotation({ 0.001f, 0.0f, 0.0f });
@@ -217,7 +218,7 @@ void Robot::InputKey()
 	}
 	if (KEY_PRESS('S') && active)
 	{
-		trans->translation += trans->Forward() * Time::Delta();
+		trans->translation += trans->Backward() * Time::Delta()* speed;
 		
 		L_Arm1->AddRotation({ -0.001f, 0.0f, 0.0f });
 		L_Arm2->AddRotation({ -0.001f, 0.0f, 0.0f });
@@ -248,7 +249,7 @@ void Robot::InputKey()
 	if (KEY_PRESS('D') && active == false)
 	{
 
-		trans->translation += trans->Right() * Time::Delta();
+		trans->translation += trans->Right() * Time::Delta()* speed;
 
 		L_Arm1->AddRotation({ 0.001f, 0.0f, 0.0f });
 		L_Arm2->AddRotation({ 0.001f, 0.0f, 0.0f });
@@ -277,7 +278,7 @@ void Robot::InputKey()
 	}
 	if (KEY_PRESS('D') && active)
 	{
-		trans->translation += trans->Right() * Time::Delta();
+		trans->translation += trans->Right() * Time::Delta()* speed;
 
 		L_Arm1->AddRotation({ -0.001f, 0.0f, 0.0f });
 		L_Arm2->AddRotation({ -0.001f, 0.0f, 0.0f });
@@ -308,7 +309,7 @@ void Robot::InputKey()
 	if (KEY_PRESS('A') && active == false)
 	{
 
-		trans->translation += trans->Left() * Time::Delta();
+		trans->translation += trans->Left() * Time::Delta()* speed;
 
 		L_Arm1->AddRotation({ 0.001f, 0.0f, 0.0f });
 		L_Arm2->AddRotation({ 0.001f, 0.0f, 0.0f });
@@ -337,7 +338,7 @@ void Robot::InputKey()
 	}
 	if (KEY_PRESS('A') && active)
 	{
-		trans->translation += trans->Left() * Time::Delta();
+		trans->translation += trans->Left() * Time::Delta()* speed;
 
 		L_Arm1->AddRotation({ -0.001f, 0.0f, 0.0f });
 		L_Arm2->AddRotation({ -0.001f, 0.0f, 0.0f });
@@ -368,7 +369,7 @@ void Robot::InputKey()
 	if (KEY_PRESS('W') && active == false)
 	{
 
-		trans->translation += trans->Backward() * Time::Delta();
+		trans->translation += trans->Forward() * Time::Delta()* speed;
 
 		L_Arm1->AddRotation({ 0.001f, 0.0f, 0.0f });
 		L_Arm2->AddRotation({ 0.001f, 0.0f, 0.0f });
@@ -397,7 +398,7 @@ void Robot::InputKey()
 	}
 	if (KEY_PRESS('W') && active)
 	{
-		trans->translation += trans->Backward() * Time::Delta();
+		trans->translation += trans->Forward() * Time::Delta()* speed;
 
 		L_Arm1->AddRotation({ -0.001f, 0.0f, 0.0f });
 		L_Arm2->AddRotation({ -0.001f, 0.0f, 0.0f });

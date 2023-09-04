@@ -5,7 +5,7 @@ TerrainScene::TerrainScene()
 {
 	terrain = new Terrain(L"LandScape/dirt.png", L"HeightMap/HeightMap.png");
 	robot = new Robot();
-	robot->trans->translation.y += 10.0f;
+	robot->trans->translation.y += 30.0f;
 
 	sphere = new Sphere(10.0f, { 1.0f, 0.0f, 0.0f, 1.0f });
 	

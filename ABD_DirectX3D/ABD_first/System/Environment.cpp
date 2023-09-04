@@ -7,6 +7,7 @@ Environment::Environment()
     CreatePerspective();
 
     lightBuffer = new LightBuffer();
+    lightBuffer2 = new LightBuffer();
 }
 
 Environment::~Environment()
@@ -14,6 +15,7 @@ Environment::~Environment()
    
     delete projBuffer;
     delete lightBuffer;
+    delete lightBuffer2;
 
 }
 
@@ -59,8 +61,10 @@ void Environment::CreatePerspective()
 void Environment::SetEnvironment()
 {
     
-    lightBuffer->SetVSBuffer(3);
+    lightBuffer->SetPSBuffer(3);
+    lightBuffer2->SetVSBuffer(3);
     lightBuffer->SetData(lightDirection);
+    lightBuffer2->SetData(lightDirection);
 }
 
 void Environment::PostRender()

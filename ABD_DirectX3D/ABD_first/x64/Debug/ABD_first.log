@@ -1,8 +1,2 @@
-﻿  Sphere.cpp
-C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Sphere.cpp(45,33): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Sphere.cpp(177,33): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Sphere.cpp(179,37): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Buffer\VertexBuffer.h(30,53): warning C4267: '=': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Mesh.h(24,34): message : 컴파일되는 함수 템플릿 인스턴스화 'VertexBuffer::VertexBuffer<VertexCube>(std::vector<VertexCube,std::allocator<VertexCube>> &)'에 대한 참조를 확인하세요.
-C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Sphere.cpp(13,20): message : 컴파일되는 함수 템플릿 인스턴스화 'Mesh::Mesh<VertexCube>(std::vector<VertexCube,std::allocator<VertexCube>> &,std::vector<UINT,std::allocator<UINT>> &)'에 대한 참조를 확인하세요.
+﻿  Robot.cpp
   ABD_first.vcxproj -> C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\ABD_first.exe
