@@ -4,14 +4,15 @@ struct VertexOutput
 {
     float4 pos      : SV_Position;
     float2 uv       : UV;
-    float  diffuse  : DIFFUSE;
+    float3 normal   : NORMAL;
 };
 	
 
 float4 main(VertexOutput input) : SV_TARGET
 {
-	
+    float3 Light    = normalize(-lightDirection);
+    float diffuse   = dot(input.normal, Light); // N dot L
     
-    return diffuseMap.Sample(samp, input.uv) * input.diffuse;
+    return diffuseMap.Sample(samp, input.uv) * diffuse;
 
 }

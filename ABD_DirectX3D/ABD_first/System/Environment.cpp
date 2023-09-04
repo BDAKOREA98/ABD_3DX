@@ -14,6 +14,7 @@ Environment::~Environment()
    
     delete projBuffer;
     delete lightBuffer;
+
 }
 
 void Environment::CreateViewPort()
@@ -43,7 +44,7 @@ void Environment::CreatePerspective()
     // fov == Field Of View == 시야각
     XMMATRIX projection = XMMatrixPerspectiveFovLH
     (   // angle: 바라볼 각도, aspectiveratio :  화면 비율 , (nearZ, farZ) : 절두체 크기
-        XM_PIDIV2,
+        XM_PIDIV4,
         WIN_WIDTH / WIN_HEIGHT,
         0.1f,
         1000.0f
@@ -57,6 +58,7 @@ void Environment::CreatePerspective()
 
 void Environment::SetEnvironment()
 {
+    
     lightBuffer->SetVSBuffer(3);
     lightBuffer->SetData(lightDirection);
 }

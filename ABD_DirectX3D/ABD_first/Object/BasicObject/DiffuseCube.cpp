@@ -11,6 +11,8 @@ DiffuseCube::DiffuseCube(Vector4 color)
 
     worldBuffer = new MatrixBuffer();
     CreateNormal();
+
+    mesh = new Mesh(vertices, indices);
 }
 
 DiffuseCube::~DiffuseCube()
@@ -59,20 +61,16 @@ void DiffuseCube::CreateMesh(Vector4 color)
     {
 
         vertices = {
-            VertexCube({ -1.0f, +1.0f, -1.0f}, color),
-            VertexCube({ +1.0f, +1.0f, -1.0f}, color),
-            VertexCube({ -1.0f, -1.0f, -1.0f}, color),
-            VertexCube({ +1.0f, -1.0f, -1.0f}, color),
-            
-            VertexCube({ -1.0f, +1.0f, +1.0f}, color),
-            VertexCube({ +1.0f, +1.0f, +1.0f}, color),
-            VertexCube({ -1.0f, -1.0f, +1.0f}, color),
-            VertexCube({ +1.0f, -1.0f, +1.0f}, color)
-            
-        };
-
-
-
+            VertexType({ -0.5f, +0.5f, -0.5f}, color),
+            VertexType({ +0.5f, +0.5f, -0.5f}, color),
+            VertexType({ -0.5f, -0.5f, -0.5f}, color),
+            VertexType({ +0.5f, -0.5f, -0.5f}, color),        
+            VertexType({ -0.5f, +0.5f, +0.5f}, color),
+            VertexType({ +0.5f, +0.5f, +0.5f}, color),
+            VertexType({ -0.5f, -0.5f, +0.5f}, color),
+            VertexType({ +0.5f, -0.5f, +0.5f}, color)
+                         
+     };
     }
 
     // InndexBuffer
@@ -106,7 +104,7 @@ void DiffuseCube::CreateMesh(Vector4 color)
 
     };
 
-    mesh = new Mesh(vertices, indices);
+
 
 }
 
@@ -135,6 +133,10 @@ void DiffuseCube::CreateNormal()
 
     }
 
+    for (UINT i = 0; i < vertices.size(); i++)
+    {
+        vertices[i].normal.Normalize();
+    }
 }
 
 

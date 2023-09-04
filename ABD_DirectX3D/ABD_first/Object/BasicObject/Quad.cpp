@@ -12,10 +12,10 @@ Quad::Quad(Vector2 size)
 	
 	vertices =
 	{
-		{Vector3(left,	top, 		0.0f),		Vector2(0,0)},
-		{Vector3(right,	top,		0.0f),		Vector2(1,0)},
-		{Vector3(left,	bottom,		0.0f),		Vector2(0,1)},
-		{Vector3(right, bottom,		0.0f),		Vector2(1,1)},
+		{Vector3(left,	top, 		0.0f),		Vector2(0,0), Vector3(0,0,-1)},
+		{Vector3(right,	top,		0.0f),		Vector2(1,0), Vector3(0,0,-1)},
+		{Vector3(left,	bottom,		0.0f),		Vector2(0,1), Vector3(0,0,-1)},
+		{Vector3(right, bottom,		0.0f),		Vector2(1,1), Vector3(0,0,-1)},
 
 	};
 
@@ -30,7 +30,7 @@ Quad::Quad(Vector2 size)
 	mesh = new Mesh(vertices, indices);
 
 	material = new Material();
-	material->SetShader(L"Texture");
+	material->SetShader(L"Diffuse");
 	material->SetDiffuseMap(L"Landscape/box.png");
 	
 	

@@ -14,6 +14,7 @@ public:
 private:
 
 	TextureCube* cube;
+	Cube* cube2;
 	
 
 	

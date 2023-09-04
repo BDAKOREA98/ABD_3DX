@@ -12,13 +12,14 @@ public:
 	void Update();
 	void Render();
 
+	
 
 
 private:
 	Material*					material;
 	Mesh*						mesh;
 	
-	vector<VertexTexture>		vertices;
+	vector<VertexTextureNormal>		vertices;
 	vector<UINT>				indices;
 
 	

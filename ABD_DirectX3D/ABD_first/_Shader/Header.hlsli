@@ -45,6 +45,17 @@ struct VertexTextureNormal
     float2 uv : UV;
     float3 normal : NORMAL;
 };
+
+struct VertexColorNormal
+{
+    float4 pos : POSITION;
+    float4 color : COLOR;
+    float3 normal : NORMAL;
+    
+};
+
+
+
 Texture2D diffuseMap : register(t0);
 SamplerState samp    : register(s0);
 

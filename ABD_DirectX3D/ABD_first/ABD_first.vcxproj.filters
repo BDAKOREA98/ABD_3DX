@@ -271,6 +271,8 @@
     <FxCompile Include="_Shader\PixelDiffuse.hlsl" />
     <FxCompile Include="_Shader\VertexCubeShader.hlsl" />
     <FxCompile Include="_Shader\PixelCubeShader.hlsl" />
+    <FxCompile Include="_Shader\VertexColor.hlsl" />
+    <FxCompile Include="_Shader\PixelColor.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="_Shader\Header.hlsli" />

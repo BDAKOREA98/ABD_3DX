@@ -54,6 +54,8 @@ using namespace DirectX;
 #define KEY_PRESS(p) Keyboard::GetInstance()->Press(p)
 #define Key_DOWN(p) Keyboard::GetInstance()->Down(p)
 
+#define CAMERA		Camera::GetInstance()-> GetTransform()
+
 
 
 typedef XMMATRIX Matrix;

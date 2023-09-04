@@ -3,13 +3,14 @@
 
 Sphere::Sphere(float radius,Vector4 color)
 {
-    material = new Material(L"Tutorial");
+    material = new Material(L"CubeShader");
 
 
     CreateMesh(radius, color);
 
     worldBuffer = new MatrixBuffer();
-    CreateNormal();
+    //CreateNormal();
+    mesh = new Mesh(vertices, indices);
 }
 
 Sphere::~Sphere()
@@ -134,6 +135,12 @@ void Sphere::CreateNormal()
         vertices[index2].normal += normal;
 
     }
+
+    for (UINT i = 0; i < vertices.size(); i++)
+    {
+        vertices[i].normal.Normalize();
+    }
+
 }
 
 void Sphere::CreateMesh(float radius, Vector4 color)
@@ -159,7 +166,10 @@ void Sphere::CreateMesh(float radius, Vector4 color)
             float y = radius * cosf(phi);
             float z = radius * sinf(phi) * sinf(theta);
 
-            vertices.push_back(VertexCube({ x, y, z }, color));
+            VertexCube vertex = VertexCube({ x, y, z }, color);
+            vertex.normal = vertex.pos / radius;
+
+            vertices.push_back(vertex);
         }
     }
 
@@ -185,5 +195,5 @@ void Sphere::CreateMesh(float radius, Vector4 color)
         }
     }
 
-    mesh = new Mesh(vertices, indices);
+ 
 }

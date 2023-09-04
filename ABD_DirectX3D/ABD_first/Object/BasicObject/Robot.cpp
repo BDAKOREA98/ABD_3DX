@@ -6,7 +6,7 @@ Robot::Robot()
 	
 
 
-	trans = new DiffuseCube({ 0,0,0,1 });
+	trans = new DiffuseCube({ 1,1,1,1 });
 	
 	Head = new DiffuseCube({ 1,0,0,1 });
 	Head->SetParent(trans);

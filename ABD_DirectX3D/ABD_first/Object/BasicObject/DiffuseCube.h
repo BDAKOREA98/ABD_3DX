@@ -1,6 +1,9 @@
 #pragma once
 class DiffuseCube : public Transform
 {
+
+    typedef VertexCube VertexType;
+
 public:
 
     DiffuseCube(Vector4 color);

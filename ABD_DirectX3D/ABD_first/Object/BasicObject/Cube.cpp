@@ -4,12 +4,16 @@
 Cube::Cube(Vector4 color)
 {
     // Shader 생성 및 설정
-    material = new Material(L"Tutorial");
+    material = new Material(L"Color");
   
 
     CreateMesh(color);
+    CreateNormal();
     
+    mesh = new Mesh(vertices, indices);
     worldBuffer = new MatrixBuffer();
+
+    
 
 
 }
@@ -69,16 +73,16 @@ void Cube::CreateMesh(Vector4 color)
     {
 
         vertices = {
-            VertexColor({ -1.0f, +1.0f, -1.0f}, color),
-            VertexColor({ +1.0f, +1.0f, -1.0f}, color),
-            VertexColor({ -1.0f, -1.0f, -1.0f}, color),
-            VertexColor({ +1.0f, -1.0f, -1.0f}, color),
-                                                
-            VertexColor({ -1.0f, +1.0f, +1.0f}, color),
-            VertexColor({ +1.0f, +1.0f, +1.0f}, color),
-            VertexColor({ -1.0f, -1.0f, +1.0f}, color),
-            VertexColor({ +1.0f, -1.0f, +1.0f}, color)
+            VertexType({ -0.5f, +0.5f, -0.5f}, color, Vector3()),
+            VertexType({ +0.5f, +0.5f, -0.5f}, color, Vector3()),
+            VertexType({ -0.5f, -0.5f, -0.5f}, color, Vector3()),
+            VertexType({ +0.5f, -0.5f, -0.5f}, color, Vector3()),          
 
+            VertexType({ -0.5f, +0.5f, +0.5f}, color, Vector3()),
+            VertexType({ +0.5f, +0.5f, +0.5f}, color, Vector3()),
+            VertexType({ -0.5f, -0.5f, +0.5f}, color, Vector3()),
+            VertexType({ +0.5f, -0.5f, +0.5f}, color, Vector3())
+                                                      
         };
 
 
@@ -116,7 +120,32 @@ void Cube::CreateMesh(Vector4 color)
 
     };
 
-    mesh = new Mesh(vertices, indices);
+  
+}
+
+void Cube::CreateNormal()
+{
+    for (UINT i = 0; i < indices.size() / 3; i++)
+    {
+        UINT index0 = indices[i * 3 + 0];
+        UINT index1 = indices[i * 3 + 1];
+        UINT index2 = indices[i * 3 + 2];
+
+        Vector3 p0 = vertices[index0].pos;
+        Vector3 p1 = vertices[index1].pos;
+        Vector3 p2 = vertices[index2].pos;
+
+        Vector3 v01 = p1 - p0;
+        Vector3 v02 = p2 - p0;
+
+        Vector3 normal = Vector3::Cross(v01, v02).GetNormalize();
+
+
+        vertices[index0].normal += normal;
+        vertices[index1].normal += normal;
+        vertices[index2].normal += normal;
+
+    }
 }
 
 

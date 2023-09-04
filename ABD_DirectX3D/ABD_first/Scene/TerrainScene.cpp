@@ -7,7 +7,7 @@ TerrainScene::TerrainScene()
 	robot = new Robot();
 	robot->trans->translation.y += 10.0f;
 
-	sphere = new Sphere(10.0f, { 0.1f, 0.4f, 0.5f, 1.0f });
+	sphere = new Sphere(10.0f, { 1.0f, 0.0f, 0.0f, 1.0f });
 	
 
 }
@@ -21,9 +21,9 @@ TerrainScene::~TerrainScene()
 
 void TerrainScene::Update()
 {
+	sphere->Update();
 	terrain->Update();
 	robot->Update();
-	sphere->Update();
 }
 
 void TerrainScene::PreRender()
@@ -33,9 +33,9 @@ void TerrainScene::PreRender()
 
 void TerrainScene::Render()
 {
-	terrain->Render();
 	robot->Render();
 	sphere->Render();
+	terrain->Render();
 }
 
 void TerrainScene::PostRender()

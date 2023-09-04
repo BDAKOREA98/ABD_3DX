@@ -1,7 +1,13 @@
 #pragma once
 class Cube : public Transform
 {
+    typedef VertexColorNormal VertexType;
+
+
 public:
+
+
+
 
 	Cube(Vector4 color);
 	
@@ -14,10 +20,12 @@ public:
     void PostRender();
     void CreateMesh(Vector4 color);
    
+    void CreateNormal();
+
 
 private:
 
-    vector<VertexColor> vertices;
+    vector<VertexType> vertices;
     vector<UINT>        indices;
         
     // Shader는 meterial로 만들거임
