@@ -15,7 +15,8 @@ private:
 
 	TextureCube* cube;
 	Cube* cube2;
-	
+	Sphere_Texture* sphere;
+	Sphere_Color* sphere2;
 
 	
 

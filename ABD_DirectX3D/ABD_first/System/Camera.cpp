@@ -3,7 +3,7 @@
 
 Camera::Camera()
 {
-	viewBuffer = new MatrixBuffer();
+	viewBuffer = new ViewBuffer();
 
 	transform = new Transform();
 	//transform->translation.y = +10;
@@ -97,17 +97,20 @@ void Camera::SetView()
 
 	// 눈의 위치
 	{
-		XMVECTOR eyepos = transform->translation;
+		//XMVECTOR eyepos = transform->translation;
 
-		// 눈이 바라보는 방향
-		XMVECTOR focuspos = transform->translation + transform->Forward();
-		// 카메라의 위 방향 : y축 회전 방향을 정하기 위함
-		XMVECTOR upvector = transform->Up();
+		//// 눈이 바라보는 방향
+		//XMVECTOR focuspos = transform->translation + transform->Forward();
+		//// 카메라의 위 방향 : y축 회전 방향을 정하기 위함
+		//XMVECTOR upvector = transform->Up();
 
-		viewmatrix = XMMatrixLookAtLH(eyepos, focuspos, upvector);
+		//viewmatrix = XMMatrixLookAtLH(eyepos, focuspos, upvector);
+		
+		viewmatrix = XMMatrixInverse(nullptr, transform->GetWorld());
 
 
-		viewBuffer->SetData(viewmatrix);
+
+		viewBuffer->SetData(viewmatrix, transform->GetWorld());
 		viewBuffer->SetVSBuffer(1);
 	}
 }

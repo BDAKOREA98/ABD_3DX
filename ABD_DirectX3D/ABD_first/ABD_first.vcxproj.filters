@@ -135,7 +135,10 @@
     <ClInclude Include="Object\BasicObject\DiffuseCube.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\BasicObject\Sphere.h">
+    <ClInclude Include="Object\BasicObject\Sphere_Color.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BasicObject\Sphere_Texture.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -245,7 +248,10 @@
     <ClCompile Include="Object\BasicObject\DiffuseCube.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\BasicObject\Sphere.cpp">
+    <ClCompile Include="Object\BasicObject\Sphere_Color.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BasicObject\Sphere_Texture.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -273,6 +279,8 @@
     <FxCompile Include="_Shader\PixelCubeShader.hlsl" />
     <FxCompile Include="_Shader\VertexColor.hlsl" />
     <FxCompile Include="_Shader\PixelColor.hlsl" />
+    <FxCompile Include="_Shader\VertexSpecular.hlsl" />
+    <FxCompile Include="_Shader\PixelSpecular.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="_Shader\Header.hlsli" />

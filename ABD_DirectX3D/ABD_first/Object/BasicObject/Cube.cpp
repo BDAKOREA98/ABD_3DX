@@ -13,7 +13,6 @@ Cube::Cube(Vector4 color)
     mesh = new Mesh(vertices, indices);
     worldBuffer = new MatrixBuffer();
 
-    
 
 
 }
@@ -53,18 +52,6 @@ void Cube::Render()
 
 }
 
-void Cube::PostRender()
-{
-    ImGui::SliderAngle("rotation.x", &rotation.x);
-    ImGui::SliderAngle("rotation.y", &rotation.y);
-    ImGui::SliderAngle("rotation.z", &rotation.z);
-    ImGui::SliderAngle("translation.x", &translation.x);
-    ImGui::SliderAngle("translation.y", &translation.y);
-    ImGui::SliderAngle("translation.z", &translation.z);
-    ImGui::SliderAngle("scale.x", &scale.x);
-    ImGui::SliderAngle("scale.y", &scale.y);
-    ImGui::SliderAngle("scale.z", &scale.z);
-}
 
 void Cube::CreateMesh(Vector4 color)
 {

@@ -55,7 +55,7 @@ using namespace DirectX;
 #define Key_DOWN(p) Keyboard::GetInstance()->Down(p)
 
 #define CAMERA		Camera::GetInstance()-> GetTransform()
-
+#define RS			StateManager::GetInstance()->GetRS()
 
 
 typedef XMMATRIX Matrix;
@@ -115,7 +115,8 @@ typedef XMFLOAT2 Vector2;
 #include "Object/BasicObject/TextureCube.h"
 #include "Object/LandScape/Terrain.h"
 #include "Object/BasicObject/Robot.h"
-#include "Object/BasicObject/Sphere.h"
+#include "Object/BasicObject/Sphere_Color.h"
+#include "Object/BasicObject/Sphere_Texture.h"
 
 
 

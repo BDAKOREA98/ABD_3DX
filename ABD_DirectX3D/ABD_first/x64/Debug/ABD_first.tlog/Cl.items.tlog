@@ -1,6 +1,7 @@
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\DiffuseCube.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\DiffuseCube.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Robot.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Robot.obj
-C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Sphere.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Sphere.obj
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Sphere_Color.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Sphere_Color.obj
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Sphere_Texture.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Sphere_Texture.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\System\Camera.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Camera.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\State\RasterizerState.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\RasterizerState.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Scene\BoxScene.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\BoxScene.obj

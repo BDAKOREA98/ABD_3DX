@@ -10,6 +10,9 @@
       <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelColor.cso</FullPath>
     </ContentFile>
     <ContentFile>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelSpecular.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
       <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexCubeShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
@@ -26,6 +29,9 @@
     </ContentFile>
     <ContentFile>
       <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexColor.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexSpecular.cso</FullPath>
     </ContentFile>
     <ContentFile>
       <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexTexture.cso</FullPath>

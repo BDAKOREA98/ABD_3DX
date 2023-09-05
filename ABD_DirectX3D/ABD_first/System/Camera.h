@@ -31,7 +31,7 @@ private:
 	float rotationSpeed	= 5.0f;
 	
 
-	MatrixBuffer*	viewBuffer;
+	ViewBuffer*	viewBuffer;
 	Matrix			viewmatrix = {};
 
 	Vector3			oldPos;

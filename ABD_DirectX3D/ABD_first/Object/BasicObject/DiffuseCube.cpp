@@ -51,10 +51,7 @@ void DiffuseCube::Render()
 
 }
 
-void DiffuseCube::PostRender()
-{
- 
-}
+
 
 void DiffuseCube::CreateMesh(Vector4 color)
 {

@@ -14,7 +14,7 @@ public:
     void Update();
     void PreRender();
     void Render();
-    void PostRender();
+    
     void CreateMesh(Vector4 color);
     void CreateNormal();
 

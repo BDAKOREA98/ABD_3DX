@@ -10,7 +10,7 @@ StateManager::StateManager()
 StateManager::~StateManager()
 {
 	delete samplerstate;
-	delete raterizerstate;
+	delete rasterizerstate;
 }
 
 void StateManager::CreateSamplerState()
@@ -21,6 +21,6 @@ void StateManager::CreateSamplerState()
 
 void StateManager::CreateRaterizerState()
 {
-	raterizerstate = new RasterizerState();
-	raterizerstate->SetState();
+	rasterizerstate = new RasterizerState();
+	rasterizerstate->SetState();
 }

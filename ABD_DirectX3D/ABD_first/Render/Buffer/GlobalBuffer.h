@@ -45,3 +45,29 @@ private:
 	} data;
 
 };
+
+class ViewBuffer : public ConstantBuffer
+{
+public:
+	ViewBuffer()
+		:ConstantBuffer(&data, sizeof(data))
+	{
+		data.view = XMMatrixIdentity();
+		data.invView = XMMatrixIdentity();
+	}
+
+	void SetData(Matrix view, Matrix invView)
+	{
+		data.view = XMMatrixTranspose(view);
+		data.invView = XMMatrixTranspose(invView);
+	}
+
+private:
+
+	struct Data
+	{
+		Matrix view;
+		Matrix invView;
+	} data;
+
+};

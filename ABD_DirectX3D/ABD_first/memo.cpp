@@ -699,8 +699,10 @@
 // - charactor 배열 == string
 // - 텍스트 출력할때 변수는 읽어올때 메모리에서 2진법을 읽어서 오기 때문에 서식지정자를 잘못 넣으면 뒷자리만 잘리는게 아닌 쓰레기값이나옴
 // 
-// - Specular Reflection(거울반사) : 직접적으로 빛을 받아 반사함 
+// - Specular Reflection(정반사) : 직접적으로 빛을 받아 반사함 ex) 거울반사
+// -- 정반사의 경우 빛이 더 들어오기 때문에 빛을 추가한다고 생각하면 됨
 // - Diffuse Reflection (난반사) : 직접적으로 받은 빛을 불규칙하게 반사함 
+// -- 난반사의 경우 빛을 흩어놓으면서 빛이 감소된다고 생각하면 됨
 // - Amlent Reflection (주변반사, 환경반사) :  
 // 
 // 
@@ -708,6 +710,28 @@
 // normal * world는 같다.
 // 
 // ConstatnBuffer는 무조건 16Byte단위로 데이터를 넘겨줘야함 (dumy, padding)
+//
+
+#pragma endregion
+
+#pragma region 20Day -  구
+// 
+// Sphere의  slice : 세로선, stack : 가로선, theta : 북극점과 Slice,  Slice 가 이루는 각, phi : stack과 중점 과 북극점이 이루는 각
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 //
 
 #pragma endregion

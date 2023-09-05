@@ -30,7 +30,7 @@ Robot::Robot()
 	mouse->AddTranslation({ +0.0f , -0.4f , + 0.45f });
 
 	body = new DiffuseCube({ 1,1,1,1 });
-	body->AddScale({ 1.5f, 1.5f,1.5f });
+	body->AddScale({ 5, 5, 5 });
 	body->SetParent(trans);
 	body->AddTranslation({0.0f, -3.0f, 0.0f});
 
@@ -42,7 +42,7 @@ Robot::Robot()
 	L_Arm2->SetParent(L_Arm1);
 	L_Arm3->SetParent(L_Arm2);
 
-	L_Arm1->AddScale({ -0.4f, -0.4f, -0.4f });
+	
 	
 	L_Arm1->AddTranslation({ -4.0f,-2.0f,0.0f });
 	L_Arm2->AddTranslation({ 0.0f,-3.0f,0.0f });
@@ -57,7 +57,7 @@ Robot::Robot()
 	R_Arm1->SetParent(trans);
 	R_Arm2->SetParent(R_Arm1);
 	R_Arm3->SetParent(R_Arm2);
-	R_Arm1->AddScale({ -0.4f, -0.4f, -0.4f });
+	
 
 	
 	R_Arm1->AddTranslation({ +4.0f,-2.0f,0.0f });
@@ -76,8 +76,7 @@ Robot::Robot()
 	L_Leg4->SetParent(L_Leg3);
 
 
-	L_Leg1->AddScale({ -0.3f, -0.3f, -0.3f });
-
+	
 	L_Leg1->AddTranslation({-2.0f, -6.0f, 0.0f})		 ;
 	L_Leg2->AddTranslation({+0.0f, -3.0f, 0.0f})	 ;
 	L_Leg3->AddTranslation({+0.0f, -3.0f, 0.0f})	 ;
@@ -95,7 +94,7 @@ Robot::Robot()
 	R_Leg4->SetParent(R_Leg3);
 
 
-	R_Leg1->AddScale({ -0.3f, -0.3f, -0.3f });
+	
 
 	R_Leg1->AddTranslation({ +2.0f, -6.0f, 0.0f });
 	R_Leg2->AddTranslation({ +0.0f, -3.0f, 0.0f });
@@ -200,17 +199,17 @@ void Robot::InputKey()
 		R_Arm3->AddRotation({ -0.001f, 0.0f, 0.0f });
 
 		
-		R_Leg1->AddRotation({ 0.001f, 0.0f, 0.0f });
-		R_Leg2->AddRotation({ 0.001f, 0.0f, 0.0f });
-		R_Leg3->AddRotation({ 0.001f, 0.0f, 0.0f });
-		R_Leg4->AddRotation({ 0.001f, 0.0f, 0.0f });
+		R_Leg1->AddRotation({ 0.0002f, 0.0f, 0.0f });
+		R_Leg2->AddRotation({ 0.0002f, 0.0f, 0.0f });
+		R_Leg3->AddRotation({ 0.0002f, 0.0f, 0.0f });
+		R_Leg4->AddRotation({ 0.0002f, 0.0f, 0.0f });
 
-		L_Leg1->AddRotation({ -0.001f, 0.0f, 0.0f });
-		L_Leg2->AddRotation({ -0.001f, 0.0f, 0.0f });
-		L_Leg3->AddRotation({ -0.001f, 0.0f, 0.0f });
-		L_Leg4->AddRotation({ -0.001f, 0.0f, 0.0f });
+		L_Leg1->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		L_Leg2->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		L_Leg3->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		L_Leg4->AddRotation({ -0.0002f, 0.0f, 0.0f });
 
-		if (L_Arm1->rotation.x >= 0.5*PI)
+		if (L_Arm1->rotation.x >= 0.25*PI)
 		{
 			active = true;
 		}
@@ -229,17 +228,17 @@ void Robot::InputKey()
 		R_Arm3->AddRotation({ +0.001f, 0.0f, 0.0f });
 
 
-		R_Leg1->AddRotation({ -0.001f, 0.0f, 0.0f });
-		R_Leg2->AddRotation({ -0.001f, 0.0f, 0.0f });
-		R_Leg3->AddRotation({ -0.001f, 0.0f, 0.0f });
-		R_Leg4->AddRotation({ -0.001f, 0.0f, 0.0f });
+		R_Leg1->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		R_Leg2->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		R_Leg3->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		R_Leg4->AddRotation({ -0.0002f, 0.0f, 0.0f });
 
-		L_Leg1->AddRotation({ +0.001f, 0.0f, 0.0f });
-		L_Leg2->AddRotation({ +0.001f, 0.0f, 0.0f });
-		L_Leg3->AddRotation({ +0.001f, 0.0f, 0.0f });
-		L_Leg4->AddRotation({ +0.001f, 0.0f, 0.0f });
+		L_Leg1->AddRotation({ +0.0002f, 0.0f, 0.0f });
+		L_Leg2->AddRotation({ +0.0002f, 0.0f, 0.0f });
+		L_Leg3->AddRotation({ +0.0002f, 0.0f, 0.0f });
+		L_Leg4->AddRotation({ +0.0002f, 0.0f, 0.0f });
 
-		if (L_Arm1->rotation.x <= -0.5 * PI)
+		if (L_Arm1->rotation.x <= -0.25 * PI)
 		{
 			active = false;
 		}
@@ -260,17 +259,17 @@ void Robot::InputKey()
 		R_Arm3->AddRotation({ -0.001f, 0.0f, 0.0f });
 
 
-		R_Leg1->AddRotation({ 0.001f, 0.0f, 0.0f });
-		R_Leg2->AddRotation({ 0.001f, 0.0f, 0.0f });
-		R_Leg3->AddRotation({ 0.001f, 0.0f, 0.0f });
-		R_Leg4->AddRotation({ 0.001f, 0.0f, 0.0f });
+		R_Leg1->AddRotation({ 0.0002f, 0.0f, 0.0f });
+		R_Leg2->AddRotation({ 0.0002f, 0.0f, 0.0f });
+		R_Leg3->AddRotation({ 0.0002f, 0.0f, 0.0f });
+		R_Leg4->AddRotation({ 0.0002f, 0.0f, 0.0f });
 
-		L_Leg1->AddRotation({ -0.001f, 0.0f, 0.0f });
-		L_Leg2->AddRotation({ -0.001f, 0.0f, 0.0f });
-		L_Leg3->AddRotation({ -0.001f, 0.0f, 0.0f });
-		L_Leg4->AddRotation({ -0.001f, 0.0f, 0.0f });
+		L_Leg1->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		L_Leg2->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		L_Leg3->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		L_Leg4->AddRotation({ -0.0002f, 0.0f, 0.0f });
 
-		if (L_Arm1->rotation.x >= 0.5 * PI)
+		if (L_Arm1->rotation.x >= 0.25 * PI)
 		{
 			active = true;
 		}
@@ -289,17 +288,17 @@ void Robot::InputKey()
 		R_Arm3->AddRotation({ +0.001f, 0.0f, 0.0f });
 
 
-		R_Leg1->AddRotation({ -0.001f, 0.0f, 0.0f });
-		R_Leg2->AddRotation({ -0.001f, 0.0f, 0.0f });
-		R_Leg3->AddRotation({ -0.001f, 0.0f, 0.0f });
-		R_Leg4->AddRotation({ -0.001f, 0.0f, 0.0f });
+		R_Leg1->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		R_Leg2->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		R_Leg3->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		R_Leg4->AddRotation({ -0.0002f, 0.0f, 0.0f });
 
-		L_Leg1->AddRotation({ +0.001f, 0.0f, 0.0f });
-		L_Leg2->AddRotation({ +0.001f, 0.0f, 0.0f });
-		L_Leg3->AddRotation({ +0.001f, 0.0f, 0.0f });
-		L_Leg4->AddRotation({ +0.001f, 0.0f, 0.0f });
+		L_Leg1->AddRotation({ +0.0002f, 0.0f, 0.0f });
+		L_Leg2->AddRotation({ +0.0002f, 0.0f, 0.0f });
+		L_Leg3->AddRotation({ +0.0002f, 0.0f, 0.0f });
+		L_Leg4->AddRotation({ +0.0002f, 0.0f, 0.0f });
 
-		if (L_Arm1->rotation.x <= -0.5 * PI)
+		if (L_Arm1->rotation.x <= -0.25 * PI)
 		{
 			active = false;
 		}
@@ -320,17 +319,17 @@ void Robot::InputKey()
 		R_Arm3->AddRotation({ -0.001f, 0.0f, 0.0f });
 
 
-		R_Leg1->AddRotation({ 0.001f, 0.0f, 0.0f });
-		R_Leg2->AddRotation({ 0.001f, 0.0f, 0.0f });
-		R_Leg3->AddRotation({ 0.001f, 0.0f, 0.0f });
-		R_Leg4->AddRotation({ 0.001f, 0.0f, 0.0f });
+		R_Leg1->AddRotation({ 0.0002f, 0.0f, 0.0f });
+		R_Leg2->AddRotation({ 0.0002f, 0.0f, 0.0f });
+		R_Leg3->AddRotation({ 0.0002f, 0.0f, 0.0f });
+		R_Leg4->AddRotation({ 0.0002f, 0.0f, 0.0f });
 
-		L_Leg1->AddRotation({ -0.001f, 0.0f, 0.0f });
-		L_Leg2->AddRotation({ -0.001f, 0.0f, 0.0f });
-		L_Leg3->AddRotation({ -0.001f, 0.0f, 0.0f });
-		L_Leg4->AddRotation({ -0.001f, 0.0f, 0.0f });
+		L_Leg1->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		L_Leg2->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		L_Leg3->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		L_Leg4->AddRotation({ -0.0002f, 0.0f, 0.0f });
 
-		if (L_Arm1->rotation.x >= 0.5 * PI)
+		if (L_Arm1->rotation.x >= 0.25 * PI)
 		{
 			active = true;
 		}
@@ -349,17 +348,17 @@ void Robot::InputKey()
 		R_Arm3->AddRotation({ +0.001f, 0.0f, 0.0f });
 
 
-		R_Leg1->AddRotation({ -0.001f, 0.0f, 0.0f });
-		R_Leg2->AddRotation({ -0.001f, 0.0f, 0.0f });
-		R_Leg3->AddRotation({ -0.001f, 0.0f, 0.0f });
-		R_Leg4->AddRotation({ -0.001f, 0.0f, 0.0f });
+		R_Leg1->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		R_Leg2->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		R_Leg3->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		R_Leg4->AddRotation({ -0.0002f, 0.0f, 0.0f });
 
-		L_Leg1->AddRotation({ +0.001f, 0.0f, 0.0f });
-		L_Leg2->AddRotation({ +0.001f, 0.0f, 0.0f });
-		L_Leg3->AddRotation({ +0.001f, 0.0f, 0.0f });
-		L_Leg4->AddRotation({ +0.001f, 0.0f, 0.0f });
+		L_Leg1->AddRotation({ +0.0002f, 0.0f, 0.0f });
+		L_Leg2->AddRotation({ +0.0002f, 0.0f, 0.0f });
+		L_Leg3->AddRotation({ +0.0002f, 0.0f, 0.0f });
+		L_Leg4->AddRotation({ +0.0002f, 0.0f, 0.0f });
 
-		if (L_Arm1->rotation.x <= -0.5 * PI)
+		if (L_Arm1->rotation.x <= -0.25 * PI)
 		{
 			active = false;
 		}
@@ -380,17 +379,17 @@ void Robot::InputKey()
 		R_Arm3->AddRotation({ -0.001f, 0.0f, 0.0f });
 
 
-		R_Leg1->AddRotation({ 0.001f, 0.0f, 0.0f });
-		R_Leg2->AddRotation({ 0.001f, 0.0f, 0.0f });
-		R_Leg3->AddRotation({ 0.001f, 0.0f, 0.0f });
-		R_Leg4->AddRotation({ 0.001f, 0.0f, 0.0f });
+		R_Leg1->AddRotation({ 0.0002f, 0.0f, 0.0f });
+		R_Leg2->AddRotation({ 0.0002f, 0.0f, 0.0f });
+		R_Leg3->AddRotation({ 0.0002f, 0.0f, 0.0f });
+		R_Leg4->AddRotation({ 0.0002f, 0.0f, 0.0f });
+								  
+		L_Leg1->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		L_Leg2->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		L_Leg3->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		L_Leg4->AddRotation({ -0.0002f, 0.0f, 0.0f });
 
-		L_Leg1->AddRotation({ -0.001f, 0.0f, 0.0f });
-		L_Leg2->AddRotation({ -0.001f, 0.0f, 0.0f });
-		L_Leg3->AddRotation({ -0.001f, 0.0f, 0.0f });
-		L_Leg4->AddRotation({ -0.001f, 0.0f, 0.0f });
-
-		if (L_Arm1->rotation.x >= 0.5 * PI)
+		if (L_Arm1->rotation.x >= 0.25 * PI)
 		{
 			active = true;
 		}
@@ -409,17 +408,17 @@ void Robot::InputKey()
 		R_Arm3->AddRotation({ +0.001f, 0.0f, 0.0f });
 
 
-		R_Leg1->AddRotation({ -0.001f, 0.0f, 0.0f });
-		R_Leg2->AddRotation({ -0.001f, 0.0f, 0.0f });
-		R_Leg3->AddRotation({ -0.001f, 0.0f, 0.0f });
-		R_Leg4->AddRotation({ -0.001f, 0.0f, 0.0f });
+		R_Leg1->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		R_Leg2->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		R_Leg3->AddRotation({ -0.0002f, 0.0f, 0.0f });
+		R_Leg4->AddRotation({ -0.0002f, 0.0f, 0.0f });
 
-		L_Leg1->AddRotation({ +0.001f, 0.0f, 0.0f });
-		L_Leg2->AddRotation({ +0.001f, 0.0f, 0.0f });
-		L_Leg3->AddRotation({ +0.001f, 0.0f, 0.0f });
-		L_Leg4->AddRotation({ +0.001f, 0.0f, 0.0f });
+		L_Leg1->AddRotation({ +0.0002f, 0.0f, 0.0f });
+		L_Leg2->AddRotation({ +0.0002f, 0.0f, 0.0f });
+		L_Leg3->AddRotation({ +0.0002f, 0.0f, 0.0f });
+		L_Leg4->AddRotation({ +0.0002f, 0.0f, 0.0f });
 
-		if (L_Arm1->rotation.x <= -0.5 * PI)
+		if (L_Arm1->rotation.x <= -0.25 * PI)
 		{
 			active = false;
 		}
@@ -440,6 +439,6 @@ void Robot::InputKey()
 
 void Robot::PostRender()
 {
-	L_Arm1->PostRender();
+	
 
 }
