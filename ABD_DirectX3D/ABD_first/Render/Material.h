@@ -18,7 +18,7 @@ public:
 	MaterialBuffer* GetBuffer() { return buffer; }
 
 	void PostRender();
-
+	
 private:
 
 	PixelShader* pixelShader = nullptr;

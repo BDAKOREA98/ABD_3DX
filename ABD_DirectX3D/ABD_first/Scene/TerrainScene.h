@@ -19,7 +19,7 @@ public:
 private:
 
 	Terrain* terrain;
-	Sphere_Color* sphere;
+	//Sphere_Color* sphere;
 	Robot* robot;
 
 

@@ -7,6 +7,7 @@ public:
 
 	void Render();
 	void Update();
+	void PostRender();
 
 private:
 	void CreateMesh();

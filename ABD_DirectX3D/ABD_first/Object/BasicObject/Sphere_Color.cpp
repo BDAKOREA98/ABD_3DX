@@ -3,8 +3,9 @@
 
 Sphere_Color::Sphere_Color(float radius,Vector4 color)
 {
-    material = new Material(L"CubeShader");
-
+   
+    material = new Material();
+    material->SetShader(L"CubeShader");
 
     CreateMesh(radius, color);
 

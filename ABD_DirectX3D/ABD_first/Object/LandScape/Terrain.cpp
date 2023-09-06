@@ -6,7 +6,8 @@
 Terrain::Terrain(wstring diffuseFile, wstring heightFile)
 {
 	material = new Material();
-	material->SetShader(L"Diffuse");
+	material->SetShader(L"Specular");
+	material->SetSpecularMap(L"Landscape/fieldStone_SM.tga");
 	material->SetDiffuseMap(diffuseFile);
 
 
@@ -41,6 +42,11 @@ void Terrain::Render()
 void Terrain::Update()
 {
 	Transform::Update();
+}
+
+void Terrain::PostRender()
+{
+	material->PostRender();
 }
 
 void Terrain::CreateMesh()
