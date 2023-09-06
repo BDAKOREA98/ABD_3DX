@@ -45,7 +45,7 @@ void Camera::FreeMode()
 		}
 		else
 		{
-			moveSpeed = 30.0f;
+			moveSpeed = 20.0f;
 		}
 
 		if (KEY_PRESS('A'))

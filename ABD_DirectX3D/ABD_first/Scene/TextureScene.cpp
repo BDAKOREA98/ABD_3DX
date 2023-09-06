@@ -15,8 +15,12 @@ TextureScene::TextureScene()
 	sphere = new Sphere_Texture();
 	sphere->translation.x = -2;
 	sphere->SetLabel("textureSphere");
+	
+	
+	sphere->GetMaterial()->SetDiffuseMap(L"Landscape/Fieldstone_DM.tga");
+	sphere->GetMaterial()->SetSpecularMap(L"Landscape/fieldStone_SM.tga");
 
-	sphere2 = new Sphere_Color(1, {1,1,1,1});
+	sphere2 = new Sphere_Color(0.5f, {0.25f,0.45f,0.60f,1});
 	sphere2->translation.x = -4;
 	sphere2->SetLabel("colorSphere");
 }
@@ -70,8 +74,11 @@ void TextureScene::Render()
 
 void TextureScene::PostRender()
 {
-	cube->Debug();
-	cube2->Debug();
-	sphere->Debug();
-	sphere2->Debug();
+	//cube->Debug();
+	//cube2->Debug();
+	//sphere->Debug();
+	//sphere2->Debug();
+
+	sphere->GetMaterial()->PostRender();
+
 }

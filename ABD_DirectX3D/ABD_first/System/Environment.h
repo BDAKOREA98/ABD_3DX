@@ -25,7 +25,7 @@ private:
 
 	
 	MatrixBuffer* projBuffer;
-	Vector3 lightDirection = V_DOWN;
+	
 	LightBuffer* lightBuffer;
 	LightBuffer* lightBuffer2;
 };

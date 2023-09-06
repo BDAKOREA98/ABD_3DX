@@ -3,11 +3,13 @@
 
 Material::Material()
 {
+	buffer = new MaterialBuffer();
 }
 
 Material::Material(wstring file)
 {
 	SetShader(file);
+	buffer = new MaterialBuffer();
 }
 
 Material::~Material()
@@ -41,9 +43,42 @@ void Material::SetMaterial()
 	{
 		diffuseMap->PSSetShaderResource(0);
 	}
+	if (specularMap)
+	{
+		specularMap->PSSetShaderResource(1);;
+	}
+
+	buffer->SetPSBuffer(1);
+
+
+
 }
 
 void Material::SetDiffuseMap(wstring file)
 {
 	diffuseMap = Texture::Get(file);
+
+	buffer->data.hasDiffuseMap = true;
+}
+
+void Material::SetSpecularMap(wstring file)
+{
+	specularMap = Texture::Get(file);
+
+	buffer->data.hasSpecularMap = true;
+}
+
+void Material::PostRender()
+{
+	ImGui::ColorEdit4("Diffuse", (float*)&buffer->data.diffuse);
+	ImGui::ColorEdit4("Specular", (float*)&buffer->data.specular);
+	ImGui::ColorEdit4("Ambient", (float*)&buffer->data.ambient);
+
+	ImGui::Checkbox("HasDiffuseMap", (bool*)&buffer->data.hasDiffuseMap);
+	ImGui::Checkbox("HasSpecularMap", (bool*)&buffer->data.hasSpecularMap);
+	ImGui::Checkbox("HasNormalMap", (bool*)&buffer->data.hasNormalMap);
+
+	ImGui::SliderFloat("Shininesss", &buffer->data.shininess, 1.0f, 50.0f);
+
+
 }

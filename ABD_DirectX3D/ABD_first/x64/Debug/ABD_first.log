@@ -1,4 +1,0 @@
-﻿C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\_Shader\PixelSpecular.hlsl(20,11-45): warning X3206: implicit truncation of vector type
-  
-  compilation object save succeeded; see C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelSpecular.cso
-  ABD_first.vcxproj -> C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\ABD_first.exe

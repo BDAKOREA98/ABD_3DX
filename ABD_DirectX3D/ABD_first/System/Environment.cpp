@@ -7,7 +7,7 @@ Environment::Environment()
     CreatePerspective();
 
     lightBuffer = new LightBuffer();
-    lightBuffer2 = new LightBuffer();
+   lightBuffer2 = new LightBuffer();
 }
 
 Environment::~Environment()
@@ -15,7 +15,7 @@ Environment::~Environment()
    
     delete projBuffer;
     delete lightBuffer;
-    delete lightBuffer2;
+   delete lightBuffer2;
 
 }
 
@@ -62,16 +62,21 @@ void Environment::SetEnvironment()
 {
     
     lightBuffer->SetPSBuffer(3);
+
     lightBuffer2->SetVSBuffer(3);
-    lightBuffer->SetData(lightDirection);
-    lightBuffer2->SetData(lightDirection);
+    
 }
 
 void Environment::PostRender()
 {
     
 
-    ImGui::SliderFloat3("LightDirection", (float*)&lightDirection, -1.0f, +1.0f);
+    ImGui::SliderFloat3("PSLightDirection", (float*)&lightBuffer->data.LightDirection, -1.0f, +1.0f);
+    ImGui::ColorEdit3("PSAmbientLight", (float*)&lightBuffer->data.ambientLight);
+
+    //ImGui::SliderFloat3("VSLightDirection", (float*)&lightBuffer2->data.LightDirection, -1.0f, +1.0f);
+    //ImGui::ColorEdit3("VSAmbientLight", (float*)&lightBuffer2->data.ambientLight);
+
 
 
 }

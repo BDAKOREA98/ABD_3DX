@@ -717,21 +717,19 @@
 #pragma region 20Day -  구
 // 
 // Sphere의  slice : 세로선, stack : 가로선, theta : 북극점과 Slice,  Slice 가 이루는 각, phi : stack과 중점 과 북극점이 이루는 각
+
+#pragma endregion
+
+#pragma region 21Day -  구
+// 
+// saturate : 값의 범위를 제한하는 쉐이더 전용 함수임
+// 
+// 퐁 쉐이드 기법 : diffuse, specular, ambient를 이용해서 색을 표현하는 기법 퐁은 사람이름임
+// 
+// - namespace 와 class 차이
+// - namespace는 객체가 없어도 되기에 생성자와 소멸자가 없다
+// - class 는 객체가 필수
 // 
 // 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-//
 
 #pragma endregion

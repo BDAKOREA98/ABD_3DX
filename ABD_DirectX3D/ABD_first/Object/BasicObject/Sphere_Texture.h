@@ -12,13 +12,15 @@ public:
 		void Update();
 		
 
+		Material* GetMaterial() { return material; }
+
 private:
 
 	void CreateMesh();
 	
 	
 
-
+	
 
 private:
 
