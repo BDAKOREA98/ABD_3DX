@@ -28,9 +28,9 @@ cbuffer LightDirection : register(b3)
 
 cbuffer MaterialBuffer : register(b1)
 {
-    float4 diffuse;
-    float4 specular;
-    float4 ambient;
+    float4 Mdiffuse;
+    float4 Mspecular;
+    float4 Mambient;
     
     int hasDiffuseMap;
     int hasSpeculaMap;
@@ -77,10 +77,20 @@ struct VertexColorNormal
     
 };
 
+struct VertexTextureNormalTangent
+{
+
+    float4 pos : POSITION;
+    float2 uv : UV;
+    float3 normal : NORMAL;
+    float3 tangent : TANGENT;
+};
 
 
-Texture2D diffuseMap : register(t0);
+
+Texture2D  diffuseMap : register(t0);
 Texture2D specularMap : register(t1);
+Texture2D   normalMap : register(t2);
 
 
 SamplerState samp    : register(s0);

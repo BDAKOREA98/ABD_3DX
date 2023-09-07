@@ -21,6 +21,7 @@ Terrain::Terrain(wstring diffuseFile, wstring heightFile)
 	CreateNormal();
 
 	mesh = new Mesh(vertices, indices);
+
 }
 
 Terrain::~Terrain()
@@ -47,6 +48,7 @@ void Terrain::Update()
 void Terrain::PostRender()
 {
 	material->PostRender();
+	Debug();
 }
 
 void Terrain::CreateMesh()

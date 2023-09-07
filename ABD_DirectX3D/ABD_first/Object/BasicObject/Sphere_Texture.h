@@ -1,7 +1,7 @@
 #pragma once
 class Sphere_Texture : public Transform
 {
-	typedef VertexTextureNormal VertexType;
+	typedef VertexTextureNormalTangent VertexType;
 
 public:
 
@@ -17,9 +17,9 @@ public:
 private:
 
 	void CreateMesh();
-	
-	
 
+	void CreateTangent();
+	
 	
 
 private:

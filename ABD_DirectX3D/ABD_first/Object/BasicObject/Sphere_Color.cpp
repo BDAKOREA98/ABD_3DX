@@ -12,6 +12,8 @@ Sphere_Color::Sphere_Color(float radius,Vector4 color)
     worldBuffer = new MatrixBuffer();
   
     mesh = new Mesh(vertices, indices);
+
+    
 }
 
 Sphere_Color::~Sphere_Color()
@@ -44,6 +46,12 @@ void Sphere_Color::Render()
 
     // 여기부터 실제 렌더링 파이프라인이 시작되기에 이전까지는 순서 상관 없음!
     DC->DrawIndexed(indices.size(), 0, 0);
+}
+
+void Sphere_Color::PostRender()
+{
+    Debug();
+
 }
 
 

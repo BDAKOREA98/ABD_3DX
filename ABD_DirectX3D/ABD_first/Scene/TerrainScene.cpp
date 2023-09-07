@@ -7,13 +7,13 @@ TerrainScene::TerrainScene()
 	robot = new Robot();
 	robot->trans->translation.y += 30.0f;
 
-
+	terrain->SetLabel("Terrain");
 
 
 
 	CAMERA->translation = { 0, 100, -100 };
-	//sphere = new Sphere_Color(10.0f, { 1.0f, 0.0f, 0.0f, 1.0f });
-	
+	sphere = new Sphere_Color(10.0f, { 1.0f, 0.0f, 0.0f, 1.0f });
+	sphere->SetLabel("Sphere");
 
 }
 
@@ -21,12 +21,12 @@ TerrainScene::~TerrainScene()
 {
 	delete terrain;
 	delete robot;
-	//delete sphere;
+	delete sphere;
 }
 
 void TerrainScene::Update()
 {
-	//sphere->Update();
+	sphere->Update();
 	terrain->Update();
 	robot->Update();
 }
@@ -40,12 +40,12 @@ void TerrainScene::Render()
 {
 	robot->Render();
 	terrain->Render();
-	//sphere->Render();
+	sphere->Render();
 }
 
 void TerrainScene::PostRender()
 {
-	//sphere->Debug();
+	sphere->PostRender();
 
 	terrain->PostRender();
 	

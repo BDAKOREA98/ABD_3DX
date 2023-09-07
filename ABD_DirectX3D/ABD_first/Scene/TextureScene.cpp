@@ -19,6 +19,7 @@ TextureScene::TextureScene()
 	
 	sphere->GetMaterial()->SetDiffuseMap(L"Landscape/Fieldstone_DM.tga");
 	sphere->GetMaterial()->SetSpecularMap(L"Landscape/fieldStone_SM.tga");
+	sphere->GetMaterial()->SetNormalMap(L"Landscape/fieldStone_NM.tga");
 
 	sphere2 = new Sphere_Color(0.5f, {0.25f,0.45f,0.60f,1});
 	sphere2->translation.x = -4;

@@ -83,9 +83,9 @@ public:
 
 	struct Data
 	{
-		Vector4 diffuse = Vector4( 1,1,1,1 );
-		Vector4 specular= Vector4( 1,1,1,1 );
-		Vector4 ambient = Vector4( 1,1,1,1 );
+		Vector4 Mdiffuse = Vector4( 1,1,1,1 );
+		Vector4 Mspecular= Vector4( 1,1,1,1 );
+		Vector4 Mambient = Vector4( 1,1,1,1 );
 
 		int hasDiffuseMap	= 0;
 		int hasSpecularMap	= 0;

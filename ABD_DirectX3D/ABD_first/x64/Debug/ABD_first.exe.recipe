@@ -2,45 +2,51 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\ABD_first.exe</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\ABD_first.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelColor.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelColor.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelSpecular.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelNormalMapping.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexCubeShader.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelSpecular.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelCubeShader.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexCubeShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelDiffuse.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelCubeShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelTexture.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelDiffuse.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexDiffuse.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelTexture.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexColor.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexDiffuse.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexSpecular.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexColor.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexTexture.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexNormalMapping.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelTutorial.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexSpecular.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexTutorial.cso</FullPath>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexTexture.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\PixelTutorial.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\VertexTutorial.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

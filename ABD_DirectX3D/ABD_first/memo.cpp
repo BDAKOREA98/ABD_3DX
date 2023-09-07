@@ -733,3 +733,13 @@
 // 
 
 #pragma endregion
+
+#pragma region 22Day -  Normal
+// 
+// NoramlMap의 경우 texture의 x,y,z 가 r,g,b라고 생각하면 된다.
+// - 폴리곤의 적용된 uv 값은 폴리곤의 평행하게 적용될 것이다.
+// -- uv.x와 평행한 normal, uv.y오
+// 
+// 
+
+#pragma endregion

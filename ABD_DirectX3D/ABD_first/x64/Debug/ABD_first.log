@@ -1,2 +1,6 @@
-﻿  TerrainScene.cpp
-  ABD_first.vcxproj -> C:\Users\82103\Desktop\덕\Github\ABD_3DX\ABD_DirectX3D\x64\Debug\ABD_first.exe
+﻿  Sphere_Texture.cpp
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Sphere_Texture.cpp(38,30): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Buffer\VertexBuffer.h(30,53): warning C4267: '=': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Mesh.h(24,34): message : 컴파일되는 함수 템플릿 인스턴스화 'VertexBuffer::VertexBuffer<Sphere_Texture::VertexType>(std::vector<Sphere_Texture::VertexType,std::allocator<Sphere_Texture::VertexType>> &)'에 대한 참조를 확인하세요.
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\Sphere_Texture.cpp(10,17): message : 컴파일되는 함수 템플릿 인스턴스화 'Mesh::Mesh<Sphere_Texture::VertexType>(std::vector<Sphere_Texture::VertexType,std::allocator<Sphere_Texture::VertexType>> &,std::vector<UINT,std::allocator<UINT>> &)'에 대한 참조를 확인하세요.
+  ABD_first.vcxproj -> C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\x64\Debug\ABD_first.exe

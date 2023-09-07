@@ -45,7 +45,11 @@ void Material::SetMaterial()
 	}
 	if (specularMap)
 	{
-		specularMap->PSSetShaderResource(1);;
+		specularMap->PSSetShaderResource(1);
+	}
+	if (normalMap)
+	{
+		normalMap->PSSetShaderResource(2);
 	}
 
 	buffer->SetPSBuffer(1);
@@ -68,11 +72,18 @@ void Material::SetSpecularMap(wstring file)
 	buffer->data.hasSpecularMap = true;
 }
 
+void Material::SetNormalMap(wstring file)
+{
+	normalMap = Texture::Get(file);
+
+	buffer->data.hasNormalMap = true;
+}
+
 void Material::PostRender()
 {
-	ImGui::ColorEdit4("Diffuse", (float*)&buffer->data.diffuse);
-	ImGui::ColorEdit4("Specular", (float*)&buffer->data.specular);
-	ImGui::ColorEdit4("Ambient", (float*)&buffer->data.ambient);
+	ImGui::ColorEdit4("Diffuse", (float*)&buffer->data.Mdiffuse);
+	ImGui::ColorEdit4("Specular", (float*)&buffer->data.Mspecular);
+	ImGui::ColorEdit4("Ambient", (float*)&buffer->data.Mambient);
 
 	ImGui::Checkbox("HasDiffuseMap", (bool*)&buffer->data.hasDiffuseMap);
 	ImGui::Checkbox("HasSpecularMap", (bool*)&buffer->data.hasSpecularMap);

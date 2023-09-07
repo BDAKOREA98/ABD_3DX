@@ -36,26 +36,25 @@ float4 main(VertexOutput input) : SV_TARGET
     
     specularIntensity = saturate(dot(-reflection, input.viewDir));
     
-    float4 specularMapIntensity = float4(1.0f, 1.0f, 1.0f, 1.0f);
+    float4 specularSample = float4(1.0f, 1.0f, 1.0f, 1.0f);
     
     if(hasSpeculaMap)
     {
-        specularMapIntensity = specularMap.Sample(samp, input.uv);
+        specularSample = specularMap.Sample(samp, input.uv);
     }
     
     
     
     
-    specularIntensity = pow(specularIntensity, shininess) * specularMapIntensity;
+    float4 specular = pow(specularIntensity, shininess) * specularSample * Mspecular;
     
     
-    float4 diffuse = albedo * diffuseIntensity;
+    float4 diffuse = albedo * diffuseIntensity * Mdiffuse;
     
-    float4 specular = albedo * specularIntensity;
+ 
+ 
     
-    ////////////// ambient ///////////////////
-    
-    float4 ambient = albedo * ambientLight;
+    float4 ambient = albedo * ambientLight * Mambient;
     
     
     
