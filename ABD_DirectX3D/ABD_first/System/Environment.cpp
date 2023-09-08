@@ -74,8 +74,8 @@ void Environment::PostRender()
     ImGui::SliderFloat3("PSLightDirection", (float*)&lightBuffer->data.LightDirection, -1.0f, +1.0f);
     ImGui::ColorEdit3("PSAmbientLight", (float*)&lightBuffer->data.ambientLight);
 
-    //ImGui::SliderFloat3("VSLightDirection", (float*)&lightBuffer2->data.LightDirection, -1.0f, +1.0f);
-    //ImGui::ColorEdit3("VSAmbientLight", (float*)&lightBuffer2->data.ambientLight);
+    ImGui::SliderFloat3("VSLightDirection", (float*)&lightBuffer2->data.LightDirection, -1.0f, +1.0f);
+    ImGui::ColorEdit3("VSAmbientLight", (float*)&lightBuffer2->data.ambientLight);
 
 
 

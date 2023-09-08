@@ -79,7 +79,7 @@ void Device::CreateBackBuffer()
     backBuffer->Release();
 
     // DSV
-    ID3D11Texture2D* depthBuffer;
+    ID3D11Texture2D* depthBuffer ;
 
     D3D11_TEXTURE2D_DESC depthdesc;
 

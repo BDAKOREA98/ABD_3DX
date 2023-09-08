@@ -1,5 +1,8 @@
 // 동차 좌표계를 위해  4차원으로 넘김
 
+
+
+
 cbuffer World : register(b0)
 {
     matrix world;
@@ -16,13 +19,10 @@ cbuffer Projection : register(b2)
 
 
 
-
-
-
 cbuffer LightDirection : register(b3)
 {
     float3 lightDirection;
-    float  padding;
+    float padding;
     float4 ambientLight;
 };
 
@@ -34,11 +34,13 @@ cbuffer MaterialBuffer : register(b1)
     
     int hasDiffuseMap;
     int hasSpeculaMap;
-    int hasNormalMap ;
+    int hasNormalMap;
     
     float shininess;
     
 };
+
+
 
 
 struct VertexColor

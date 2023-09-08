@@ -1,17 +1,6 @@
 // 동차 좌표계를 위해  4차원으로 넘김
+#include "Header.hlsli"
 
-cbuffer World : register(b0)
-{
-    matrix world;   
-};
-cbuffer View : register(b1)
-{
-    matrix view;   
-};
-cbuffer Projection : register(b2)
-{
-    matrix projection;
-};
 
 
 

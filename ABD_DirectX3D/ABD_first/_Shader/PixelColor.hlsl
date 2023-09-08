@@ -17,6 +17,7 @@ float4 main(VertexOutput input) : SV_TARGET
     float diffuse = dot(input.normal, Light); // N dot L
     
     
+    
     return input.color * diffuse;
 	
 }

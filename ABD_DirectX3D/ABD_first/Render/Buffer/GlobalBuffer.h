@@ -37,8 +37,8 @@ public:
 
 	struct Data
 	{
-		Vector3 LightDirection;
-		float padding;
+		Vector3 LightDirection ;
+		float padding ;
 		Vector4 ambientLight;
 	} data;
 

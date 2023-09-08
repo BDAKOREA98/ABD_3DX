@@ -6,8 +6,9 @@
 Terrain::Terrain(wstring diffuseFile, wstring heightFile)
 {
 	material = new Material();
-	material->SetShader(L"Specular");
+	material->SetShader(L"NormalMapping");
 	material->SetSpecularMap(L"Landscape/fieldStone_SM.tga");
+	material->SetNormalMap(L"Landscape/fieldstone_NM.tga");
 	material->SetDiffuseMap(diffuseFile);
 
 
