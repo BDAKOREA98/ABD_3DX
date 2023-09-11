@@ -21,11 +21,17 @@ public:
 	void SetEnvironment();
 	void PostRender();
 
+	Matrix GetPorjMatrix() { return projMatrix; }
+
+
+
 private:
 
 	
-	MatrixBuffer* projBuffer;
-	
+	MatrixBuffer*	projBuffer;
+	Matrix			projMatrix;
+
+
 	LightBuffer* lightBuffer;
 	LightBuffer* lightBuffer2;
 };

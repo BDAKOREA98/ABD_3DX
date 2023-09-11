@@ -32,6 +32,8 @@ C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Render\Texture\Texture
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\BasicObject\TextureCube.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\TextureCube.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Scene\TerrainScene.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\TerrainScene.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\LandScape\Terrain.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Terrain.obj
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Scene\TerrainEditorScene.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\TerrainEditorScene.obj
+C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Object\LandScape\TerrainEditor.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\TerrainEditor.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Utility\Utility.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Utility.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Utility\Keyboard.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Keyboard.obj
 C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\Utility\Time.cpp;C:\Users\user\Desktop\BDA\ABD_3DX\ABD_DirectX3D\ABD_first\x64\Debug\Time.obj

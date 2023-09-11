@@ -35,6 +35,39 @@ void Camera::PostRender()
 
 }
 
+Ray Camera::ScreenPointToRay(Vector3 screenPos)
+{
+	Ray ray;
+	////시작지점
+	ray.origin = transform->translation;
+	////////    마우스좌표를 NDC좌표계로 변환
+	Vector3 point; // lefttop 이 0,0 일때 사용가능
+	point.x = +(2.0f * screenPos.x) / WIN_WIDTH - 1.0f;
+	point.y = -(2.0f * screenPos.y) / WIN_HEIGHT + 1.0f;
+	point.z = 1.0f;  // farz
+
+
+	////////////////////InverseProjection//////////////
+	Matrix projection = Environment::GetInstance()->GetPorjMatrix();
+	
+	XMFLOAT4X4 proj;
+	XMStoreFloat4x4(&proj, projection);
+
+	point.x /= proj._11;
+	point.y /= proj._22;
+	
+	/////////////////////////////////// InverseView/////////
+
+	Matrix invView = transform->GetWorld();
+	ray.direction = point * invView;
+	
+	ray.direction.Normalize();
+
+	
+
+	return ray;
+}
+
 void Camera::FreeMode()
 {
 	if (KEY_PRESS(VK_RBUTTON))

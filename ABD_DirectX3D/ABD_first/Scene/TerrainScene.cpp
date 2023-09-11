@@ -5,7 +5,7 @@ TerrainScene::TerrainScene()
 {
 	terrain = new Terrain(L"LandScape/Bricks.png", L"HeightMap/HeightMap.png");
 	robot = new Robot();
-	robot->trans->translation.y += 30.0f;
+	robot->trans->translation.y += 60.0f;
 
 	terrain->SetLabel("Terrain");
 
@@ -38,9 +38,9 @@ void TerrainScene::PreRender()
 
 void TerrainScene::Render()
 {
-	robot->Render();
 	terrain->Render();
 	sphere->Render();
+	robot->Render();
 }
 
 void TerrainScene::PostRender()

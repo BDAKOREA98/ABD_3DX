@@ -25,8 +25,8 @@ void Environment::CreateViewPort()
 
     viewPort.TopLeftX = 0.0f;
     viewPort.TopLeftY = 0.0f;
-    viewPort.Width = WIN_WIDTH;
-    viewPort.Height = WIN_HEIGHT;
+    viewPort.Width = WIN_WIDTH    ;
+    viewPort.Height = WIN_HEIGHT  ;
     viewPort.MinDepth = 0.0f;
     viewPort.MaxDepth = 1.0f;
 
@@ -44,7 +44,7 @@ void Environment::CreatePerspective()
    
 
     // fov == Field Of View == 시야각
-    XMMATRIX projection = XMMatrixPerspectiveFovLH
+    projMatrix = XMMatrixPerspectiveFovLH
     (   // angle: 바라볼 각도, aspectiveratio :  화면 비율 , (nearZ, farZ) : 절두체 크기
         XM_PIDIV4,
         WIN_WIDTH / WIN_HEIGHT,
@@ -52,7 +52,7 @@ void Environment::CreatePerspective()
         1000.0f
     );
 
-    projBuffer->SetData(projection);
+    projBuffer->SetData(projMatrix);
 
     projBuffer->SetVSBuffer(2);
 

@@ -743,3 +743,20 @@
 // 
 
 #pragma endregion
+
+#pragma region 24Day 
+// 
+// Ray Casting : 광선 투사
+// - 2D를 3D로 보이게 하도록 만들어짐 기법 과거 GPU성능이 딸릴때 3D처럼 보이기 위해 만들어졌다.
+// -- 빛을 쏴서 맞는 지점을 측정하여 거리에 따라 빛을 보여줌
+// Ray Tracing : 광선 추적
+// -
+// 
+// WVP 에서 local에서 world로 바꾸고 view에서 global로 바꾼뒤 절두체를 이용 시야각과 원근감을 나타내는 projection 과정을 거친다.
+// 그 후 RS단계에서 2D로 바꾼다.
+// 
+// RSSetViewports : 
+// 
+// 
+
+#pragma endregion

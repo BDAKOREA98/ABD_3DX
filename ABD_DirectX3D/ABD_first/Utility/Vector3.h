@@ -107,6 +107,15 @@ struct Vector3
 
 	
 
+	Vector3 operator*(const Matrix& value)
+	{
+		Vector3 result;
+
+		result = XMVector3TransformNormal(*this, value);
+
+		return result;
+		// TODO : 
+	}
 
 	
 

@@ -34,6 +34,7 @@ Terrain::~Terrain()
 
 void Terrain::Render()
 {
+	worldBuffer->SetData(world);
 	worldBuffer->SetVSBuffer(0);
 	mesh->SetMesh();
 	material->SetMaterial();

@@ -8,15 +8,17 @@
 #define WIN32_LEAN_AND_MEAN             // 거의 사용되지 않는 내용을 Windows 헤더에서 제외합니다.
 // Windows 헤더 파일
 #include <windows.h>
-
-#include <d3d11.h>
-#include <d3dcompiler.h>
-#include <DirectXMath.h>
 #include <vector>
 #include <map>
 #include <string>
 #include <functional>
 #include <unordered_map>
+
+#include <d3d11.h>
+#include <d3dcompiler.h>
+#include <DirectXMath.h>
+#include <DirectXCollision.h>
+#include <DirectXCollision.inl>
 
 
 
@@ -25,6 +27,7 @@
 #pragma comment(lib, "dxguid.lib")
 #include "DirectXTex.h"
 #include "DirectXTex.inl"
+
 #pragma comment(lib,"DirectXTex.lib")
 
 using namespace std;
@@ -52,7 +55,7 @@ using namespace DirectX;
 
 #define KEY_UP(p) Keyboard::GetInstance()->Up(p)
 #define KEY_PRESS(p) Keyboard::GetInstance()->Press(p)
-#define Key_DOWN(p) Keyboard::GetInstance()->Down(p)
+#define KEY_DOWN(p) Keyboard::GetInstance()->Down(p)
 
 #define CAMERA		Camera::GetInstance()-> GetTransform()
 #define RS			StateManager::GetInstance()->GetRS()
@@ -118,6 +121,7 @@ using namespace Utility;
 #include "Object/BasicObject/Box.h"
 #include "Object/BasicObject/TextureCube.h"
 #include "Object/LandScape/Terrain.h"
+#include "Object/LandScape/TerrainEditor.h"
 #include "Object/BasicObject/Robot.h"
 #include "Object/BasicObject/Sphere_Color.h"
 #include "Object/BasicObject/Sphere_Texture.h"
@@ -131,6 +135,7 @@ using namespace Utility;
 #include "Scene/RobotScene.h"
 #include "Scene/BoxScene.h"
 #include "Scene/TerrainScene.h"
+#include "Scene/TerrainEditorScene.h"
 
 // main
 #include "Program.h"
