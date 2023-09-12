@@ -8,7 +8,7 @@ public:
 
 	void SetVertexShader(wstring file);
 	void SetPixelShader(wstring file);
-
+	
 	void SetShader(wstring file);
 	void SetMaterial();
 
@@ -18,8 +18,12 @@ public:
 
 	MaterialBuffer* GetBuffer() { return buffer; }
 
+	void SelectMap();
+
 	void PostRender();
-	
+
+
+
 private:
 
 	PixelShader* pixelShader = nullptr;
@@ -29,7 +33,13 @@ private:
 	Texture* specularMap	= nullptr;
 	Texture* normalMap		= nullptr;
 
+	
+
 	MaterialBuffer* buffer = nullptr;
+	
+	static string ID;
+
+	string projectDir;
 
 };
 
