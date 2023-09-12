@@ -26,6 +26,10 @@ public:
 	void AddRotation(Vector3 value) { rotation += value; }
 	void AddTranslation(Vector3 value) { translation += value; }
 
+	void SetPosition(Vector3 value) { translation = value; }
+	void SetAngle(Vector3 value) { rotation = value; }
+	void SetScale(Vector3 value) { scale = value; }
+
 	void Debug();
 
 	void SetLabel(string label) { this->label = label; }

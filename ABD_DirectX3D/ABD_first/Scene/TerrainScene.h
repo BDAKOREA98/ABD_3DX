@@ -21,7 +21,7 @@ private:
 	Terrain* terrain;
 	Sphere_Color* sphere;
 	Robot* robot;
-
+	Vector3 pickerPos;
 
 };
 

@@ -8,8 +8,8 @@ Program::Program()
 
 	//scene = new RobotScene();
 	//scene = new TextureScene();
-	//scene = new TerrainScene();
-	scene = new TerrainEditorScene();
+	scene = new TerrainScene();
+	//scene = new TerrainEditorScene();
 
 
 }

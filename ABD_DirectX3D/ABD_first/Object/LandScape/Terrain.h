@@ -8,7 +8,7 @@ public:
 	void Render();
 	void Update();
 	void PostRender();
-
+	bool Picking(OUT Vector3* position); 
 private:
 	void CreateMesh();
 	void CreateNormal();
