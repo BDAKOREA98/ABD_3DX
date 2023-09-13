@@ -38,6 +38,20 @@ PixelShader* Shader::GetPS(wstring file)
     return (PixelShader*)shaders[file];
 }
 
+ComputeShader* Shader::GetCS(wstring file)
+{
+    file = L"_Shader/" + file + L".hlsl";
+
+    if (shaders.count(file) > 0)
+    {
+        return (ComputeShader*)shaders[file];
+    }
+    
+    shaders[file] = new ComputeShader(file);
+
+    return (ComputeShader*)shaders[file];
+}
+
 void Shader::Delete()
 {
     // 범위기반 for 문

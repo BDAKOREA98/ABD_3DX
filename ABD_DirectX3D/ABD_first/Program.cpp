@@ -8,8 +8,8 @@ Program::Program()
 
 	//scene = new RobotScene();
 	//scene = new TextureScene();
-	scene = new TerrainScene();
-	//scene = new TerrainEditorScene();
+	//scene = new TerrainScene();
+	scene = new TerrainEditorScene();
 
 
 }
@@ -47,6 +47,7 @@ void Program::Render()
 	Environment::GetInstance()->SetEnvironment();
 
 	scene->Render();
+	Time::GetInstance()->Render();
 	scene->PostRender();
 
 	Camera::GetInstance()->PostRender();

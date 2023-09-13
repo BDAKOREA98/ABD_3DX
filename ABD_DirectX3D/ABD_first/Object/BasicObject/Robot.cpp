@@ -439,6 +439,6 @@ void Robot::InputKey()
 
 void Robot::PostRender()
 {
-	
+	trans->Debug();
 
 }

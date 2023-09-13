@@ -134,6 +134,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Render\Buffer\RawBuffer.h" />
+    <ClInclude Include="Render\Shader\ComputeShader.h" />
     <ClInclude Include="Object\BasicObject\DiffuseCube.h" />
     <ClInclude Include="Object\BasicObject\Robot.h" />
     <ClInclude Include="Object\BasicObject\Sphere_Color.h" />
@@ -181,6 +183,8 @@
     <ClInclude Include="Render\Buffer\GlobalBuffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Render\Buffer\RawBuffer.cpp" />
+    <ClCompile Include="Render\Shader\ComputeShader.cpp" />
     <ClCompile Include="Object\BasicObject\DiffuseCube.cpp" />
     <ClCompile Include="Object\BasicObject\Robot.cpp" />
     <ClCompile Include="Object\BasicObject\Sphere_Color.cpp" />
@@ -235,6 +239,16 @@
     <Image Include="__Others\small.ico" />
   </ItemGroup>
   <ItemGroup>
+    <FxCompile Include="_Shader\ByteAddress.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4.0</ShaderModel>
+    </FxCompile>
     <FxCompile Include="_Shader\PixelColor.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
