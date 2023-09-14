@@ -802,3 +802,36 @@
 // 
 
 #pragma endregion
+
+#pragma region 27Day
+// 
+// CSV :  comma-separated values
+// - ,(콤마)로 구분이 되는 변수, 
+// 
+// Tread : 일꾼의 손 개수
+// - Tread의 개수는  Shader모델에 따라 한계치가 정해진다.
+//
+// Dispatch(1,1,1) : ComputeShader에 시작을 알리는 함수
+// 
+// 멀티 스레딩 : 스레드 여러개를 동시 사용 하는 것
+// 하이퍼 스레딩 : 하나의 스레드를 쪼개서 두개처럼 사용하는 것
+// 
+// 
+// 
+// GroupID			: 
+// groupThreadID	:  
+// dispatchTreadID	: 
+// groupIndex		: 
+// 
+// 
+// process : 프로그램
+// thread : 프로그램을 실행시키는 객체
+// 
+// input을 이용 GPU로 데이터를 넘긴다. 
+// UAV : 쓰기용
+// SRV : 읽기용
+//  
+// 
+// 
+
+#pragma endregion

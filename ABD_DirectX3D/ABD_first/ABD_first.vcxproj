@@ -140,6 +140,7 @@
     <ClInclude Include="Object\BasicObject\Robot.h" />
     <ClInclude Include="Object\BasicObject\Sphere_Color.h" />
     <ClInclude Include="Object\BasicObject\Sphere_Texture.h" />
+    <ClInclude Include="Render\Buffer\StructuredBuffer.h" />
     <ClInclude Include="System\Camera.h" />
     <ClInclude Include="Render\State\RasterizerState.h" />
     <ClInclude Include="Scene\BoxScene.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="Object\BasicObject\Robot.cpp" />
     <ClCompile Include="Object\BasicObject\Sphere_Color.cpp" />
     <ClCompile Include="Object\BasicObject\Sphere_Texture.cpp" />
+    <ClCompile Include="Render\Buffer\StructuredBuffer.cpp" />
     <ClCompile Include="System\Camera.cpp" />
     <ClCompile Include="Render\State\RasterizerState.cpp" />
     <ClCompile Include="Scene\BoxScene.cpp" />

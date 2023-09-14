@@ -32,7 +32,7 @@ void TerrainEditorScene::PreRender()
 
 void TerrainEditorScene::Render()
 {
-	// RS->ChangeState(D3D11_FILL_WIREFRAME);
+	RS->ChangeState(D3D11_FILL_WIREFRAME);
 	terrainEditor->Render();
 }
 
@@ -57,7 +57,7 @@ void TerrainEditorScene::RawData()
 		UINT groupIndex;
 	};
 
-	UINT size = 10 * 8 * 3;
+	UINT size = 10 * 8 * 3 * 2;
 
 	Output* output = new Output[size];
 
@@ -67,7 +67,7 @@ void TerrainEditorScene::RawData()
 
 	shader->SetShader();
 	DC->CSSetUnorderedAccessViews(0, 1, &uav, nullptr);
-	DC->Dispatch(1, 1, 1);
+	DC->Dispatch(2, 1, 1);
 
 	buffer->Copy(output, sizeof(Output) * size);
 
@@ -79,7 +79,7 @@ void TerrainEditorScene::RawData()
 		fprintf
 		(
 			file,
-			"%d, %d, %d, %d, %d, %d,%d, %d, %d,%d, %d\n",
+			"%d, %d,%d,%d, %d,%d,%d, %d,%d,%d, %d\n",
 			i,
 			output[i].groupID[0],
 			output[i].groupID[1],
