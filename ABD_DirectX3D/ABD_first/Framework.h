@@ -103,6 +103,7 @@ using namespace Utility;
 #include "Render/Buffer/ConstantBuffer.h"
 #include "Render/Buffer/GlobalBuffer.h"
 #include "Render/Buffer/RawBuffer.h"
+#include "Render/Buffer/StructuredBuffer.h"
 
 // Render
 #include "Render/Texture/Texture.h"

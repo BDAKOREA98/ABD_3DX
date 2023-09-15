@@ -7,7 +7,8 @@ TerrainEditorScene::TerrainEditorScene()
 	terrainEditor->GetMaterial()->SetDiffuseMap (L"Landscape/Fieldstone_DM.tga");
 	terrainEditor->GetMaterial()->SetSpecularMap(L"Landscape/fieldstone_SM.tga");
 	terrainEditor->GetMaterial()->SetNormalMap  (L"Landscape/fieldstone_NM.tga");
-	RawData();
+
+	// RawData();
 
 }
 
@@ -32,7 +33,7 @@ void TerrainEditorScene::PreRender()
 
 void TerrainEditorScene::Render()
 {
-	RS->ChangeState(D3D11_FILL_WIREFRAME);
+	//RS->ChangeState(D3D11_FILL_WIREFRAME);
 	terrainEditor->Render();
 }
 

@@ -3,7 +3,7 @@ class StructuredBuffer
 {
 public:
 
-	StructuredBuffer(void* InputData, UINT inputStride,UINT inputCount, UINT outputStride, UINT outputCount);
+	StructuredBuffer(void* inputData, UINT inputStride,UINT inputCount, UINT outputStride, UINT outputCount);
 	~StructuredBuffer();
 
 	void Copy(void* data, UINT size);
@@ -11,6 +11,8 @@ public:
 	ID3D11UnorderedAccessView* GetUAV() { return uav; }
 	ID3D11ShaderResourceView* GetSRV() { return srv; }
 
+	void SetSRV();
+	void SetUAV();
 
 private:
 	void CreateOutput();
@@ -18,6 +20,8 @@ private:
 	void CreateResult();
 	void CreateInput();
 	void CreateSRV();
+
+
 
 
 private:

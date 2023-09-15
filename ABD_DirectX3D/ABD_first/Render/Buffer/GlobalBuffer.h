@@ -97,3 +97,30 @@ public:
 	} data;
 
 };
+
+
+class RayBuffer : public ConstantBuffer
+{
+public:
+	RayBuffer()
+		:ConstantBuffer(&data, sizeof(data))
+	{
+
+		
+
+	}
+
+
+
+	struct Data
+	{
+
+		Vector3 origin		= {};
+		float	outputSize	= 0;
+
+		Vector3 direction	= {};
+		float	padding		= 0;
+
+	} data;
+
+};

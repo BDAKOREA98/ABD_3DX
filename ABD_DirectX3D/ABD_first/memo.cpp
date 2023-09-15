@@ -835,3 +835,16 @@
 // 
 
 #pragma endregion
+
+
+#pragma region 28Day
+//
+// D3D11_USAGE_DEFAULT:
+//  가끔업데이트시 사용
+// D3D11_USAGE_IMMUTABLE:
+// D3D11_USAGE_DYNAMIC: 
+// 매 프레임마다 업데이트 시 사용
+// D3D11_USAGE_STAGING:
+// 
+
+#pragma endregion

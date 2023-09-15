@@ -45,14 +45,14 @@ struct Vector3
 		return XMFLOAT3(x, y, z);
 	}
 
-	
+
 
 
 	float Length() { return XMVectorGetX(XMVector3Length(*this)); }
 	// Vector 를 노말라이즈함
 	void Normalize() { *this = XMVector3Normalize(*this); }
 	// 노말라이즈한 값을 받음
-	Vector3 GetNormalize(){return XMVector3Normalize(*this);	}
+	Vector3 GetNormalize() { return XMVector3Normalize(*this); }
 
 	static Vector3 Cross(Vector3& v1, Vector3& v2)
 	{
@@ -64,8 +64,8 @@ struct Vector3
 	}
 
 
-	Vector3 operator* (const float& value) 
-	{ 
+	Vector3 operator* (const float& value)
+	{
 		return Vector3(this->x * value, this->y * value, this->z * value);
 	}
 	Vector3 operator/ (const float& value)
@@ -74,7 +74,11 @@ struct Vector3
 	}
 	Vector3 operator+ (const Vector3& other)
 	{
-		return Vector3(this->x + other.x , this->y + other.y, this->z + other.z);
+		return Vector3(this->x + other.x, this->y + other.y, this->z + other.z);
+	}
+	Vector3 operator+ (const XMVECTOR& other)
+	{
+		return XMVECTOR(*this) + other;
 	}
 	Vector3 operator- (const Vector3& other)
 	{
@@ -105,6 +109,7 @@ struct Vector3
 		this->z -= other.z;
 	}
 
+	
 	
 
 	Vector3 operator*(const Matrix& value)

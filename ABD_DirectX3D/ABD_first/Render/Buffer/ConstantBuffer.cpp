@@ -38,6 +38,12 @@ void ConstantBuffer::SetPSBuffer(UINT slot)
     DC->PSSetConstantBuffers(slot, 1, &constBuffer);
 }
 
+void ConstantBuffer::SetCSBuffer(UINT slot)
+{
+    UpdateSubResource();
+    DC->CSSetConstantBuffers(slot, 1, &constBuffer);
+}
+
 void ConstantBuffer::UpdateSubResource()
 {
     // CPU가 데이터를 수정하는 과정
