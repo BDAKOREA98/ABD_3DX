@@ -19,7 +19,9 @@ private:
 
 	TerrainEditor* terrainEditor;
 
-	Vector3 pickerPos;
+
+
+	
 
 };
 

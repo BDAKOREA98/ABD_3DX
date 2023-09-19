@@ -26,6 +26,7 @@ private:
 	void CreateNormal();
 	void CreateTangent();
 
+	void AdjustHeight();
 
 
 private:
@@ -72,6 +73,11 @@ private:
 	OutputDesc* output = nullptr;
 
 	UINT		polygonCount;
+
+	Vector3 pickerPos;
+
+
+	BrushBuffer* brushBuffer;
 
 
 

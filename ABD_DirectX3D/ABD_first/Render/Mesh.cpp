@@ -14,3 +14,9 @@ void Mesh::SetMesh(D3D11_PRIMITIVE_TOPOLOGY type)
 	vertexBuffer->IASetBuffer(type);
 	indexBuffer->IASetBuffer();
 }
+
+void Mesh::UpdateVertex(void* data, UINT count)
+{
+	vertexBuffer->UpdateVertex(data, count);
+
+}

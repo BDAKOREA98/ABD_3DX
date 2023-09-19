@@ -21,10 +21,7 @@ void TerrainEditorScene::Update()
 {
 	terrainEditor->Update();
 
-	if (KEY_DOWN(VK_LBUTTON))
-	{
-		terrainEditor->Picking(&pickerPos);
-	}
+	
 }
 
 void TerrainEditorScene::PreRender()
@@ -42,7 +39,8 @@ void TerrainEditorScene::PostRender()
 	terrainEditor->Debug();
 	terrainEditor->GetMaterial()->SelectMap();
 
-	ImGui::Text("PickerPos : %0.4f, %0.4f, %0.4f" , pickerPos.x, pickerPos.y, pickerPos.z);
+	terrainEditor->PostRender();
+	
 	
 }
 

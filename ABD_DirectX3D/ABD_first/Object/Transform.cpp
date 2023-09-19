@@ -72,4 +72,7 @@ void Transform::Debug()
 
 		ImGui::EndMenu();
 	}
+
+
+
 }

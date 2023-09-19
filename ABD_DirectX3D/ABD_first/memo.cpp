@@ -842,9 +842,21 @@
 // D3D11_USAGE_DEFAULT:
 //  가끔업데이트시 사용
 // D3D11_USAGE_IMMUTABLE:
+// 
 // D3D11_USAGE_DYNAMIC: 
 // 매 프레임마다 업데이트 시 사용
 // D3D11_USAGE_STAGING:
+// 
+
+#pragma endregion
+
+#pragma region 28Day
+//
+// SRT연산을 CPU에서 하는 이유 (GPU에서 안 하는 이유)
+// world는 객체마다 값이 다르고
+// view는 모든 객체에 같은값을 주기에
+// GPU에서 계산을 하게되면 정보를 넘길때 객체별로 각각의 SRT를 넘겨줘야하기에 복잡한 연산이 필요하다.
+// 
 // 
 
 #pragma endregion

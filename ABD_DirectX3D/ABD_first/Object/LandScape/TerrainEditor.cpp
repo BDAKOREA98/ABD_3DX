@@ -6,11 +6,9 @@ TerrainEditor::TerrainEditor(UINT height, UINT width)
 	: height(height), width(width)
 {
 	material = new Material();
-	material->SetShader(L"NormalMapping");
-	
+	material->SetShader(L"TerrainBrush");
 
 	worldBuffer = new MatrixBuffer();
-
 
 	CreateMesh();
 	CreateNormal();
@@ -22,7 +20,6 @@ TerrainEditor::TerrainEditor(UINT height, UINT width)
 	computeShader = Shader::GetCS(L"ComputePicking");
 
 	polygonCount = indices.size() / 3;
-
 
 	input = new InputDesc[polygonCount];
 	for (UINT i = 0; i < polygonCount; i++)
@@ -51,8 +48,7 @@ TerrainEditor::TerrainEditor(UINT height, UINT width)
 
 	output = new OutputDesc[polygonCount];
 
-
-
+	brushBuffer = new BrushBuffer;
 }
 
 TerrainEditor::~TerrainEditor()
@@ -68,13 +64,23 @@ TerrainEditor::~TerrainEditor()
 	delete rayBuffer;
 	delete structuredBuffer;
 
-
-
+	delete brushBuffer;
 }
 
 void TerrainEditor::Update()
 {
 	Transform::Update();
+
+	Picking(&pickerPos);
+
+	brushBuffer->data.location = pickerPos;
+
+
+	if (KEY_PRESS(VK_LBUTTON))
+	{
+		AdjustHeight();
+	}
+
 }
 
 void TerrainEditor::Render()
@@ -84,11 +90,17 @@ void TerrainEditor::Render()
 	mesh->SetMesh();
 	material->SetMaterial();
 
+	brushBuffer->SetPSBuffer(10);
+
 	DC->DrawIndexed(indices.size(), 0, 0);
 }
 
 void TerrainEditor::PostRender()
 {
+	ImGui::Text("PickerPos : %0.4f, %0.4f, %0.4f", pickerPos.x, pickerPos.y, pickerPos.z);
+
+	ImGui::ColorEdit3("BrushColor : ", (float*)&brushBuffer->data.color);
+
 }
 
 void TerrainEditor::Debug()
@@ -243,6 +255,35 @@ void TerrainEditor::CreateTangent()
 		vertex.tangent = (T - N * Vector3::Dot(N, T)).GetNormalize();
 
 	}
+
+
+
+}
+
+void TerrainEditor::AdjustHeight()
+{
+	switch (brushBuffer->data.type)
+	{
+	case 0:
+		for (VertexType& vertex : vertices)
+		{
+			Vector3 p1 = Vector3(vertex.pos.x, 0.0f, vertex.pos.z);
+			Vector3 p2 = Vector3(pickerPos.x, 0.0f, pickerPos.z);
+
+			float distance = (p1 - p2).Length();
+
+			if (distance <= brushBuffer->data.range)
+			{
+				vertex.pos.y += 10 * Time::Delta();
+			}
+		}
+		break;
+
+	default:
+		break;
+	}
+
+	mesh->UpdateVertex(vertices.data(), vertices.size());
 
 
 
