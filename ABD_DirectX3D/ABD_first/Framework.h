@@ -20,6 +20,8 @@
 #include <DirectXCollision.h>
 #include <DirectXCollision.inl>
 
+#include <Shlwapi.h>
+#pragma comment(lib, "shlwapi.lib")
 
 
 #pragma comment(lib, "d3d11.lib")

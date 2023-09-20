@@ -38,6 +38,15 @@ void Program::Render()
 	ImGui_ImplWin32_NewFrame();
 	ImGui::NewFrame();
 
+	if (isWireFrame)
+	{
+		RS->ChangeState(D3D11_FILL_WIREFRAME);
+	}
+	else
+	{
+		RS->ChangeState(D3D11_FILL_SOLID);
+	}
+
 	scene->PreRender();
 
 
@@ -48,10 +57,13 @@ void Program::Render()
 
 	scene->Render();
 	Time::GetInstance()->Render();
-	scene->PostRender();
 
+	scene->PostRender();
 	Camera::GetInstance()->PostRender();
 	Environment::GetInstance()->PostRender();
+
+	ImGui::Checkbox("WireFrame", &isWireFrame);
+
 
 
 	ImGui::Render();

@@ -20,8 +20,6 @@ TerrainEditorScene::~TerrainEditorScene()
 void TerrainEditorScene::Update()
 {
 	terrainEditor->Update();
-
-	
 }
 
 void TerrainEditorScene::PreRender()
@@ -39,7 +37,7 @@ void TerrainEditorScene::PostRender()
 	terrainEditor->Debug();
 	terrainEditor->GetMaterial()->SelectMap();
 
-	terrainEditor->PostRender();
+	//terrainEditor->Debug();
 	
 	
 }

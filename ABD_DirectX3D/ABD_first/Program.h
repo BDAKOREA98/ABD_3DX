@@ -20,5 +20,7 @@ private:
 
 	Scene* scene = nullptr;
 
+	bool isWireFrame = false;
+
 };
 

@@ -10,6 +10,8 @@ Material::Material()
 	char path[128];
 	GetCurrentDirectoryA(128, path);
 
+	
+
 	projectDir = path;
 	projectDir += "Resource/_Texture/";
 
