@@ -10,6 +10,8 @@ TerrainEditorScene::TerrainEditorScene()
 
 	// RawData();
 
+	wstring str = GetProjectDir();
+
 }
 
 TerrainEditorScene::~TerrainEditorScene()

@@ -1,8 +1,5 @@
 #pragma once
 
-
-
-
 class TerrainEditor : public Transform
 {
 	typedef VertexTextureNormalTangent VertexType;
@@ -21,10 +18,19 @@ public:
 	bool Picking(OUT Vector3* position); // OUT : return값을 내보낼 것이다. 함수에서 return값을 여러개 내보내고 싶을때 OUT을 사용한다.
 	
 
+	void SaveHeightMap(wstring file);
+	void LoadHeightMap(wstring file);
+
+	void SaveHeightDialog();
+	void LoadHeightDialog();
+
+
+
 private:
 	void CreateMesh();
 	void CreateNormal();
 	void CreateTangent();
+	void CreateCoumpute();
 
 	void AdjustHeight();
 

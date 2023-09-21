@@ -7,13 +7,7 @@ Material::Material()
 {
 	buffer = new MaterialBuffer();
 
-	char path[128];
-	GetCurrentDirectoryA(128, path);
-
 	
-
-	projectDir = path;
-	projectDir += "Resource/_Texture/";
 
 	ID += ".";
 
@@ -97,7 +91,7 @@ void Material::SetNormalMap(wstring file)
 
 void Material::SelectMap()
 {
-	#define Dialog ImGuiFileDialog::Instance()
+	
 
 	if (ImGui::BeginChild(ID.c_str(), ImVec2(100, 85), true))
 	{
