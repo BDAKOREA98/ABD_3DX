@@ -80,6 +80,7 @@ void TerrainEditor::Debug()
 
 	ImGui::SliderFloat("Range ", &brushBuffer->data.range, 1.0f, 50.0f);
 	
+	ImGui::SliderInt("type ", &brushBuffer->data.type, 1.0f, 3.0f);
 
 
 //	wstring dd = L".png";
@@ -490,7 +491,58 @@ void TerrainEditor::AdjustHeight()
 			}
 		}
 		break;
+	case 1:
+		for (VertexType& vertex : vertices)
+		{
+			Vector3 p1 = Vector3(vertex.pos.x, 0.0f, vertex.pos.z);
+			Vector3 p2 = Vector3(pickerPos.x, 0.0f, pickerPos.z);
 
+			float distance = (p1 - p2).Length();
+
+			float value = adjustValue;
+
+
+
+			if (distance >= brushBuffer->data.range)
+			{
+				vertex.pos.y += value * Time::Delta();
+
+				if (vertex.pos.y > MAP_HEIGHT)
+				{
+					vertex.pos.y = MAP_HEIGHT;
+				}
+			}
+		}
+		break;
+	case 2:
+		for (VertexType& vertex : vertices)
+		{
+			Vector3 p1 = Vector3(vertex.pos.x, 0.0f, vertex.pos.z);
+			Vector3 p2 = Vector3(pickerPos.x, 0.0f, pickerPos.z);
+
+
+			float deltaX = abs(p1.x - p2.x);
+			float deltaZ = abs(p1.z - p2.z);
+
+			float halfWidth = brushBuffer->data.range / 2.0f;
+			float halfHeight = brushBuffer->data.range / 2.0f;
+
+			
+			
+			if (deltaX <= halfWidth && deltaZ <= halfHeight)
+			{
+				vertex.pos.y += adjustValue * Time::Delta();
+
+				if (vertex.pos.y > MAP_HEIGHT)
+				{
+					vertex.pos.y = MAP_HEIGHT;
+				}
+			}
+
+				
+			
+		}
+		break;
 	default:
 		break;
 	}

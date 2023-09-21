@@ -37,6 +37,42 @@ float3 SetBrushColor(float3 pos)
             return color;
         }
     }
+    else if (type == 1)
+    {
+        float x = pos.x - location.x;
+        float z = pos.z - location.z;
+        
+        float distance = sqrt(pow(x, 2) + pow(z, 2));
+        
+        if (distance >= range)
+        {
+            return color;
+        }
+    }
+    
+    else if (type == 2)
+    {
+   // 입력 위치와 중심 위치 사이의 거리 계산
+        
+        float x = pos.x - (location.x);
+        float z = pos.z - (location.z);
+
+    // 사각형 영역의 가로 및 세로 크기
+        float rectwidth = abs(x); // 가로 크기
+        float rectheight = abs(z); // 세로 크기
+        
+        
+        float halfrange = range / 2;
+        
+        
+        
+    // 입력 위치가 사각형 영역 내에 있는지 확인
+        if (rectwidth <= halfrange && rectheight <= halfrange)
+        {
+            return color; // 사각형 영역 내에 있는 경우 색상 반환
+        }
+    }
+    
     
     return float3(0.0f, 0.0f, 0.0f);
 
