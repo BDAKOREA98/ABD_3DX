@@ -80,6 +80,8 @@ typedef XMFLOAT2 Vector2;
 #include "Utility/Keyboard.h"
 #include "Utility/Time.h"
 #include "Utility/Utility.h"
+#include "Utility/BinaryReader.h"
+#include "Utility/BinaryWriter.h"
 
 using namespace Utility;
 

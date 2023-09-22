@@ -10,6 +10,16 @@ TerrainEditor::TerrainEditor(UINT height, UINT width)
 
 	worldBuffer = new MatrixBuffer();
 
+	//heightMap = Texture::Load(L"HeightMap/ColorMap256.png");
+
+	BinaryReader data(L"ASDASDASD");
+
+	if (data.Succeeded())
+	{
+		wstring heightPath = data.ReadWstring();
+
+		heightMap = Texture::Load(heightPath);
+	}
 	CreateMesh();
 	CreateNormal();
 	CreateTangent();
@@ -23,10 +33,24 @@ TerrainEditor::TerrainEditor(UINT height, UINT width)
 	CreateCoumpute();
 
 	brushBuffer = new BrushBuffer;
+	
+	
+	
+
+
 }
 
 TerrainEditor::~TerrainEditor()
 {
+
+	if (heightMap != nullptr)
+	{
+		BinaryWriter data(L"ASDASDASD");
+
+		data.WriteData(heightMap->GetPath());
+	}
+
+
 	delete worldBuffer;
 	delete mesh;
 	delete material;
@@ -50,6 +74,15 @@ void TerrainEditor::Update()
 	if (Picking(&pickerPos)&&KEY_PRESS(VK_LBUTTON) && !ImGui::GetIO().WantCaptureMouse)
 	{
 		AdjustHeight();
+	}
+
+	if (KEY_PRESS(VK_LSHIFT))
+	{
+		isRaise = false;
+	}
+	else
+	{
+		isRaise = true;
 	}
 }
 
@@ -82,10 +115,9 @@ void TerrainEditor::Debug()
 	
 	ImGui::SliderInt("type ", &brushBuffer->data.type, 1.0f, 3.0f);
 
+	const char* typeList[] = { "circle","hole", "halfRangeRect", "rangeRect"};
 
-//	wstring dd = L".png";
-	//wstring num = to_wstring(count);
-//wstring file = L"My Height Map.png";//+ num + dd;
+	ImGui::Combo("BrushType", & brushBuffer->data.type, typeList, 4);
 	
 
 	
@@ -482,12 +514,23 @@ void TerrainEditor::AdjustHeight()
 
 			if (distance <= brushBuffer->data.range)
 			{
-				vertex.pos.y += value * Time::Delta();
-
+				if (isRaise)
+				{
+					vertex.pos.y += value * Time::Delta();
+				}
+				else
+				{
+					vertex.pos.y -= value * Time::Delta();
+				}
 				if (vertex.pos.y > MAP_HEIGHT)
 				{
 					vertex.pos.y = MAP_HEIGHT;
 				}
+				if (vertex.pos.y < 0)
+				{
+					vertex.pos.y = 0;
+				}
+
 			}
 		}
 		break;
@@ -499,17 +542,27 @@ void TerrainEditor::AdjustHeight()
 
 			float distance = (p1 - p2).Length();
 
-			float value = adjustValue;
+			float value = adjustValue ;
 
 
 
-			if (distance >= brushBuffer->data.range)
+			if (distance >= brushBuffer->data.range && distance <= (brushBuffer->data.range * 2))
 			{
-				vertex.pos.y += value * Time::Delta();
-
+				if (isRaise)
+				{
+					vertex.pos.y += value * Time::Delta();
+				}
+				else
+				{
+					vertex.pos.y -= value * Time::Delta();
+				}
 				if (vertex.pos.y > MAP_HEIGHT)
 				{
 					vertex.pos.y = MAP_HEIGHT;
+				}
+				if (vertex.pos.y < 0)
+				{
+					vertex.pos.y = 0;
 				}
 			}
 		}
@@ -531,23 +584,65 @@ void TerrainEditor::AdjustHeight()
 			
 			if (deltaX <= halfWidth && deltaZ <= halfHeight)
 			{
-				vertex.pos.y += adjustValue * Time::Delta();
-
+				if (isRaise)
+				{
+					vertex.pos.y += adjustValue * Time::Delta();
+				}
+				else
+				{
+					vertex.pos.y -= adjustValue * Time::Delta();
+				}
 				if (vertex.pos.y > MAP_HEIGHT)
 				{
 					vertex.pos.y = MAP_HEIGHT;
 				}
+				if (vertex.pos.y < 0)
+				{
+					vertex.pos.y = 0;
+				}
 			}
-
-				
-			
 		}
 		break;
+
+	case 3:
+		for (VertexType& vertex : vertices)
+		{
+			Vector3 p1 = Vector3(vertex.pos.x, 0.0f, vertex.pos.z);
+			Vector3 p2 = Vector3(pickerPos.x, 0.0f, pickerPos.z);
+
+			Vector3 distance = p1 - p2;
+
+
+
+			if (abs(distance.x) <= brushBuffer->data.range && 
+				abs(distance.z) <= brushBuffer->data.range)
+			{
+				if (isRaise)
+				{
+					vertex.pos.y += adjustValue * Time::Delta();
+				}
+				else
+				{
+					vertex.pos.y -= adjustValue * Time::Delta();
+				}
+				if (vertex.pos.y > MAP_HEIGHT)
+				{
+					vertex.pos.y = MAP_HEIGHT;
+				}
+				if (vertex.pos.y < 0)
+				{				   
+					vertex.pos.y = 0;
+				}
+			}
+		}
+		break;
+
 	default:
 		break;
 	}
 
-
+	
+	
 	CreateNormal();
 	CreateTangent();
 

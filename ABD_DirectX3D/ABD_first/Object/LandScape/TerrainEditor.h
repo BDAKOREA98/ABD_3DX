@@ -56,20 +56,15 @@ private:
 	{
 		UINT index ;
 		Vector3 v0, v1, v2;
-
-
 	};
 
 	struct OutputDesc
 	{
 		int isPicked;
-
 		float u, v;
-
 		float distance;
 
 	};
-
 
 	StructuredBuffer*	structuredBuffer;
 	ComputeShader*		computeShader;
@@ -82,11 +77,10 @@ private:
 
 	Vector3 pickerPos;
 
-
 	BrushBuffer* brushBuffer;
 
 	float adjustValue = 20.0f;
 
-	
+	bool isRaise = true;
 
 };

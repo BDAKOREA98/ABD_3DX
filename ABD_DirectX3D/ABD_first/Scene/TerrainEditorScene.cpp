@@ -12,6 +12,13 @@ TerrainEditorScene::TerrainEditorScene()
 
 	wstring str = GetProjectDir();
 
+	BinaryWriter data(L"BDA");
+	data.WriteData(10);
+	data.WriteData(1.5f);
+	data.WriteData("ABD");
+	data.WriteData("¾Èº´´ö");
+
+
 }
 
 TerrainEditorScene::~TerrainEditorScene()

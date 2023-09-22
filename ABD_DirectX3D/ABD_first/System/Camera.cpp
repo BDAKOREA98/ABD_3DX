@@ -11,10 +11,13 @@ Camera::Camera()
 	//transform->translation = { 120.0f, 100.0f, -20.0f };
 	transform->rotation.x = 0.65f;
 
+	Load();
 }
 
 Camera::~Camera()
 {
+	Save();
+
 	delete transform;
 	delete viewBuffer;
 }
@@ -146,4 +149,32 @@ void Camera::SetView()
 		viewBuffer->SetData(viewmatrix, transform->GetWorld());
 		viewBuffer->SetVSBuffer(1);
 	}
+}
+
+void Camera::Save()
+{
+	BinaryWriter data(L"CameraData");
+
+	data.WriteData(transform->scale);
+	data.WriteData(transform->rotation);
+	data.WriteData(transform->translation);
+
+
+
+}
+
+void Camera::Load()
+{
+	BinaryReader data(L"CameraData");
+
+	if (!data.Succeeded())
+	{
+		return; 
+	}
+
+	transform->scale		= data.ReadVector3();
+	transform->rotation		= data.ReadVector3();
+	transform->translation	= data.ReadVector3();
+	
+
 }

@@ -30,8 +30,11 @@ private:
 
 	void FreeMode();
 	void TargetMode();
-
+	
 	void SetView();
+
+	void Save();
+	void Load();
 
 
 private:

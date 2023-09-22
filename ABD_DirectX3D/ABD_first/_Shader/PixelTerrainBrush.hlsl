@@ -44,7 +44,7 @@ float3 SetBrushColor(float3 pos)
         
         float distance = sqrt(pow(x, 2) + pow(z, 2));
         
-        if (distance >= range)
+        if (distance >= range && distance <= 2 * range)
         {
             return color;
         }
@@ -68,6 +68,20 @@ float3 SetBrushColor(float3 pos)
         
     // 입력 위치가 사각형 영역 내에 있는지 확인
         if (rectwidth <= halfrange && rectheight <= halfrange)
+        {
+            return color; // 사각형 영역 내에 있는 경우 색상 반환
+        }
+    }
+    else if (type == 3)
+    {
+   // 입력 위치와 중심 위치 사이의 거리 계산
+        
+        float x = pos.x - (location.x);
+        float z = pos.z - (location.z);
+
+    // 
+        
+        if (abs(x) <= range && abs(z) <= range)
         {
             return color; // 사각형 영역 내에 있는 경우 색상 반환
         }

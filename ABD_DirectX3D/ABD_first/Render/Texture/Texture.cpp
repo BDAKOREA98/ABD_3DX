@@ -19,6 +19,9 @@ Texture::~Texture()
 Texture* Texture::Get(wstring file)
 {
 
+
+	wstring path = file;
+
 	file = L"Resource/_Texture/" + file;
 
 
@@ -33,8 +36,6 @@ Texture* Texture::Get(wstring file)
 	}
 
 
-	
-	
 	ScratchImage image;
 
 	wstring extension = GetExtension(file);
@@ -53,10 +54,6 @@ Texture* Texture::Get(wstring file)
 
 
 
-
-
-
-
 	
 
 	ID3D11ShaderResourceView* srv = nullptr;
@@ -72,6 +69,7 @@ Texture* Texture::Get(wstring file)
 
 
 	textures[file] = new Texture(srv, image);
+	textures[file]->Path = path;
 
 	return textures[file];
 }
@@ -79,34 +77,25 @@ Texture* Texture::Get(wstring file)
 Texture* Texture::Load(wstring file)
 {
 
+	wstring path = file;
+
 	file = L"Resource/_Texture/" + file;
 
 	assert(PathFileExists(file.c_str()));
 
-
 	if (textures.count(file) > 0)
-	{
 		textures.erase(file);
-	}
-
-
-
 
 	ScratchImage image;
 
 	wstring extension = GetExtension(file);
+
 	if (extension == L"tga")
-	{
 		LoadFromTGAFile(file.c_str(), nullptr, image);
-	}
 	else if (extension == L"dds")
-	{
 		LoadFromDDSFile(file.c_str(), DDS_FLAGS_NONE, nullptr, image);
-	}
 	else
-	{
 		LoadFromWICFile(file.c_str(), WIC_FLAGS_NONE, nullptr, image);
-	}
 
 	ID3D11ShaderResourceView* srv = nullptr;
 
@@ -119,10 +108,11 @@ Texture* Texture::Load(wstring file)
 		&srv
 	);
 
-
 	textures[file] = new Texture(srv, image);
+	textures[file]->Path = path;
 
 	return textures[file];
+
 }
 
 void Texture::Delete()
