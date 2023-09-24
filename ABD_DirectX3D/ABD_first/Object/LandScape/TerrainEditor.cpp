@@ -10,7 +10,7 @@ TerrainEditor::TerrainEditor(UINT height, UINT width)
 
 	worldBuffer = new MatrixBuffer();
 
-	//heightMap = Texture::Load(L"HeightMap/ColorMap256.png");
+	heightMap = Texture::Load(L"HeightMap/ColorMap256.png");
 
 	BinaryReader data(L"ASDASDASD");
 
@@ -263,7 +263,7 @@ void TerrainEditor::SaveHeightDialog()
 		{
 			string path = Dialog->GetFilePathName();
 
-			path = path.substr(GetTextureDir().size(), path.length());
+			path = path.substr(GetTextureDir().size()+1, path.length());
 			
 			SaveHeightMap(ToWstring(path));
 
@@ -285,11 +285,11 @@ void TerrainEditor::LoadHeightDialog()
 
 	if (Dialog->Display("LoadKey", 32, { 200,100 }))
 	{
-		if (Dialog->IsOk())
+ 		if (Dialog->IsOk())
 		{
 			string path = Dialog->GetFilePathName();
 
-			path = path.substr(GetTextureDir().size(), path.length());
+			path = path.substr(GetTextureDir().size()+1, path.length());
 
 			LoadHeightMap(ToWstring(path));
 
