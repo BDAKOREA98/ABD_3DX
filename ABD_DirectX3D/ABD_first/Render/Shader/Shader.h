@@ -17,6 +17,7 @@ public:
 	static  void Delete();
 	virtual void SetShader() = 0;
 
+	wstring GetPath() {return path;	}
 protected:
 
 	ID3DBlob* blob;
@@ -26,6 +27,7 @@ protected:
 	// singleton과 비슷하다고 생각하면 됨 있으면 리턴 없으면 생성
 	//
 
+	wstring path;
 
 };
 

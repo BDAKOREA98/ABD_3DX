@@ -6,20 +6,19 @@ TerrainEditor::TerrainEditor(UINT height, UINT width)
 	: height(height), width(width)
 {
 	material = new Material();
-	material->SetShader(L"TerrainBrush");
+	
+
+
+	
+
+
 
 	worldBuffer = new MatrixBuffer();
 
-	heightMap = Texture::Load(L"HeightMap/ColorMap256.png");
+	
 
-	BinaryReader data(L"ASDASDASD");
+	Load();
 
-	if (data.Succeeded())
-	{
-		wstring heightPath = data.ReadWstring();
-
-		heightMap = Texture::Load(heightPath);
-	}
 	CreateMesh();
 	CreateNormal();
 	CreateTangent();
@@ -43,12 +42,7 @@ TerrainEditor::TerrainEditor(UINT height, UINT width)
 TerrainEditor::~TerrainEditor()
 {
 
-	if (heightMap != nullptr)
-	{
-		BinaryWriter data(L"ASDASDASD");
-
-		data.WriteData(heightMap->GetPath());
-	}
+	Save();
 
 
 	delete worldBuffer;
@@ -105,26 +99,43 @@ void TerrainEditor::PostRender()
 
 void TerrainEditor::Debug()
 {
-	ImGui::Text("PickerPos : %0.4f, %0.4f, %0.4f", pickerPos.x, pickerPos.y, pickerPos.z);
 
-	ImGui::ColorEdit3("BrushColor : ", (float*)&brushBuffer->data.color);
+	if (ImGui::BeginChild("TerrainEditor", ImVec2(200, 120), true))
+	{
 
-	ImGui::SliderFloat("BrushIntensity ", &adjustValue, 1.0f, 50.0f);
+		ImGui::Text("PickerPos : %0.4f, %0.4f, %0.4f", pickerPos.x, pickerPos.y, pickerPos.z);
 
-	ImGui::SliderFloat("Range ", &brushBuffer->data.range, 1.0f, 50.0f);
-	
-	ImGui::SliderInt("type ", &brushBuffer->data.type, 1.0f, 3.0f);
+		if (ImGui::BeginMenu("TerrainBrush"))
+		{
 
-	const char* typeList[] = { "circle","hole", "halfRangeRect", "rangeRect"};
+			ImGui::ColorEdit3("BrushColor : ", (float*)&brushBuffer->data.color);
 
-	ImGui::Combo("BrushType", & brushBuffer->data.type, typeList, 4);
-	
+			ImGui::SliderFloat("BrushIntensity ", &adjustValue, 1.0f, 50.0f);
 
-	
-	SaveHeightDialog();
-	LoadHeightDialog();
-	
+			ImGui::SliderFloat("Range ", &brushBuffer->data.range, 1.0f, 50.0f);
 
+			ImGui::SliderInt("type ", &brushBuffer->data.type, 1.0f, 3.0f);
+
+			const char* typeList[] = { "circle","hole", "halfRangeRect", "rangeRect" };
+
+			ImGui::Combo("BrushType", &brushBuffer->data.type, typeList, 4);
+
+			ImGui::EndMenu();
+		}
+
+
+		if (ImGui::BeginMenu("Save/Load HeightMap"))
+		{
+			SaveHeightDialog();
+			LoadHeightDialog();
+			ImGui::EndMenu();
+		}
+
+		material->PostRender();
+
+	}
+
+	ImGui::EndChild();
 
 }
 
@@ -298,6 +309,34 @@ void TerrainEditor::LoadHeightDialog()
 
 		Dialog->Close();
 	}
+}
+
+void TerrainEditor::Save()
+{
+	if (heightMap != nullptr)
+	{
+		BinaryWriter data(L"HeightMap");
+
+		data.WriteData(heightMap->GetPath());
+	}
+
+	
+
+}
+
+void TerrainEditor::Load()
+{
+	BinaryReader data(L"HeightMap");
+
+
+	if (data.Succeeded())
+	{
+		wstring heightPath = data.ReadWstring();
+
+		heightMap = Texture::Load(heightPath);
+	}
+
+	
 }
 
 void TerrainEditor::CreateCoumpute()

@@ -19,22 +19,16 @@ Texture::~Texture()
 Texture* Texture::Get(wstring file)
 {
 
-
 	wstring path = file;
 
 	file = L"Resource/_Texture/" + file;
 
-
 	assert(PathFileExists(file.c_str()));
-
-
-
 
 	if (textures.count(file) > 0)
 	{
 		return textures[file];
 	}
-
 
 	ScratchImage image;
 
@@ -51,10 +45,6 @@ Texture* Texture::Get(wstring file)
 	{
 		LoadFromWICFile(file.c_str(), WIC_FLAGS_NONE, nullptr, image);
 	}
-
-
-
-	
 
 	ID3D11ShaderResourceView* srv = nullptr;
 

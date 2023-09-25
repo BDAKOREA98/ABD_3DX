@@ -3,17 +3,13 @@
 
 TerrainEditorScene::TerrainEditorScene()
 {
+	
 	terrainEditor = new TerrainEditor();
 	
-	// RawData();
-
-	
-	terrainEditor->GetMaterial()->Load();
 }
 
 TerrainEditorScene::~TerrainEditorScene()
 {
-	terrainEditor->GetMaterial()->Save();
 	delete terrainEditor;
 }
 
@@ -28,15 +24,15 @@ void TerrainEditorScene::PreRender()
 
 void TerrainEditorScene::Render()
 {
-	//RS->ChangeState(D3D11_FILL_WIREFRAME);
+	
 	terrainEditor->Render();
 }
 
 void TerrainEditorScene::PostRender()
 {
 	terrainEditor->Debug();
-	terrainEditor->GetMaterial()->SelectMap();
-	terrainEditor->GetMaterial()->PostRender();
+	
+	//terrainEditor->GetMaterial()->PostRender();
 	
 	
 	

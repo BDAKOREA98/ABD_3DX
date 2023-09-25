@@ -24,6 +24,9 @@ public:
 	void SaveHeightDialog();
 	void LoadHeightDialog();
 
+	void Save();
+	void Load();
+
 
 
 private:

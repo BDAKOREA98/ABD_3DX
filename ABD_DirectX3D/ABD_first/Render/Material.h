@@ -22,8 +22,8 @@ public:
 
 	void PostRender();
 
-	void Save();
-	void Load();
+	void Save(wstring file);
+	void Load(wstring file);
 
 
 private:
@@ -39,8 +39,8 @@ private:
 
 	MaterialBuffer* buffer = nullptr;
 	
-	static string ID;
-
+	static int ID;
+	string label;
 	string projectDir;
 
 };
