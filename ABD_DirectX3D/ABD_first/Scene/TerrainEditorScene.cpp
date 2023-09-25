@@ -4,25 +4,16 @@
 TerrainEditorScene::TerrainEditorScene()
 {
 	terrainEditor = new TerrainEditor();
-	terrainEditor->GetMaterial()->SetDiffuseMap (L"Landscape/Fieldstone_DM.tga");
-	terrainEditor->GetMaterial()->SetSpecularMap(L"Landscape/fieldstone_SM.tga");
-	terrainEditor->GetMaterial()->SetNormalMap  (L"Landscape/fieldstone_NM.tga");
-
+	
 	// RawData();
 
-	wstring str = GetProjectDir();
-
-	BinaryWriter data(L"BDA");
-	data.WriteData(10);
-	data.WriteData(1.5f);
-	data.WriteData("ABD");
-	data.WriteData("¾Èº´´ö");
-
-
+	
+	terrainEditor->GetMaterial()->Load();
 }
 
 TerrainEditorScene::~TerrainEditorScene()
 {
+	terrainEditor->GetMaterial()->Save();
 	delete terrainEditor;
 }
 
@@ -45,8 +36,8 @@ void TerrainEditorScene::PostRender()
 {
 	terrainEditor->Debug();
 	terrainEditor->GetMaterial()->SelectMap();
-
-	//terrainEditor->Debug();
+	terrainEditor->GetMaterial()->PostRender();
+	
 	
 	
 }

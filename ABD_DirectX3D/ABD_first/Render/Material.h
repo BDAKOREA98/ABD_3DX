@@ -22,6 +22,8 @@ public:
 
 	void PostRender();
 
+	void Save();
+	void Load();
 
 
 private:

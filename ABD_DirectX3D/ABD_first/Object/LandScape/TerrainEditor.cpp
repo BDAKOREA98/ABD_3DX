@@ -263,7 +263,7 @@ void TerrainEditor::SaveHeightDialog()
 		{
 			string path = Dialog->GetFilePathName();
 
-			path = path.substr(GetTextureDir().size()+1, path.length());
+			path = path.substr(GetTextureDir().size(), path.length());
 			
 			SaveHeightMap(ToWstring(path));
 
@@ -289,7 +289,7 @@ void TerrainEditor::LoadHeightDialog()
 		{
 			string path = Dialog->GetFilePathName();
 
-			path = path.substr(GetTextureDir().size()+1, path.length());
+			path = path.substr(GetTextureDir().size(), path.length());
 
 			LoadHeightMap(ToWstring(path));
 
