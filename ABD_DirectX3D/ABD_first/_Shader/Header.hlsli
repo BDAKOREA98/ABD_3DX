@@ -35,6 +35,7 @@ cbuffer MaterialBuffer : register(b1)
     int hasDiffuseMap;
     int hasSpeculaMap;
     int hasNormalMap;
+    int hasAlphaMap;
     
     float shininess;
     
@@ -88,6 +89,15 @@ struct VertexTextureNormalTangent
     float3 tangent : TANGENT;
 };
 
+struct VertexTextureNormalTangentAlpha
+{
+
+    float4 pos      : POSITION;
+    float2 uv       : UV;
+    float3 normal   : NORMAL;
+    float3 tangent  : TANGENT;
+    float4 alpha    : ALPHA;
+};
 
 
 Texture2D  diffuseMap : register(t0);

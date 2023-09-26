@@ -25,6 +25,9 @@ public:
 	void Save(wstring file);
 	void Load(wstring file);
 
+	void SaveDialog();
+	void LoadDialog();
+
 
 private:
 
@@ -40,7 +43,7 @@ private:
 	MaterialBuffer* buffer = nullptr;
 	
 	static int ID;
-	string label;
+	string label = "";
 	string projectDir;
 
 };

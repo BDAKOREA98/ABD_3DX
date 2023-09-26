@@ -21,7 +21,7 @@ Texture* Texture::Get(wstring file)
 
 	wstring path = file;
 
-	file = L"Resource/_Texture/" + file;
+	file = L"_Texture/" + file;
 
 	assert(PathFileExists(file.c_str()));
 
@@ -69,7 +69,7 @@ Texture* Texture::Load(wstring file)
 
 	wstring path = file;
 
-	file = L"Resource/_Texture/" + file;
+	file = L"_Texture/" + file;
 
 	assert(PathFileExists(file.c_str()));
 

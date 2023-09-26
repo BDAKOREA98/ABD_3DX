@@ -82,9 +82,10 @@ typedef XMFLOAT2 Vector2;
 #include "Utility/Utility.h"
 #include "Utility/BinaryReader.h"
 #include "Utility/BinaryWriter.h"
+#include "Utility/MyMath.h"
 
 using namespace Utility;
-
+using namespace MyMath;
 // Object :: Transform
 #include "Object/Transform.h"
 

@@ -2,7 +2,7 @@
 
 class TerrainEditor : public Transform
 {
-	typedef VertexTextureNormalTangent VertexType;
+	typedef VertexTextureNormalTangentAlpha VertexType;
 public:
 	TerrainEditor(UINT height = 100, UINT width = 100);
 	~TerrainEditor();
@@ -36,6 +36,7 @@ private:
 	void CreateCoumpute();
 
 	void AdjustHeight();
+	void AdjustAlpha();
 
 
 private:
@@ -86,4 +87,11 @@ private:
 
 	bool isRaise = true;
 
+	// alphaMap
+
+	Texture* alphaMap  = nullptr;
+	Texture* secondMap = nullptr;
+
+	UINT	 selectedMap = 0;
+	bool	 adjustAlpha = true;
 };
