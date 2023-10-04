@@ -68,6 +68,16 @@ void BinaryWriter::WriteData(Vector3 data)
 
 }
 
+void BinaryWriter::WriteData(Vector4 data)
+{
+	WriteData(data.x);
+	WriteData(data.y);
+	WriteData(data.z);
+	WriteData(data.w);
+
+
+}
+
 void BinaryWriter::WriteData(void* data, UINT dataSize)
 {
 	WriteFile(file, data, dataSize , &size, nullptr);

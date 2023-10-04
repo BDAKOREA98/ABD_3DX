@@ -23,12 +23,18 @@
 #include <Shlwapi.h>
 #pragma comment(lib, "shlwapi.lib")
 
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
+
+#pragma comment(lib, "assimp.lib")
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dcompiler.lib")
 #pragma comment(lib, "dxguid.lib")
 #include "DirectXTex.h"
 #include "DirectXTex.inl"
+
 
 #pragma comment(lib,"DirectXTex.lib")
 
@@ -134,6 +140,9 @@ using namespace MyMath;
 #include "Object/BasicObject/TextureCube.h"
 #include "Object/LandScape/Terrain.h"
 #include "Object/LandScape/TerrainEditor.h"
+
+#include "ModelExport/ModelExporter.h"
+
 #include "Object/BasicObject/Robot.h"
 #include "Object/BasicObject/Sphere_Color.h"
 #include "Object/BasicObject/Sphere_Texture.h"
@@ -148,6 +157,7 @@ using namespace MyMath;
 #include "Scene/BoxScene.h"
 #include "Scene/TerrainScene.h"
 #include "Scene/TerrainEditorScene.h"
+#include "Scene/ModelExportScene.h"
 
 // main
 #include "Program.h"

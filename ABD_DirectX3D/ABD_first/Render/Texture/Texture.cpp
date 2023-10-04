@@ -21,8 +21,10 @@ Texture* Texture::Get(wstring file)
 
 	wstring path = file;
 
-	file = L"_Texture/" + file;
-
+	if (!StartsWith(file, L"_Texture"))
+	{
+		file = L"_Texture/" + file;
+	}
 	assert(PathFileExists(file.c_str()));
 
 	if (textures.count(file) > 0)
@@ -68,9 +70,10 @@ Texture* Texture::Load(wstring file)
 {
 
 	wstring path = file;
-
-	file = L"_Texture/" + file;
-
+	if (!StartsWith(file, L"_Texture"))
+	{
+		file = L"_Texture/" + file;
+	}
 	assert(PathFileExists(file.c_str()));
 
 	if (textures.count(file) > 0)

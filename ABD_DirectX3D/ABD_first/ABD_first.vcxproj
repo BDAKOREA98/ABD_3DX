@@ -134,6 +134,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ModelExport\ModelExporter.h" />
+    <ClInclude Include="Scene\ModelExportScene.h" />
     <ClInclude Include="Utility\MyMath.h" />
     <ClInclude Include="Utility\BinaryReader.h" />
     <ClInclude Include="Utility\BinaryWriter.h" />
@@ -187,6 +189,8 @@
     <ClInclude Include="Render\Buffer\GlobalBuffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ModelExport\ModelExporter.cpp" />
+    <ClCompile Include="Scene\ModelExportScene.cpp" />
     <ClCompile Include="Utility\MyMath.cpp" />
     <ClCompile Include="Utility\BinaryReader.cpp" />
     <ClCompile Include="Utility\BinaryWriter.cpp" />

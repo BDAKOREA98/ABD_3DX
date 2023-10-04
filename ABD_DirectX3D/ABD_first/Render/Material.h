@@ -29,6 +29,8 @@ public:
 	void LoadDialog();
 
 
+	void SetLabel(string label) { this->label = label; }
+
 private:
 
 	PixelShader* pixelShader = nullptr;
