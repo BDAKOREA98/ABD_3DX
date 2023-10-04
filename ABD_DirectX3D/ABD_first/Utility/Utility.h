@@ -3,7 +3,6 @@
 namespace Utility
 {   
     // extention == »Æ¿Â¿⁄  
-
         wstring GetExtension(wstring path);
         string ToString(wstring str);
         wstring ToWstring(string str);
@@ -11,13 +10,6 @@ namespace Utility
         wstring GetProjectDir();
         wstring GetTextureDir();
         wstring GetTextDataDir();
-        
-        bool StartsWith(string str, string start);
-        bool StartsWith(wstring str, wstring start);
-
-        
-
-
 
 }
 
