@@ -210,16 +210,6 @@ void Material::Save(wstring file)
 		data.WriteData(normalMap->GetPath());
 	else
 		data.WriteData(L"");
-
-
-	//  charactor
-	data.WriteData(buffer->data.Mdiffuse	);
-	data.WriteData(buffer->data.Mspecular	);
-	data.WriteData(buffer->data.Mambient	);
-	data.WriteData(buffer->data.emissive	);
-	data.WriteData(buffer->data.shininess	);
-
-
 }
 
 void Material::Load(wstring file)
@@ -252,18 +242,6 @@ void Material::Load(wstring file)
 	str = data.ReadWstring();
 	if (str != L"")
 		normalMap = Texture::Get(str);
-
-
-	// charator
-	buffer->data.Mdiffuse = data.ReadVector4();
-	buffer->data.Mspecular = data.ReadVector4();
-	buffer->data.Mambient = data.ReadVector4();
-	buffer->data.emissive = data.ReadVector4();
-
-	buffer->data.shininess = data.ReadFloat();
-
-
-
 }
 
 void Material::SaveDialog()
